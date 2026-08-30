@@ -1,0 +1,243 @@
+{
+  "AURORE": {
+    "Resources": {
+      "pv": "Points de Vie",
+      "pa": "Points d'Action",
+      "pp": "Points de Pouvoir"
+    },
+    "Mental": {
+      "rage":     "Rage",
+      "surprise": "Surprise",
+      "peur":     "Peur",
+      "mental":   "Mental",
+      "cm":       "CM"
+    },
+    "Talents": {
+      "authority":    "Autorité",
+      "endurance":    "Endurance",
+      "shiver":       "Frisson",
+      "composure":    "Sang-Froid",
+      "perception":   "Perception",
+      "coordination": "Coordination",
+      "empathy":      "Empathie",
+      "encyclopedia": "Encyclopédie",
+      "logic":        "Logique",
+      "setFavori":    "Définir comme talent favori",
+      "label":        "Talent",
+      "toggleHint":   "Changer de talent favori",
+      "selectTitle":  "Choisir un talent favori",
+      "selectLabel":  "Talent",
+      "authority_desc":    "Capacité à imposer sa volonté et à inspirer la confiance. Le personnage rayonne d'une présence naturelle qui pousse les autres à l'écouter et à lui obéir.",
+      "endurance_desc":    "Résistance physique et mentale hors du commun. Le personnage encaisse les coups, la fatigue et la douleur bien au-delà des limites ordinaires.",
+      "shiver_desc":       "Instinct du danger et réflexes aiguisés. Le personnage ressent les menaces avant qu'elles ne se concrétisent, lui permettant d'agir en premier.",
+      "composure_desc":    "Maîtrise de soi sous pression. Le personnage garde la tête froide dans les situations critiques et prend des décisions rationnelles quand les autres paniquent.",
+      "perception_desc":   "Acuité des sens et attention aux détails. Le personnage remarque ce que les autres ignorent : indices cachés, mouvements furtifs, sons imperceptibles.",
+      "coordination_desc": "Précision et fluidité des mouvements. Le personnage exécute des actions complexes avec une aisance remarquable, que ce soit au combat ou dans des tâches délicates.",
+      "empathy_desc":      "Compréhension intuitive des émotions et des motivations d'autrui. Le personnage devine facilement ce que ressentent les autres et sait comment les approcher.",
+      "encyclopedia_desc": "Mémoire encyclopédique et soif de savoir. Le personnage a accumulé des connaissances dans de nombreux domaines et les mobilise au bon moment.",
+      "logic_desc":        "Raisonnement analytique et résolution de problèmes. Le personnage décompose les situations complexes, identifie les failles et trouve des solutions là où d'autres échouent."
+    },
+    "Trinity": {
+      "red":      "Rouge",
+      "green":    "Vert",
+      "blue":     "Bleu",
+      "balanced": "Équilibré"
+    },
+    "AoeShapes": {
+      "circle": "Cercle",
+      "cone":   "Cône",
+      "line":   "Ligne",
+      "square": "Carré",
+      "around": "Autour"
+    },
+    "AoeColors": {
+      "enemy":   "Ennemis",
+      "ally":    "Alliés",
+      "neutral": "Neutre",
+      "special": "Spécial"
+    },
+    "Powers": {
+      "offensive": "Offensif",
+      "defensive": "Défensif",
+      "healing":   "Soin",
+      "mobility":  "Mobilité",
+      "support":   "Soutien",
+      "stealth":   "Discrétion",
+      "combat":    "Combat",
+      "nature":    "Nature",
+      "chance":    "Chance",
+      "magic":     "Magie",
+      "typeActive":  "Actif",
+      "typePassive": "Passif",
+      "type":      "Type",
+      "category":  "Catégorie",
+      "cost":      "Coût (PA)",
+      "minLevel":  "Niveau minimum",
+      "empty":     "Aucun pouvoir"
+    },
+    "Tabs": {
+      "combat":      "Combat",
+      "talents":     "Talents",
+      "inventory":   "Inventaire",
+      "powers":      "Pouvoirs",
+      "gifts":       "Dons",
+      "biography":   "Biographie",
+      "progression": "Progression"
+    },
+    "XP": {
+      "SpendTitle": "Dépenser des XP",
+      "Available":  "XP disponibles",
+      "NotEnough":  "Pas assez d'XP pour effectuer cet achat.",
+      "LevelUp":    "Monter de niveau"
+    },
+    "Roll": {
+      "rollDice": "Lancer le dé"
+    },
+    "Warnings": {
+      "MaxPowers": "Limite atteinte : 6 pouvoirs maximum par personnage."
+    },
+    "Sheets": {
+      "Character": "Fiche Personnage",
+      "Npc":       "Fiche PNJ",
+      "Item":      "Fiche Objet"
+    },
+    "Sections": {
+      "mental":      "Stats Mentales",
+      "talents":     "Talents",
+      "equipment":   "Équipement",
+      "powers":      "Pouvoirs",
+      "gifts":       "Dons Communs",
+      "biography":   "Biographie",
+      "progression": "Progression",
+      "race":        "Race",
+      "racial":      "Capacité Raciale"
+    },
+    "Slots": {
+      "weapon1":  "Arme 1",
+      "weapon2":  "Arme 2",
+      "armor":    "Armure",
+      "gadget":   "Gadget",
+      "dropHere": "Déposer ici"
+    },
+    "Character": {
+      "niveau":          "Niveau",
+      "race":            "Race",
+      "trinity":         "Trinité",
+      "talentFavori":    "Talent Favori",
+      "gold":            "Dômes",
+      "namePlaceholder": "Nom du personnage"
+    },
+    "Item": {
+      "trinity":         "Couleur Trinity",
+      "aoeSize":         "Portée max",
+      "aoePattern":      "Motif ZdE",
+      "description":     "Description",
+      "namePlaceholder": "Nom de l'objet"
+    },
+    "ItemTypes": {
+      "weapon": "Arme",
+      "armor":  "Armure",
+      "gadget": "Gadget",
+      "power":  "Pouvoir",
+      "race":   "Race",
+      "racial": "Racial",
+      "gift":   "Don Commun"
+    },
+    "ItemHeaders": {
+      "name":    "Nom",
+      "trinity": "Trinité"
+    },
+    "Weapon": {
+      "damage": "Dégâts",
+      "range":  "Portée",
+      "heavy":  "Lourd (2 slots)"
+    },
+    "Armor": {
+      "ppBonus":    "Bonus PP",
+      "cmModifier": "Modif. CM"
+    },
+    "Gadget": {
+      "maxUses":   "Utilisations max",
+      "usesLeft":  "Utilisations restantes",
+      "usesShort": "Util."
+    },
+    "Race": {
+      "hint":        "Les capacités raciales sont gérées via les compendiums.",
+      "selectTitle": "Choisir une race",
+      "selectLabel": "Race",
+      "noRacesFound": "Aucune race disponible (monde ou compendium).",
+      "select":      "Choisir une race",
+      "change":      "Changer de race",
+      "remove":      "Supprimer la race"
+    },
+    "Racial": {
+      "raceId":       "Race ID",
+      "display":      "Affichage",
+      "selectTitle":  "Choisir une capacité raciale",
+      "selectLabel":  "Capacité raciale",
+      "noRacialsFound": "Aucune capacité raciale disponible.",
+      "filterHint":   "Capacités pour : {race}",
+      "select":       "Choisir une capacité raciale",
+      "change":       "Changer de capacité raciale",
+      "remove":       "Supprimer la capacité raciale"
+    },
+    "Gift": {
+      "talentBonus":  "Bonus de talent",
+      "talentAmount": "Valeur du bonus",
+      "noBonus":      "Aucun"
+    },
+    "Gifts": {
+      "empty": "Aucun don commun"
+    },
+    "Empty": {
+      "weapons": "Aucune arme",
+      "armors":  "Aucune armure",
+      "gadgets": "Aucun gadget"
+    },
+    "Actions": {
+      "edit":          "Modifier",
+      "delete":        "Supprimer",
+      "equip":         "Équiper",
+      "unequip":       "Déséquiper",
+      "addWeapon":     "Ajouter une arme",
+      "addArmor":      "Ajouter une armure",
+      "addGadget":     "Ajouter un gadget",
+      "addPower":      "Ajouter un pouvoir",
+      "addGift":       "Ajouter un don",
+      "editPortrait":  "Changer le portrait",
+      "select":        "Sélectionner"
+    },
+    "Aoe": {
+      "show":    "Afficher la portée",
+      "noToken": "Aucun token actif trouvé sur la scène."
+    },
+    "Equipment": {
+      "selectWeapon":   "Choisir une arme",
+      "selectArmor":    "Choisir une armure",
+      "selectGadget":   "Choisir un gadget",
+      "groupInventory": "Inventaire",
+      "groupWorld":     "Monde",
+      "groupCompendium":"Compendium",
+      "noWeaponsFound": "Aucune arme disponible.",
+      "noArmorsFound":  "Aucune armure disponible.",
+      "noGadgetsFound": "Aucun gadget disponible.",
+      "droppedOnWrongSlot": "Le type d'emplacement ne correspond pas à l'objet"
+    },
+    "Dialog": {
+      "deleteTitle":   "Supprimer l'objet",
+      "deleteContent": "Voulez-vous supprimer « {name} » ?"
+    },
+    "Settings": {
+      "CritAnimationsEnabled": "Activer les animations critiques",
+      "CritAnimationsEnabledHint": "Joue une animation lors d'un succès ou échec critique",
+      "CritSuccessEffect": "Fichier d'effet — Succès critique",
+      "CritSuccessEffectHint": "Chemin du fichier d'animation pour un succès critique (chemin de module Sequencer)",
+      "CritFailureEffect": "Fichier d'effet — Échec critique",
+      "CritFailureEffectHint": "Chemin du fichier d'animation pour un échec critique (chemin de module Sequencer)"
+    },
+    "Chat": {
+      "CritSuccess": "SUCCÈS CRITIQUE !",
+      "CritFailure": "ÉCHEC CRITIQUE !"
+    }
+  }
+}

@@ -1,0 +1,602 @@
+<div class="aurore sheet character">
+
+  {{!-- ══════════════════════════════════════════════════
+       HEADER — always visible
+  ══════════════════════════════════════════════════ --}}
+  <header class="sheet-header">
+
+    <img class="portrait" src="{{actor.img}}" data-action="editPortrait"
+         title="{{localize 'AURORE.Actions.editPortrait'}}" alt="portrait">
+
+    <div class="header-body">
+      <h1 class="charname">
+        <input type="text" name="name" value="{{actor.name}}"
+               placeholder="{{localize 'AURORE.Character.namePlaceholder'}}">
+      </h1>
+      <div class="header-meta">
+        <label class="meta-field">
+          <span class="meta-label">{{localize "AURORE.Character.niveau"}}</span>
+          <input type="number" name="system.niveau" value="{{system.niveau}}" min="1">
+        </label>
+        <span class="meta-sep">·</span>
+        <span class="meta-field meta-race">
+          <span class="meta-label">{{localize "AURORE.Character.race"}}</span>
+          {{#if items.race}}
+            <span class="meta-value race-link" data-action="selectRace"
+                  title="{{localize 'AURORE.Race.change'}}">{{items.race.name}}</span>
+            {{#if items.racial}}
+              <span class="meta-sep-inner">·</span>
+              <span class="meta-value race-link" data-action="selectRacial"
+                    title="{{localize 'AURORE.Racial.change'}}">{{items.racial.system.display}}</span>
+            {{else}}
+              <a class="meta-action" data-action="selectRacial"
+                 title="{{localize 'AURORE.Racial.select'}}"><i class="fas fa-plus"></i></a>
+            {{/if}}
+            <a class="meta-action meta-action-remove" data-action="removeRace"
+               title="{{localize 'AURORE.Race.remove'}}"><i class="fas fa-times"></i></a>
+          {{else}}
+            <a class="meta-value meta-value-empty" data-action="selectRace">
+              {{localize "AURORE.Race.select"}}
+            </a>
+          {{/if}}
+        </span>
+        <span class="meta-sep">·</span>
+        <label class="meta-field">
+          <span class="meta-label">XP</span>
+          <input type="number" name="system.experiencePoints"
+                 value="{{system.experiencePoints}}" min="0">
+        </label>
+        <span class="meta-sep">·</span>
+        <label class="meta-field">
+          <span class="meta-label">{{localize "AURORE.Character.gold"}}</span>
+          <input type="number" name="system.gold" value="{{system.gold}}" min="0">
+        </label>
+        <span class="trinity-badge trinity-{{trinityDominant}}">{{trinityDominantLabel}}</span>
+        <span class="meta-sep">·</span>
+        <span class="meta-field">
+          <span class="meta-label">{{localize "AURORE.Talents.label"}}</span>
+          <a class="talent-favori-pill {{#if talentFavori}}trinity-{{talentFavori.color}}{{/if}}"
+             data-action="selectTalent"
+             title="{{localize 'AURORE.Talents.toggleHint'}}">
+            {{#if talentFavori}}{{talentFavori.label}}{{else}}—{{/if}}
+          </a>
+        </span>
+      </div>
+    </div>
+
+    {{!-- Resource bars --}}
+    <div class="header-resources">
+      <div class="resource pv">
+        <span class="res-label">PV</span>
+        <div class="res-inputs">
+          <input type="number" name="system.resources.pv.value"
+                 value="{{system.resources.pv.value}}" min="0">
+          <span class="sep">/</span>
+          <input type="number" name="system.resources.pv.max"
+                 value="{{system.resources.pv.max}}" min="0">
+        </div>
+      </div>
+      <div class="resource pa">
+        <span class="res-label">PA</span>
+        <div class="res-inputs">
+          <input type="number" name="system.resources.pa.value"
+                 value="{{system.resources.pa.value}}" min="0">
+          <span class="sep">/</span>
+          <input type="number" name="system.resources.pa.max"
+                 value="{{system.resources.pa.max}}" min="0">
+        </div>
+      </div>
+      <div class="resource pp">
+        <span class="res-label">PP</span>
+        <div class="res-inputs">
+          <input type="number" name="system.resources.pp.value"
+                 value="{{system.resources.pp.value}}" min="0">
+          <span class="sep">/</span>
+          <input type="number" name="system.resources.pp.max"
+                 value="{{system.resources.pp.max}}" min="0">
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB NAVIGATION
+  ══════════════════════════════════════════════════ --}}
+  <nav class="tabs" data-group="primary">
+    <a class="item {{tabs.primary.combat.cssClass}}"    data-tab="combat"    data-group="primary">
+      <i class="fas fa-fist-raised"></i> {{localize "AURORE.Tabs.combat"}}
+    </a>
+    <a class="item {{tabs.primary.inventory.cssClass}}" data-tab="inventory" data-group="primary">
+      <i class="fas fa-bag-shopping"></i> {{localize "AURORE.Tabs.inventory"}}
+    </a>
+    <a class="item {{tabs.primary.powers.cssClass}}"    data-tab="powers"    data-group="primary">
+      <i class="fas fa-bolt"></i> {{localize "AURORE.Tabs.powers"}}
+    </a>
+    <a class="item {{tabs.primary.gifts.cssClass}}"     data-tab="gifts"     data-group="primary">
+      <i class="fas fa-hand-sparkles"></i> {{localize "AURORE.Tabs.gifts"}}
+    </a>
+    <a class="item {{tabs.primary.biography.cssClass}}" data-tab="biography" data-group="primary">
+      <i class="fas fa-book-open"></i> {{localize "AURORE.Tabs.biography"}}
+    </a>
+    <a class="item {{tabs.primary.progression.cssClass}}" data-tab="progression" data-group="primary">
+      <i class="fas fa-arrow-up"></i> {{localize "AURORE.Tabs.progression"}}
+    </a>
+  </nav>
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB: COMBAT
+  ══════════════════════════════════════════════════ --}}
+  <div class="tab tab-body {{tabs.primary.combat.cssClass}}" data-tab="combat" data-group="primary">
+
+    {{!-- Mental gauges (Rage / Surprise / Peur) --}}
+    <section class="section mental-section">
+      <h3 class="section-label">{{localize "AURORE.Sections.mental"}}</h3>
+      <div class="gauges-row">
+        {{#each mentalGauges}}
+          <div class="gauge gauge-{{key}}">
+            <span class="gauge-label">{{label}}</span>
+            <div class="gauge-track">
+              <div class="gauge-fill" style="width: {{pct}}%"></div>
+            </div>
+            <div class="gauge-input-row">
+              <input type="number" name="system.mental.{{key}}"
+                     value="{{value}}" min="0" max="100" class="gauge-input">
+              <button type="button" class="mental-stat-roll"
+                      data-action="rollMentalStat" data-stat="{{key}}"
+                      title="{{localize 'AURORE.Roll.rollDice'}}">
+                <i class="fas fa-dice-d20"></i>
+              </button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <div class="plain-stats-row">
+        <label class="plain-stat plain-stat-cm">
+          <span>{{localize "AURORE.Mental.cm"}}</span>
+          <input type="number" name="system.mental.cm"
+                 value="{{system.mental.cm}}" min="0">
+        </label>
+      </div>
+    </section>
+
+    {{!-- Equipment slots --}}
+    <section class="section equipment-section">
+      <h3 class="section-label">{{localize "AURORE.Sections.equipment"}}</h3>
+      <div class="equipment-grid">
+
+        {{!-- Weapon 1 --}}
+        <div class="equip-slot" data-slot="weapon1">
+          <span class="slot-label">{{localize "AURORE.Slots.weapon1"}}</span>
+          {{#if equipped.weapon1}}
+            <div class="slot-filled trinity-{{equipped.weapon1.system.trinity}}"
+                 data-action="selectSlotItem" data-slot="weapon1">
+              <img src="{{equipped.weapon1.img}}" class="slot-icon" alt="">
+              <span class="slot-name">{{equipped.weapon1.name}}</span>
+              <span class="slot-detail">{{equipped.weapon1.system.damage}} dmg</span>
+              <a class="slot-aoe" data-action="showItemAoe" data-slot="weapon1"
+                 title="{{localize 'AURORE.Aoe.show'}}"><i class="fas fa-bullseye"></i></a>
+              <a class="slot-unequip" data-action="unequipSlot" data-slot="weapon1"
+                 title="{{localize 'AURORE.Actions.unequip'}}">×</a>
+            </div>
+          {{else}}
+            <div class="slot-empty drop-zone" data-action="selectSlotItem" data-slot="weapon1">
+              <i class="fas fa-sword"></i>
+              <span>{{localize "AURORE.Slots.dropHere"}}</span>
+            </div>
+          {{/if}}
+        </div>
+
+        {{!-- Weapon 2 --}}
+        <div class="equip-slot" data-slot="weapon2">
+          <span class="slot-label">{{localize "AURORE.Slots.weapon2"}}</span>
+          {{#if equipped.weapon2}}
+            <div class="slot-filled trinity-{{equipped.weapon2.system.trinity}}"
+                 data-action="selectSlotItem" data-slot="weapon2">
+              <img src="{{equipped.weapon2.img}}" class="slot-icon" alt="">
+              <span class="slot-name">{{equipped.weapon2.name}}</span>
+              <span class="slot-detail">{{equipped.weapon2.system.damage}} dmg</span>
+              <a class="slot-aoe" data-action="showItemAoe" data-slot="weapon2"
+                 title="{{localize 'AURORE.Aoe.show'}}"><i class="fas fa-bullseye"></i></a>
+              <a class="slot-unequip" data-action="unequipSlot" data-slot="weapon2"
+                 title="{{localize 'AURORE.Actions.unequip'}}">×</a>
+            </div>
+          {{else}}
+            <div class="slot-empty drop-zone" data-action="selectSlotItem" data-slot="weapon2">
+              <i class="fas fa-sword"></i>
+              <span>{{localize "AURORE.Slots.dropHere"}}</span>
+            </div>
+          {{/if}}
+        </div>
+
+        {{!-- Armor --}}
+        <div class="equip-slot" data-slot="armor">
+          <span class="slot-label">{{localize "AURORE.Slots.armor"}}</span>
+          {{#if equipped.armor}}
+            <div class="slot-filled trinity-{{equipped.armor.system.trinity}}"
+                 data-action="selectSlotItem" data-slot="armor">
+              <img src="{{equipped.armor.img}}" class="slot-icon" alt="">
+              <span class="slot-name">{{equipped.armor.name}}</span>
+              <span class="slot-detail">+{{equipped.armor.system.ppBonus}} PP</span>
+              <a class="slot-aoe" data-action="showItemAoe" data-slot="armor"
+                 title="{{localize 'AURORE.Aoe.show'}}"><i class="fas fa-bullseye"></i></a>
+              <a class="slot-unequip" data-action="unequipSlot" data-slot="armor"
+                 title="{{localize 'AURORE.Actions.unequip'}}">×</a>
+            </div>
+          {{else}}
+            <div class="slot-empty drop-zone" data-action="selectSlotItem" data-slot="armor">
+              <i class="fas fa-shield-halved"></i>
+              <span>{{localize "AURORE.Slots.dropHere"}}</span>
+            </div>
+          {{/if}}
+        </div>
+
+        {{!-- Gadget --}}
+        <div class="equip-slot" data-slot="gadget">
+          <span class="slot-label">{{localize "AURORE.Slots.gadget"}}</span>
+          {{#if equipped.gadget}}
+            <div class="slot-filled trinity-{{equipped.gadget.system.trinity}}"
+                 data-action="selectSlotItem" data-slot="gadget">
+              <img src="{{equipped.gadget.img}}" class="slot-icon" alt="">
+              <span class="slot-name">{{equipped.gadget.name}}</span>
+              <span class="slot-detail">
+                {{equipped.gadget.system.usesLeft}}/{{equipped.gadget.system.maxUses}}
+              </span>
+              <a class="slot-aoe" data-action="showItemAoe" data-slot="gadget"
+                 title="{{localize 'AURORE.Aoe.show'}}"><i class="fas fa-bullseye"></i></a>
+              <a class="slot-unequip" data-action="unequipSlot" data-slot="gadget"
+                 title="{{localize 'AURORE.Actions.unequip'}}">×</a>
+            </div>
+          {{else}}
+            <div class="slot-empty drop-zone" data-action="selectSlotItem" data-slot="gadget">
+              <i class="fas fa-microchip"></i>
+              <span>{{localize "AURORE.Slots.dropHere"}}</span>
+            </div>
+          {{/if}}
+        </div>
+
+      </div>
+    </section>
+
+  </div>{{!-- /tab combat --}}
+
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB: INVENTORY
+  ══════════════════════════════════════════════════ --}}
+  <div class="tab tab-body {{tabs.primary.inventory.cssClass}}" data-tab="inventory" data-group="primary">
+
+    {{!-- Weapons --}}
+    <div class="items-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.ItemTypes.weapon"}}</h3>
+        <a class="item-add" data-action="createItem" data-type="weapon"
+           title="{{localize 'AURORE.Actions.addWeapon'}}">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+      {{#if items.weapons.length}}
+        <div class="items-header-cols">
+          <span class="col-icon"></span>
+          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
+          <span class="col-tag">{{localize "AURORE.ItemHeaders.trinity"}}</span>
+          <span class="col-stat">{{localize "AURORE.Weapon.damage"}}</span>
+          <span class="col-controls"></span>
+        </div>
+        <ul class="items-list" data-item-type="weapon">
+          {{#each items.weapons}}
+            <li class="item" data-item-id="{{id}}" draggable="true">
+              <img src="{{img}}" class="item-icon" alt="">
+              <span class="item-name">{{name}}</span>
+              <span class="item-tag trinity-{{system.trinity}}">
+                {{system.trinity}}
+              </span>
+              <span class="item-stat">{{system.damage}}</span>
+              <div class="item-controls">
+                <a data-action="equipItem" data-slot="weapon1" data-item-id="{{id}}"
+                   title="{{localize 'AURORE.Actions.equip'}} (1)">
+                  <i class="fas fa-hand-fist"></i>
+                </a>
+                <a data-action="editItem"
+                   title="{{localize 'AURORE.Actions.edit'}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a data-action="deleteItem"
+                   title="{{localize 'AURORE.Actions.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Empty.weapons"}}</p>
+      {{/if}}
+    </div>
+
+    {{!-- Armors --}}
+    <div class="items-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.ItemTypes.armor"}}</h3>
+        <a class="item-add" data-action="createItem" data-type="armor"
+           title="{{localize 'AURORE.Actions.addArmor'}}">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+      {{#if items.armors.length}}
+        <div class="items-header-cols">
+          <span class="col-icon"></span>
+          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
+          <span class="col-tag">{{localize "AURORE.ItemHeaders.trinity"}}</span>
+          <span class="col-stat">PP</span>
+          <span class="col-controls"></span>
+        </div>
+        <ul class="items-list" data-item-type="armor">
+          {{#each items.armors}}
+            <li class="item" data-item-id="{{id}}" draggable="true">
+              <img src="{{img}}" class="item-icon" alt="">
+              <span class="item-name">{{name}}</span>
+              <span class="item-tag trinity-{{system.trinity}}">{{system.trinity}}</span>
+              <span class="item-stat">+{{system.ppBonus}}</span>
+              <div class="item-controls">
+                <a data-action="equipItem" data-slot="armor" data-item-id="{{id}}"
+                   title="{{localize 'AURORE.Actions.equip'}}">
+                  <i class="fas fa-shield-halved"></i>
+                </a>
+                <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Empty.armors"}}</p>
+      {{/if}}
+    </div>
+
+    {{!-- Gadgets --}}
+    <div class="items-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.ItemTypes.gadget"}}</h3>
+        <a class="item-add" data-action="createItem" data-type="gadget"
+           title="{{localize 'AURORE.Actions.addGadget'}}">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+      {{#if items.gadgets.length}}
+        <div class="items-header-cols">
+          <span class="col-icon"></span>
+          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
+          <span class="col-tag">{{localize "AURORE.ItemHeaders.trinity"}}</span>
+          <span class="col-stat">{{localize "AURORE.Gadget.usesShort"}}</span>
+          <span class="col-controls"></span>
+        </div>
+        <ul class="items-list" data-item-type="gadget">
+          {{#each items.gadgets}}
+            <li class="item" data-item-id="{{id}}" draggable="true">
+              <img src="{{img}}" class="item-icon" alt="">
+              <span class="item-name">{{name}}</span>
+              <span class="item-tag trinity-{{system.trinity}}">{{system.trinity}}</span>
+              <span class="item-stat">{{system.usesLeft}}/{{system.maxUses}}</span>
+              <div class="item-controls">
+                <a data-action="equipItem" data-slot="gadget" data-item-id="{{id}}"
+                   title="{{localize 'AURORE.Actions.equip'}}">
+                  <i class="fas fa-microchip"></i>
+                </a>
+                <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Empty.gadgets"}}</p>
+      {{/if}}
+    </div>
+
+  </div>{{!-- /tab inventory --}}
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB: POWERS
+  ══════════════════════════════════════════════════ --}}
+  <div class="tab tab-body {{tabs.primary.powers.cssClass}}" data-tab="powers" data-group="primary">
+    <div class="items-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.Sections.powers"}}</h3>
+        <span class="powers-count">{{items.powers.length}}/{{maxPowers}}</span>
+        <a class="item-add" data-action="createItem" data-type="power"
+           title="{{localize 'AURORE.Actions.addPower'}}">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+      {{#if items.powers.length}}
+        <div class="items-header-cols">
+          <span class="col-icon"></span>
+          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
+          <span class="col-tag">{{localize "AURORE.Powers.type"}}</span>
+          <span class="col-stat">PA</span>
+          <span class="col-controls"></span>
+        </div>
+        <ul class="items-list" data-item-type="power">
+          {{#each items.powers}}
+            <li class="item" data-item-id="{{id}}" draggable="true">
+              <img src="{{img}}" class="item-icon" alt="">
+              <span class="item-name">{{name}}</span>
+              <span class="item-tag power-{{system.powerType}}">{{system.powerType}}</span>
+              <span class="item-stat">{{system.cost}}</span>
+              <div class="item-controls">
+                <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Powers.empty"}}</p>
+      {{/if}}
+    </div>
+  </div>{{!-- /tab powers --}}
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB: GIFTS
+  ══════════════════════════════════════════════════ --}}
+  <div class="tab tab-body {{tabs.primary.gifts.cssClass}}" data-tab="gifts" data-group="primary">
+
+    {{!-- Race block --}}
+    <section class="section race-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.Sections.race"}}</h3>
+      </div>
+
+      {{#if items.race}}
+        <div class="race-block">
+          <img src="{{items.race.img}}" class="race-icon" alt="">
+          <div class="race-info">
+            <span class="race-name">{{items.race.name}}</span>
+            {{#if items.race.system.description}}
+              <span class="race-hint">{{items.race.system.description}}</span>
+            {{/if}}
+          </div>
+          <div class="race-controls">
+            <a data-action="selectRace" title="{{localize 'AURORE.Race.change'}}">
+              <i class="fas fa-arrows-rotate"></i>
+            </a>
+            <a data-action="removeRace" title="{{localize 'AURORE.Race.remove'}}">
+              <i class="fas fa-times"></i>
+            </a>
+          </div>
+        </div>
+      {{else}}
+        <div class="race-empty" data-action="selectRace">
+          <i class="fas fa-dna"></i>
+          <span>{{localize "AURORE.Race.select"}}</span>
+        </div>
+      {{/if}}
+
+      {{!-- Racial ability --}}
+      <div class="section-header-row racial-header">
+        <h3 class="section-label">{{localize "AURORE.Sections.racial"}}</h3>
+      </div>
+
+      {{#if items.racial}}
+        <div class="race-block racial-block">
+          <img src="{{items.racial.img}}" class="race-icon" alt="">
+          <div class="race-info">
+            <span class="race-name">{{items.racial.name}}</span>
+            {{#if items.racial.system.description}}
+              <span class="race-hint">{{items.racial.system.description}}</span>
+            {{/if}}
+          </div>
+          <div class="race-controls">
+            <a data-action="selectRacial" title="{{localize 'AURORE.Racial.change'}}">
+              <i class="fas fa-arrows-rotate"></i>
+            </a>
+            <a data-action="removeRacial" title="{{localize 'AURORE.Racial.remove'}}">
+              <i class="fas fa-times"></i>
+            </a>
+          </div>
+        </div>
+      {{else}}
+        <div class="race-empty" data-action="selectRacial">
+          <i class="fas fa-sparkles"></i>
+          <span>{{localize "AURORE.Racial.select"}}</span>
+        </div>
+      {{/if}}
+
+    </section>
+
+    <div class="items-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.Sections.gifts"}}</h3>
+        <a class="item-add" data-action="createItem" data-type="gift"
+           title="{{localize 'AURORE.Actions.addGift'}}">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+      {{#if items.gifts.length}}
+        <div class="items-header-cols">
+          <span class="col-icon"></span>
+          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
+          <span class="col-tag">{{localize "AURORE.Gift.talentBonus"}}</span>
+          <span class="col-controls"></span>
+        </div>
+        <ul class="items-list" data-item-type="gift">
+          {{#each items.gifts}}
+            <li class="item" data-item-id="{{id}}" draggable="true">
+              <img src="{{img}}" class="item-icon" alt="">
+              <span class="item-name">{{name}}</span>
+              <span class="item-tag">
+                {{#if system.talentBonus}}
+                  +{{system.talentAmount}} {{system.talentBonus}}
+                {{else}}—{{/if}}
+              </span>
+              <div class="item-controls">
+                <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Gifts.empty"}}</p>
+      {{/if}}
+    </div>
+
+  </div>{{!-- /tab gifts --}}
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB: BIOGRAPHY
+  ══════════════════════════════════════════════════ --}}
+  <div class="tab tab-body {{tabs.primary.biography.cssClass}}" data-tab="biography" data-group="primary">
+    <section class="section biography-section">
+      {{editor system.biography target="system.biography"
+               button=true owner=owner editable=editable}}
+    </section>
+  </div>{{!-- /tab biography --}}
+
+  {{!-- ══════════════════════════════════════════════════
+       TAB: PROGRESSION (XP)
+  ══════════════════════════════════════════════════ --}}
+  <div class="tab tab-body {{tabs.primary.progression.cssClass}}" data-tab="progression" data-group="primary">
+    <section class="section xp-panel">
+      <div class="xp-header">
+        <h3 class="section-label">{{localize "AURORE.XP.SpendTitle"}}</h3>
+        <span class="xp-level-badge">{{localize "AURORE.Character.niveau"}} <strong>{{system.niveau}}</strong></span>
+      </div>
+      <p class="xp-current">
+        <span class="xp-label">{{localize "AURORE.XP.Available"}}</span>
+        <strong class="xp-value">{{system.experiencePoints}}</strong>
+        <span class="xp-unit">XP</span>
+      </p>
+
+      <ul class="purchase-list">
+        {{#each purchases as |purchase|}}
+        <li class="purchase-row {{#unless purchase.affordable}}disabled{{/unless}}"
+            {{#if purchase.affordable}}data-action="spendXP" data-purchase-id="{{purchase.id}}"{{/if}}>
+          <span class="purchase-label">{{purchase.label}}</span>
+          <span class="purchase-details">{{purchase.details}}</span>
+          <span class="purchase-cost">{{purchase.cost}} XP</span>
+        </li>
+        {{/each}}
+      </ul>
+    </section>
+  </div>{{!-- /tab progression --}}
+
+</div>{{!-- /.aurore.sheet.character --}}

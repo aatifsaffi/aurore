@@ -1,0 +1,202 @@
+<div class="aurore sheet item {{itemType}}">
+
+  {{!-- Header --}}
+  <header class="sheet-header">
+    <img class="item-portrait" src="{{item.img}}" data-action="editPortrait"
+         title="{{item.name}}" alt="icône">
+    <div class="header-body">
+      <h1><input type="text" name="name" value="{{item.name}}"
+                 placeholder="{{localize 'AURORE.Item.namePlaceholder'}}"></h1>
+      <span class="item-type-badge">{{localize (concat "AURORE.ItemTypes." itemType)}}</span>
+    </div>
+  </header>
+
+  <div class="item-sheet-body">
+
+    {{!-- ── Trinity (weapon / armor / gadget) ── --}}
+    {{#if (eq itemType "weapon")}}
+      <div class="form-group trinity-group">
+        <label>{{localize "AURORE.Item.trinity"}}</label>
+        <select name="system.trinity">
+          {{#each trinityChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.trinity @key)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
+    {{#if (eq itemType "armor")}}
+      <div class="form-group trinity-group">
+        <label>{{localize "AURORE.Item.trinity"}}</label>
+        <select name="system.trinity">
+          {{#each trinityChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.trinity @key)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
+    {{#if (eq itemType "gadget")}}
+      <div class="form-group trinity-group">
+        <label>{{localize "AURORE.Item.trinity"}}</label>
+        <select name="system.trinity">
+          {{#each trinityChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.trinity @key)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
+
+    {{!-- ── Weapon fields ── --}}
+    {{#if (eq itemType "weapon")}}
+      <div class="form-group">
+        <label>{{localize "AURORE.Weapon.damage"}}</label>
+        <input type="number" name="system.damage" value="{{system.damage}}" min="0">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Weapon.range"}}</label>
+        <input type="number" name="system.range" value="{{system.range}}" min="0">
+      </div>
+      <div class="form-group form-group-check">
+        <label>{{localize "AURORE.Weapon.heavy"}}</label>
+        <input type="checkbox" name="system.heavy" {{#if system.heavy}}checked{{/if}}>
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Item.aoeSize"}}</label>
+        <input type="number" name="system.aoeSize" value="{{system.aoeSize}}" min="0">
+      </div>
+    {{/if}}
+
+    {{!-- ── Armor fields ── --}}
+    {{#if (eq itemType "armor")}}
+      <div class="form-group">
+        <label>{{localize "AURORE.Armor.ppBonus"}}</label>
+        <input type="number" name="system.ppBonus" value="{{system.ppBonus}}">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Armor.cmModifier"}}</label>
+        <input type="number" name="system.cmModifier" value="{{system.cmModifier}}">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Item.aoeSize"}}</label>
+        <input type="number" name="system.aoeSize" value="{{system.aoeSize}}" min="0">
+      </div>
+    {{/if}}
+
+    {{!-- ── Gadget fields ── --}}
+    {{#if (eq itemType "gadget")}}
+      <div class="form-group">
+        <label>{{localize "AURORE.Gadget.maxUses"}}</label>
+        <input type="number" name="system.maxUses" value="{{system.maxUses}}" min="1">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Gadget.usesLeft"}}</label>
+        <input type="number" name="system.usesLeft" value="{{system.usesLeft}}" min="0">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Weapon.range"}}</label>
+        <input type="number" name="system.range" value="{{system.range}}" min="0">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Item.aoeSize"}}</label>
+        <input type="number" name="system.aoeSize" value="{{system.aoeSize}}" min="0">
+      </div>
+    {{/if}}
+
+    {{!-- ── Power fields ── --}}
+    {{#if (eq itemType "power")}}
+      <div class="form-group">
+        <label>{{localize "AURORE.Powers.type"}}</label>
+        <select name="system.powerType">
+          {{#each powerTypeChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.powerType @key)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Powers.category"}}</label>
+        <select name="system.category">
+          <option value="">—</option>
+          {{#each powerCategoryChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.category @key)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Powers.cost"}}</label>
+        <input type="number" name="system.cost" value="{{system.cost}}" min="0">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Powers.minLevel"}}</label>
+        <input type="number" name="system.requirements.minLevel"
+               value="{{system.requirements.minLevel}}" min="0">
+      </div>
+    {{/if}}
+
+    {{!-- ── Race fields ── --}}
+    {{#if (eq itemType "race")}}
+      <p class="form-hint">{{localize "AURORE.Race.hint"}}</p>
+    {{/if}}
+
+    {{!-- ── Racial fields ── --}}
+    {{#if (eq itemType "racial")}}
+      <div class="form-group">
+        <label>{{localize "AURORE.Racial.raceId"}}</label>
+        <input type="text" name="system.raceId" value="{{system.raceId}}">
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Racial.display"}}</label>
+        <input type="text" name="system.display" value="{{system.display}}">
+      </div>
+    {{/if}}
+
+    {{!-- ── Gift fields ── --}}
+    {{#if (eq itemType "gift")}}
+      <div class="form-group">
+        <label>{{localize "AURORE.Gift.talentBonus"}}</label>
+        <select name="system.talentBonus">
+          <option value="">— {{localize "AURORE.Gift.noBonus"}} —</option>
+          {{#each talentChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.talentBonus @key)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>{{localize "AURORE.Gift.talentAmount"}}</label>
+        <input type="number" name="system.talentAmount" value="{{system.talentAmount}}">
+      </div>
+    {{/if}}
+
+    {{!-- ── AoE Pattern Grid (weapon / armor / gadget) ── --}}
+    {{#if aoeGrid}}
+    <section class="aoe-grid-section">
+      <h3 class="section-label">{{localize "AURORE.Item.aoePattern"}}</h3>
+      <div class="aoe-color-legend">
+        <span class="aoe-legend-swatch" data-color="1"></span><span>{{localize "AURORE.AoeColors.enemy"}}</span>
+        <span class="aoe-legend-swatch" data-color="2"></span><span>{{localize "AURORE.AoeColors.ally"}}</span>
+        <span class="aoe-legend-swatch" data-color="3"></span><span>{{localize "AURORE.AoeColors.neutral"}}</span>
+        <span class="aoe-legend-swatch" data-color="4"></span><span>{{localize "AURORE.AoeColors.special"}}</span>
+      </div>
+      <div class="aoe-grid">
+        {{#each aoeGrid.cells as |row|}}
+          <div class="aoe-grid-row">
+            {{#each row as |cell|}}
+              <div class="aoe-grid-cell {{#if cell.isCenter}}is-center{{/if}}"
+                   data-row="{{cell.row}}"
+                   data-col="{{cell.col}}"
+                   data-color="{{cell.color}}">
+              </div>
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+    </section>
+    {{/if}}
+
+    {{!-- Description (all types) --}}
+    <section class="description-section">
+      <h3 class="section-label">{{localize "AURORE.Item.description"}}</h3>
+      {{editor system.description target="system.description"
+               button=true owner=owner editable=editable}}
+    </section>
+
+  </div>{{!-- /.item-sheet-body --}}
+</div>

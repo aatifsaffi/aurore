@@ -1,0 +1,33 @@
+[
+  {
+    "id": "valien",
+    "name": "Valien",
+    "description": "",
+    "img": "systems/aurore/assets/races/valien.webp"
+  },
+  {
+    "id": "relien",
+    "name": "Rélien",
+    "description": "",
+    "img": "systems/aurore/assets/races/relien.webp"
+  },
+  {
+    "id": "oulien",
+    "name": "Oulien",
+    "description": "",
+    "img": "systems/aurore/assets/races/oulien.webp"
+  },
+  {
+    "id": "candry",
+    "name": "Candry",
+    "description": "",
+    "img": "systems/aurore/assets/races/candry.webp"
+  },
+  {
+    "id": "mixti",
+    "name": "Mixti",
+    "description": "",
+    "img": "systems/aurore/assets/races/mixti.webp",
+    "borrowRacialsFrom": ["relien", "oulien"]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "askelon-vat",
+    "name": "Cuve d'Askelon",
+    "description": "Si vous portez un coup fatal à un ennemi, vous rechargez les utilisations de votre gadget.",
+    "raceId": "valien",
+    "display": "ASK"
+  },
+  {
+    "id": "hellonde-vat",
+    "name": "Cuve d'Hellonde",
+    "description": "Une fois durant un combat, si vous venez d'échouer lors d'un jet, vous pouvez appliquer une réussite (non critique) à la place. À partir du niveau 5 vous pouvez utiliser votre racial deux fois par combat.",
+    "raceId": "valien",
+    "display": "HEL"
+  },
+  {
+    "id": "dominion-origin",
+    "name": "Origine Dominion",
+    "description": "Votre personnage dispose d'un emplacement biomécanique dans son bras lui permettant d'équiper une arme légère supplémentaire. Cet emplacement n'est pas pris en compte pour l'équilibre émotionnel de votre personnage et ne pourra pas recevoir d'implant.",
+    "raceId": "relien",
+    "display": "DOM"
+  },
+  {
+    "id": "southern-nations-origin",
+    "name": "Origine Nations du Sud",
+    "description": "Une fois par combat, lors de votre tour, générez 2 PA à utiliser directement.",
+    "raceId": "relien",
+    "display": "SUD"
+  },
+  {
+    "id": "islander-origin",
+    "name": "Origine insulaire",
+    "description": "Votre personnage vient de contrées au-delà du continent Oulien, la vie dans ces terres inexplorées est rude, obligeant à faire preuve d'une efficacité meurtrière. En combat votre personnage augmente toujours de +1 les dommages et PP octroyés par toutes vos actions. À partir du niveau 5 le montant bonus passe à +2.",
+    "raceId": "relien",
+    "display": "INS"
+  },
+  {
+    "id": "claw-ascendancy",
+    "name": "Ascendance de la griffe",
+    "description": "Si vous portez un coup fatal à un ennemi vous régénérez 3d6+le niveau de votre victime en PV ou gagnez ce montant en PV bonus si votre capital est déjà au maximum. Les dégâts infligés avec l'action \"Lutte\" sont doublés. Vous pouvez parler aux animaux de votre ascendance (chat, loup, tigre…).",
+    "raceId": "oulien",
+    "display": "GRF"
+  },
+  {
+    "id": "scale-ascendancy",
+    "name": "Ascendance de l'écaille",
+    "description": "Votre capital de CM augmente de +1. Toutes les actions hostiles à votre encontre ont un malus de -5% aux jets. Vous pouvez parler aux animaux de votre ascendance (lézard, serpent…).",
+    "raceId": "oulien",
+    "display": "ECL"
+  },
+  {
+    "id": "feather-ascendancy",
+    "name": "Ascendance de la plume",
+    "description": "Contre 1 PA vous pouvez vous envoler au-dessus du sol à une hauteur maximum équivalente à votre nombre max de CM. Vous restez en vol jusqu'à la fin de votre prochain tour. Vous pouvez ainsi franchir les obstacles et vous mettre hors de portée de certaines actions. Vous pouvez parler aux animaux de votre ascendance (aigle, corbeau…).",
+    "raceId": "oulien",
+    "display": "PLM"
+  },
+  {
+    "id": "horn-ascendancy",
+    "name": "Ascendance de la corne",
+    "description": "Votre capital de point de vie augmente de +2 PV pour chaque niveau que possède votre personnage. Contre 1 PA vous chargez en ligne droite en vous libérant des immobilisations et en repoussant les cibles avec qui vous rentrez en contact. Lancez 1D6 + vos CM, le montant représente le nombre de cases parcourues et repoussez les cibles du même montant de cases. Votre charge s'arrête si vous rencontrez un obstacle. Vous pouvez parler aux animaux de votre ascendance (taureau, bouc…).",
+    "raceId": "oulien",
+    "display": "CRN"
+  },
+  {
+    "id": "combat-fabrication",
+    "name": "Fabrication : Combat",
+    "description": "Votre capital de point de vie augmente de +1 PV pour chaque niveau que possède votre personnage. Une fois par combat, si votre seuil de PV est réduit de moitié vous gagnez immédiatement la moitié de votre montant max de PV en PP bonus.",
+    "raceId": "candry",
+    "display": "CBT"
+  },
+  {
+    "id": "service-fabrication",
+    "name": "Fabrication : Service",
+    "description": "Vous recevez un bonus de +5% aux jets pour tous les talents. De plus, toutes vos actions qui n'infligent pas de dommage ont toujours un bonus de +5% aux jets.",
+    "raceId": "candry",
+    "display": "SVC"
+  },
+  {
+    "id": "stealth-fabrication",
+    "name": "Fabrication : Furtif",
+    "description": "Contre 1 PA et un jet avec l'émotion de votre choix votre personnage devient invisible jusqu'à la fin de votre prochain tour ou jusqu'à l'utilisation d'une action. Pour chaque ennemi regardant dans votre direction vous avez un malus de -10% à ce jet. La première action hostile réalisée en étant invisible a un bonus au jet de +20%.",
+    "raceId": "candry",
+    "display": "FTF"
+  }
+]

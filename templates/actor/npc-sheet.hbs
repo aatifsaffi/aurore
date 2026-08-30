@@ -1,0 +1,75 @@
+<div class="aurore sheet npc">
+
+  <header class="sheet-header">
+    <img class="portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" alt="portrait">
+    <div class="header-fields">
+      <h1 class="charname">
+        <input type="text" name="name" value="{{actor.name}}" placeholder="Nom du PNJ">
+      </h1>
+      <div class="header-meta">
+        <label>{{localize "AURORE.Character.niveau"}}
+          <input type="number" name="system.niveau" value="{{system.niveau}}" min="1">
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <section class="resources-section">
+    <div class="resource-block pv">
+      <label>PV</label>
+      <div class="resource-inputs">
+        <input type="number" name="system.resources.pv.value" value="{{system.resources.pv.value}}" min="0">
+        <span>/</span>
+        <input type="number" name="system.resources.pv.max" value="{{system.resources.pv.max}}" min="0">
+      </div>
+    </div>
+    <div class="resource-block pa">
+      <label>PA</label>
+      <div class="resource-inputs">
+        <input type="number" name="system.resources.pa.value" value="{{system.resources.pa.value}}" min="0">
+        <span>/</span>
+        <input type="number" name="system.resources.pa.max" value="{{system.resources.pa.max}}" min="0">
+      </div>
+    </div>
+    <div class="resource-block pp">
+      <label>PP</label>
+      <div class="resource-inputs">
+        <input type="number" name="system.resources.pp.value" value="{{system.resources.pp.value}}" min="0">
+        <span>/</span>
+        <input type="number" name="system.resources.pp.max" value="{{system.resources.pp.max}}" min="0">
+      </div>
+    </div>
+  </section>
+
+  <section class="mental-section">
+    <h3>{{localize "AURORE.Sections.mental"}}</h3>
+    <div class="mental-grid">
+      <label class="mental-stat rage">
+        <span>{{localize "AURORE.Mental.rage"}}</span>
+        <input type="number" name="system.mental.rage" value="{{system.mental.rage}}" min="0" max="100">
+      </label>
+      <label class="mental-stat surprise">
+        <span>{{localize "AURORE.Mental.surprise"}}</span>
+        <input type="number" name="system.mental.surprise" value="{{system.mental.surprise}}" min="0" max="100">
+      </label>
+      <label class="mental-stat peur">
+        <span>{{localize "AURORE.Mental.peur"}}</span>
+        <input type="number" name="system.mental.peur" value="{{system.mental.peur}}" min="0" max="100">
+      </label>
+      <label class="mental-stat mental">
+        <span>{{localize "AURORE.Mental.mental"}}</span>
+        <input type="number" name="system.mental.mental" value="{{system.mental.mental}}" min="0">
+      </label>
+      <label class="mental-stat cm">
+        <span>{{localize "AURORE.Mental.cm"}}</span>
+        <input type="number" name="system.mental.cm" value="{{system.mental.cm}}" min="0">
+      </label>
+    </div>
+  </section>
+
+  <section class="biography-section">
+    <h3>{{localize "AURORE.Sections.biography"}}</h3>
+    {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+  </section>
+
+</div>

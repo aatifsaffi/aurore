@@ -1,0 +1,104 @@
+{
+  "id": "aurore",
+  "title": "Aurore",
+  "description": "Aurore — Tactical sci-fi/fantasy RPG with Trinity combat system.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14.367",
+    "maximum": "14"
+  },
+  "authors": [
+    { "name": "Your Name" }
+  ],
+  "esmodules": ["aurore.mjs"],
+  "styles": ["styles/aurore.css"],
+  "languages": [
+    { "lang": "fr", "name": "Français", "path": "lang/fr.json" }
+  ],
+  "packs": [
+    {
+      "name": "weapons",
+      "label": "Armes",
+      "path": "packs/weapons",
+      "type": "Item",
+      "system": "aurore"
+    },
+    {
+      "name": "armors",
+      "label": "Armures",
+      "path": "packs/armors",
+      "type": "Item",
+      "system": "aurore"
+    },
+    {
+      "name": "gadgets",
+      "label": "Gadgets",
+      "path": "packs/gadgets",
+      "type": "Item",
+      "system": "aurore"
+    },
+    {
+      "name": "powers",
+      "label": "Pouvoirs",
+      "path": "packs/powers",
+      "type": "Item",
+      "system": "aurore"
+    },
+    {
+      "name": "races",
+      "label": "Races",
+      "path": "packs/races",
+      "type": "Item",
+      "system": "aurore"
+    },
+    {
+      "name": "racials",
+      "label": "Raciaux",
+      "path": "packs/racials",
+      "type": "Item",
+      "system": "aurore"
+    },
+    {
+      "name": "gifts",
+      "label": "Dons communs",
+      "path": "packs/gifts",
+      "type": "Item",
+      "system": "aurore"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "npc": {}
+    },
+    "Item": {
+      "weapon": {},
+      "armor": {},
+      "gadget": {},
+      "power": {},
+      "race": {},
+      "racial": {},
+      "gift": {}
+    }
+  },
+  "grid": { "type": 1 },
+  "primaryTokenAttribute": "resources.pv",
+  "secondaryTokenAttribute": "resources.pp",
+  "socket": true,
+  "relationships": {
+    "requires": [
+      {
+        "id": "sequencer",
+        "type": "module",
+        "compatibility": { "minimum": "3.0.0" }
+      }
+    ],
+    "recommends": [
+      {
+        "id": "JB2A_DnD5e",
+        "type": "module"
+      }
+    ]
+  }
+}
