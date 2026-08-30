@@ -100,5 +100,8 @@
         "type": "module"
       }
     ]
-  }
+  },
+  "manifest": "https://raw.githubusercontent.com//aurore/main/system.json",
+  "download": "https://github.com/aatifsaffi/aurore/releases/download/v0.1.0/aurore.zip"
+
 }
