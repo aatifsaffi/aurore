@@ -127,6 +127,9 @@
       "gold":            "Dômes",
       "namePlaceholder": "Nom du personnage"
     },
+    "Npc": {
+      "namePlaceholder": "Nom du PNJ"
+    },
     "Item": {
       "trinity":         "Couleur Trinity",
       "aoeSize":         "Portée max",

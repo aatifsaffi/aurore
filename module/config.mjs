@@ -103,8 +103,8 @@ export const XP_COSTS = {
 // ── Critical roll thresholds (d100, inclusive) ────────────
 // Widen these to force crits while testing animations.
 export const CRIT_THRESHOLDS = {
-  success: 50,   // roll <= this is a critical success
-  failure: 65   // roll >= this is a critical failure
+  success: 5,   // roll <= this is a critical success
+  failure: 95   // roll >= this is a critical failure
 };
 
 // ── AoE Shapes (for grid highlight) ──────────────────────
@@ -115,9 +115,6 @@ export const AOE_SHAPES = {
   square: "AURORE.AoeShapes.square",
   around: "AURORE.AoeShapes.around"
 };
-
-// ── Max powers per character ──────────────────────────────
-export const MAX_POWERS = 6;
 
 // ── AoE Pattern Legend ─────────────────────────────────────
 // Single source of truth for char-notation aoePattern strings ("..e.eeee")

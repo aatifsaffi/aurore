@@ -412,7 +412,7 @@
     <div class="items-section">
       <div class="section-header-row">
         <h3 class="section-label">{{localize "AURORE.Sections.powers"}}</h3>
-        <span class="powers-count">{{items.powers.length}}/{{maxPowers}}</span>
+        {{#if items.powers.length}}<span class="powers-count">{{items.powers.length}}</span>{{/if}}
         <a class="item-add" data-action="createItem" data-type="power"
            title="{{localize 'AURORE.Actions.addPower'}}">
           <i class="fas fa-plus"></i>

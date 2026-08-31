@@ -1,24 +1,29 @@
-const { HandlebarsApplicationMixin } = foundry.applications.api;
-const { ActorSheetV2 } = foundry.applications.sheets;
+import { AuroreActorSheetV2 } from "./actor-sheet.mjs";
 
-export class AuroreNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
+/**
+ * NPC sheet. Shares the character sheet's architecture (header + tabs +
+ * equipment slots + inventory + powers) via {@link AuroreActorSheetV2}, minus
+ * the character-only concepts: talents, race/racial, gifts, gold and XP.
+ */
+export class AuroreNpcSheet extends AuroreActorSheetV2 {
 
+  /** @override */
   static DEFAULT_OPTIONS = {
-    classes: ["aurore", "sheet", "actor", "npc"],
-    position: { width: 600, height: 500 },
-    window: { resizable: true },
-    actions: {}
+    classes: ["npc"],
+    position: { width: 680, height: 620 }
   };
 
+  /** @override */
   static PARTS = {
-    sheet: { template: "systems/aurore/templates/actor/npc-sheet.hbs" }
+    sheet: {
+      template: "systems/aurore/templates/actor/npc-sheet.hbs",
+      scrollable: [".tab-body"]
+    }
   };
 
-  async _prepareContext(options) {
-    const context = await super._prepareContext(options);
-    const actor = this.document;
-    context.system = actor.system;
-    context.config = CONFIG.aurore;
-    return context;
-  }
+  /** @override */
+  static TABS = ["combat", "inventory", "powers", "biography"];
+
+  /** @override */
+  static tabGroups = { primary: "combat" };
 }

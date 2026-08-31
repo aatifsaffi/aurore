@@ -24,3 +24,36 @@ export function mentalStatField(initialValue = 0, max) {
   if (max !== undefined) opts.max = max;
   return new fields.NumberField(opts);
 }
+
+/**
+ * Returns the four equipment-slot StringFields shared by every actor type
+ * (weapon1, weapon2, armor, gadget). Each holds an embedded item id.
+ * @returns {Record<string, foundry.data.fields.StringField>}
+ */
+export function equipmentSlotFields() {
+  return {
+    equippedWeapon1: new fields.StringField({ initial: "" }),
+    equippedWeapon2: new fields.StringField({ initial: "" }),
+    equippedArmor:   new fields.StringField({ initial: "" }),
+    equippedGadget:  new fields.StringField({ initial: "" })
+  };
+}
+
+/**
+ * Compute the dominant Trinity color from a list of equipped item ids.
+ * @param {Actor}    actor    The actor owning the items.
+ * @param {string[]} slotIds  Embedded item ids for each equipment slot.
+ * @returns {"red"|"green"|"blue"|"balanced"}
+ */
+export function computeDominantTrinity(actor, slotIds) {
+  const counts = { red: 0, green: 0, blue: 0 };
+  for (const id of slotIds) {
+    if (!id) continue;
+    const item = actor.items.get(id);
+    if (item?.system?.trinity) counts[item.system.trinity]++;
+  }
+  const max = Math.max(counts.red, counts.green, counts.blue);
+  if (max === 0) return "balanced";
+  const dominants = Object.entries(counts).filter(([, v]) => v === max);
+  return dominants.length === 1 ? dominants[0][0] : "balanced";
+}

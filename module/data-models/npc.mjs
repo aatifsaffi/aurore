@@ -1,5 +1,5 @@
 import { RESOURCES, MENTAL_STATS } from "../config.mjs";
-import { resourceField, mentalStatField } from "./_common.mjs";
+import { resourceField, mentalStatField, equipmentSlotFields, computeDominantTrinity } from "./_common.mjs";
 
 const fields = foundry.data.fields;
 
@@ -18,8 +18,25 @@ export class NpcData extends foundry.abstract.TypeDataModel {
     return {
       resources: new fields.SchemaField(resourceFields),
       mental:    new fields.SchemaField(mentalFields),
+
       niveau:    new fields.NumberField({ required: true, integer: true, min: 1, initial: 1 }),
-      biography: new fields.HTMLField({ required: false, blank: true })
+
+      ...equipmentSlotFields(),
+
+      portraitImage: new fields.StringField({ required: false, blank: true }),
+      biography:     new fields.HTMLField({ required: false, blank: true })
     };
+  }
+
+  /** @override */
+  prepareDerivedData() {
+    const actor = this.parent;
+    if (!actor) return;
+    this.trinityDominant = computeDominantTrinity(actor, [
+      this.equippedWeapon1,
+      this.equippedWeapon2,
+      this.equippedArmor,
+      this.equippedGadget
+    ]);
   }
 }
