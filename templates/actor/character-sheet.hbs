@@ -566,8 +566,12 @@
   ══════════════════════════════════════════════════ --}}
   <div class="tab tab-body {{tabs.primary.biography.cssClass}}" data-tab="biography" data-group="primary">
     <section class="section biography-section">
-      {{editor system.biography target="system.biography"
-               button=true owner=owner editable=editable}}
+      {{#if editable}}
+      <prose-mirror name="system.biography" button="true" editable="true" toggled="false"
+                    value="{{system.biography}}">{{{enrichedBiography}}}</prose-mirror>
+      {{else}}
+      <div class="editor-content">{{{enrichedBiography}}}</div>
+      {{/if}}
     </section>
   </div>{{!-- /tab biography --}}
 

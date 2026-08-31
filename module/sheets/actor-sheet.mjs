@@ -3,6 +3,7 @@ import { classifyRoll, playCritEffect } from "../helpers/critEffects.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
+const { TextEditor } = foundry.applications.ux;
 
 /**
  * Shared base class for every Aurore actor sheet (character, npc).
@@ -79,6 +80,14 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
     context.actor  = actor;
     context.system = system;
     context.config = CONFIG.aurore;
+
+    // Pre-enriched biography for the <prose-mirror> element (ApplicationV2 has no
+    // {{editor}} button wiring — the custom element handles its own edit toggle).
+    context.enrichedBiography = await TextEditor.enrichHTML(system.biography ?? "", {
+      secrets:    actor.isOwner,
+      relativeTo: actor,
+      rollData:   actor.getRollData?.() ?? {}
+    });
 
     // Resolved equipped items (null if slot empty or item not found)
     context.equipped = {

@@ -194,8 +194,12 @@
     {{!-- Description (all types) --}}
     <section class="description-section">
       <h3 class="section-label">{{localize "AURORE.Item.description"}}</h3>
-      {{editor system.description target="system.description"
-               button=true owner=owner editable=editable}}
+      {{#if editable}}
+      <prose-mirror name="system.description" button="true" editable="true" toggled="false"
+                    value="{{system.description}}">{{{enrichedDescription}}}</prose-mirror>
+      {{else}}
+      <div class="editor-content">{{{enrichedDescription}}}</div>
+      {{/if}}
     </section>
 
   </div>{{!-- /.item-sheet-body --}}

@@ -1,5 +1,6 @@
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
+const { TextEditor } = foundry.applications.ux;
 
 export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
@@ -36,6 +37,13 @@ export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     context.system   = item.system;
     context.itemType = item.type;
     context.config   = CONFIG.aurore;
+
+    // Pre-enriched description for the <prose-mirror> element (ApplicationV2 has no
+    // {{editor}} button wiring — the custom element handles its own edit toggle).
+    context.enrichedDescription = await TextEditor.enrichHTML(item.system.description ?? "", {
+      secrets:    item.isOwner,
+      relativeTo: item
+    });
 
     context.trinityChoices = Object.fromEntries(
       Object.entries(CONFIG.aurore.TRINITY).map(([k, v]) => [k, game.i18n.localize(v.label)])
