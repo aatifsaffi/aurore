@@ -36,6 +36,45 @@ export const TRINITY = {
   blue:  { label: "AURORE.Trinity.blue",  color: "#2980b9" }
 };
 
+// ── Token stamp (auto circular ring token image) ─────────
+// On token creation we composite the actor portrait into a circular crop with
+// a Trinity-coloured ring border and upload it as the token texture.
+// All tunables live here (see specs/07-token-stamp.md).
+export const TOKEN_STAMP = {
+  enabled: true,
+  size: 400,                      // output px, square
+  portraitScale: 0.72,           // <1 shrinks the artwork inside the circular crop
+  illustrationRotation: 45,      // degrees to rotate the portrait inside the crop (ring stays put)
+  tokenRotation: 315,           // rotation applied to each placed token on drop (not the prototype)
+  background: "#ffffff",         // fill inside the crop behind the portrait ("" / null = transparent)
+  ring: {
+    mode: "auto",                 // "auto" = template if it loads, else code-drawn; "off" = crop only
+    templateSrc: "systems/aurore/assets/token-stamp/img.png",
+    insetRatio: 0.95,             // template mode: portrait clip radius ÷ (size / 2)
+    width: 24,                    // code-drawn fallback: ring width in px at output size
+    bevel: true                   // code-drawn fallback: light/dark edge strokes
+  },
+  format: "image/webp",
+  quality: 0.92,
+  uploadDir: "aurore-tokens",     // under the "data" source; "/<world-id>" is appended
+  // red/green/blue reuse the TRINITY hexes; "balanced" is a placeholder for now.
+  colors: {
+    red:      TRINITY.red.color,
+    green:    TRINITY.green.color,
+    blue:     TRINITY.blue.color,
+    balanced: "#9aa0b4"
+  }
+};
+
+// ── Prototype token defaults ────────────────────────────
+// Applied to every new character/npc actor's prototype token (preCreateActor).
+// Values are CONST.TOKEN_DISPLAY_MODES: 0 NONE · 10 CONTROL · 20 OWNER_HOVER
+// · 30 HOVER · 40 OWNER · 50 ALWAYS.
+export const TOKEN_DEFAULTS = {
+  displayName: 30,   // nameplate shown to everyone on hover
+  displayBars: 20    // resource bars shown to owners on hover
+};
+
 // ── Armor PP/CM bonuses per Trinity color ─────────────────
 export const ARMOR_BONUSES = {
   red:   { ppBonus: 20, cmModifier: -1 },
@@ -56,6 +95,26 @@ export const EQUIPMENT_SLOTS = {
   weapon2: "AURORE.Slots.weapon2",
   armor:   "AURORE.Slots.armor",
   gadget:  "AURORE.Slots.gadget"
+};
+
+// ── NPC kinds ─────────────────────────────────────────────
+// "human"   — plays like a character: equips items from the compendiums.
+// "monster" — carries its own inline `system.equipment` (max NPC_MAX_EQUIPMENT),
+//             specific to that creature and not sourced from any pack.
+export const NPC_KINDS = {
+  human:   "AURORE.Npc.kind.human",
+  monster: "AURORE.Npc.kind.monster"
+};
+
+export const NPC_MAX_EQUIPMENT = 4;
+
+// ── Monster equipment categories ─────────────────────────
+// Tags one inline `system.equipment` entry. "attack" gear carries a Trinity
+// color (red/green/blue); "boreale" gear is an aurora / emotional-magic power
+// that sits outside the Trinity, so its `trinity` field is left blank.
+export const NPC_EQUIPMENT_CATEGORIES = {
+  attack:  "AURORE.Npc.equipmentCategory.attack",
+  boreale: "AURORE.Npc.equipmentCategory.boreale"
 };
 
 // ── Inventory / Backpack ──────────────────────────────────
@@ -119,11 +178,14 @@ export const AOE_SHAPES = {
 // ── AoE Pattern Legend ─────────────────────────────────────
 // Single source of truth for char-notation aoePattern strings ("..e.eeee")
 // used in compendium source JSON. `index` is the stored integer value,
-// `color` the render color for grid-highlight (null = off/skip).
+// `color` the render color for grid-highlight (null = off/skip), `border`
+// an outline color so a highlighted cell reads against similarly-toned grid
+// backgrounds (e.g. movement's gray fill on a gray canvas grid).
 export const AOE_PATTERN_LEGEND = {
-  ".": { key: "off",     index: 0, color: null,      label: null },
-  "e": { key: "enemy",   index: 1, color: "#ff3322",  label: "AURORE.AoeColors.enemy" },
-  "a": { key: "ally",    index: 2, color: "#22cc55",  label: "AURORE.AoeColors.ally" },
-  "n": { key: "neutral", index: 3, color: "#2288ff",  label: "AURORE.AoeColors.neutral" },
-  "s": { key: "special", index: 4, color: "#ffcc00",  label: "AURORE.AoeColors.special" }
+  ".": { key: "off",      index: 0, color: null,      border: null,      label: null },
+  "e": { key: "enemy",    index: 1, color: "#ff3322",  border: "#ff6b5b", label: "AURORE.AoeColors.enemy" },
+  "a": { key: "ally",     index: 2, color: "#22cc55",  border: "#5cff8f", label: "AURORE.AoeColors.ally" },
+  "n": { key: "neutral",  index: 3, color: "#2288ff",  border: "#5cc3ff", label: "AURORE.AoeColors.neutral" },
+  "s": { key: "special",  index: 4, color: "#ffcc00",  border: "#ffe680", label: "AURORE.AoeColors.special" },
+  "m": { key: "movement", index: 5, color: "#808080",  border: "#ffffff", label: "AURORE.AoeColors.movement" }
 };

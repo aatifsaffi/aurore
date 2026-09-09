@@ -1,0 +1,1382 @@
+{
+  "items": [
+    {
+      "id": "NPC-01",
+      "name": "Humanoïde vert (Niveau 1)",
+      "kind": "human",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde vert (Niveau 1).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde vert (Niveau 1).webp",
+      "resources": {
+        "pv": 20,
+        "pa": 2,
+        "pp": 14
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 60,
+        "peur": 40,
+        "mental": 60,
+        "cm": 5
+      },
+      "weapon1": "Arc énergétique",
+      "weapon2": "",
+      "armor": "Trap",
+      "gadget": "",
+      "passif": "<p>Don racial au choix / +10% Surprise</p>",
+      "biography": "<p>Tirailleur de la trinité verte. Tient ses distances et piège le terrain devant lui.</p>"
+    },
+    {
+      "id": "NPC-02",
+      "name": "Humanoïde rouge (Niveau 1)",
+      "kind": "human",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde rouge (Niveau 1).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde rouge (Niveau 1).webp",
+      "resources": {
+        "pv": 20,
+        "pa": 2,
+        "pp": 26
+      },
+      "mental": {
+        "rage": 60,
+        "surprise": 50,
+        "peur": 40,
+        "mental": 60,
+        "cm": 4
+      },
+      "weapon1": "Gravi Lame",
+      "weapon2": "Bouclier énergétique",
+      "armor": "Soldat",
+      "gadget": "",
+      "passif": "<p>Don racial au choix / +10% Rage</p>",
+      "biography": "<p>Fantassin de la trinité rouge. Avance bouclier levé et force l'ennemi à l'engager.</p>"
+    },
+    {
+      "id": "NPC-03",
+      "name": "Humanoïde bleu (Niveau 1)",
+      "kind": "human",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde bleu (Niveau 1).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde bleu (Niveau 1).webp",
+      "resources": {
+        "pv": 20,
+        "pa": 2,
+        "pp": 18
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 50,
+        "peur": 60,
+        "mental": 60,
+        "cm": 6
+      },
+      "weapon1": "Pistolet A9",
+      "weapon2": "Pavois énergétique",
+      "armor": "Wise",
+      "gadget": "",
+      "passif": "<p>Don racial au choix / +10% aux jets d'équipement bleu</p>",
+      "biography": "<p>Soutien de la trinité bleue. Rend des PP à ses alliés tout en tenant une ligne de tir.</p>"
+    },
+    {
+      "id": "NPC-04",
+      "name": "Humanoïde vert (Niveau 2)",
+      "kind": "human",
+      "niveau": 2,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde vert (Niveau 2).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde vert (Niveau 2).webp",
+      "resources": {
+        "pv": 25,
+        "pa": 2,
+        "pp": 16
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 60,
+        "peur": 50,
+        "mental": 60,
+        "cm": 5
+      },
+      "weapon1": "Gravi-Dague",
+      "weapon2": "Javelot énergétique",
+      "armor": "Hunter",
+      "gadget": "Flash",
+      "passif": "<p>Don racial au choix / +10% aux jets d'équipement vert / Tactique</p>",
+      "biography": "<p>Éclaireur de la trinité verte. Marque une cible puis alterne dague et javelot.</p>"
+    },
+    {
+      "id": "NPC-05",
+      "name": "Humanoïde rouge (Niveau 2)",
+      "kind": "human",
+      "niveau": 2,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde rouge (Niveau 2).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde rouge (Niveau 2).webp",
+      "resources": {
+        "pv": 25,
+        "pa": 2,
+        "pp": 30
+      },
+      "mental": {
+        "rage": 60,
+        "surprise": 50,
+        "peur": 40,
+        "mental": 60,
+        "cm": 4
+      },
+      "weapon1": "Gravi Masse",
+      "weapon2": "Bouclier énergétique",
+      "armor": "Rocket",
+      "gadget": "Propulseur",
+      "passif": "<p>Don racial au choix / +10% aux jets d'équipement rouge / Sentinelle</p>",
+      "biography": "<p>Assaillant de la trinité rouge. Bondit sur la mêlée et repousse tout ce qui l'entoure.</p>"
+    },
+    {
+      "id": "NPC-06",
+      "name": "Humanoïde bleu (Niveau 2)",
+      "kind": "human",
+      "niveau": 2,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde bleu (Niveau 2).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde bleu (Niveau 2).webp",
+      "resources": {
+        "pv": 25,
+        "pa": 2,
+        "pp": 22
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 40,
+        "peur": 60,
+        "mental": 60,
+        "cm": 6
+      },
+      "weapon1": "Fusil A4.46",
+      "weapon2": "Pavois énergétique",
+      "armor": "Bastion",
+      "gadget": "Proté-bot",
+      "passif": "<p>Don racial au choix / +10% Peur / Embuscade</p>",
+      "biography": "<p>Tireur embusqué de la trinité bleue. Dresse un mur puis tient la ligne au fusil.</p>"
+    },
+    {
+      "id": "NPC-07",
+      "name": "Humanoïde vert (Niveau 4)",
+      "kind": "human",
+      "niveau": 4,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde vert (Niveau 4).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde vert (Niveau 4).webp",
+      "resources": {
+        "pv": 35,
+        "pa": 2,
+        "pp": 20
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 60,
+        "peur": 50,
+        "mental": 60,
+        "cm": 5
+      },
+      "weapon1": "Gravi-Sabre",
+      "weapon2": "Chakram magnéto",
+      "armor": "Magnet",
+      "gadget": "Flash",
+      "passif": "<p>Don racial au choix / +10% Surprise / Tactique / Esquive / Point faible.</p>",
+      "biography": "<p>Vétéran de la trinité verte. Regroupe les ennemis au magnétisme avant de les faucher.</p>"
+    },
+    {
+      "id": "NPC-08",
+      "name": "Humanoïde rouge (Niveau 4)",
+      "kind": "human",
+      "niveau": 4,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde rouge (Niveau 4).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde rouge (Niveau 4).webp",
+      "resources": {
+        "pv": 35,
+        "pa": 2,
+        "pp": 34
+      },
+      "mental": {
+        "rage": 60,
+        "surprise": 50,
+        "peur": 40,
+        "mental": 60,
+        "cm": 4
+      },
+      "weapon1": "Gravi-Lame 2M",
+      "weapon2": "Bouclier énergétique",
+      "armor": "Guardian",
+      "gadget": "Charge \"magnéto\"",
+      "passif": "<p>Don racial au choix / +10% Rage / Sentinelle / Renforcement / Contre-coup.</p>",
+      "biography": "<p>Vétéran de la trinité rouge. Protège son groupe puis frappe à deux mains.</p>"
+    },
+    {
+      "id": "NPC-09",
+      "name": "Humanoïde bleu (Niveau 4)",
+      "kind": "human",
+      "niveau": 4,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Humanoïde bleu (Niveau 4).webp",
+      "portraitImage": "systems/aurore/assets/npcs/Humanoïde bleu (Niveau 4).webp",
+      "resources": {
+        "pv": 35,
+        "pa": 2,
+        "pp": 26
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 40,
+        "peur": 60,
+        "mental": 60,
+        "cm": 6
+      },
+      "weapon1": "Lance-énergie \"Field\"",
+      "weapon2": "Pavois énergétique",
+      "armor": "Sonic",
+      "gadget": "Handi-bot",
+      "passif": "<p>Don racial au choix / +10% bleu / Impulsion / Protection / Surcharge</p>",
+      "biography": "<p>Vétéran de la trinité bleue. Électrifie le sol et disperse les groupes à l'impulsion.</p>"
+    },
+    {
+      "id": "NPC-10",
+      "name": "Loup - Familier",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Loup - Familier.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Loup - Familier.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 20
+      },
+      "mental": {
+        "rage": 70,
+        "surprise": 40,
+        "peur": 50,
+        "mental": 60,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Cri de meute",
+          "description": "<p>Jusqu'à la fin de votre prochain tour, les alliés dans la zone et vous même réduisent de moitié les dommages de la prochaine attaque subie.</p>",
+          "img": "systems/aurore/assets/icons/wolf-howl.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 3,
+          "aoePattern": "...a.....aaa...aaaaa.aaanaaa.aaaaa...aaa.....a..."
+        },
+        {
+          "name": "Attaque au sang",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Saignement : Infligez +1d6 dommages bonus uniquement si la cible n'a pas de PP.</p>",
+          "img": "systems/aurore/assets/icons/bleeding-wound.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Crocs perforant",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Perforation : Infligez +1d6 dommages bonus uniquement si la cible a des PP.</p>",
+          "img": "systems/aurore/assets/icons/fangs.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        }
+      ],
+      "passif": "<p>Tous les alliés à portée des cases de déplacement du loup ont +5% à leur jets lors d'actions hostiles.</p>",
+      "biography": "<p>Familier canin qui chasse en meute et couvre les alliés autour de lui.</p>"
+    },
+    {
+      "id": "NPC-11",
+      "name": "Serpent - Familier",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Serpent - Familier.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Serpent - Familier.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 15
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 70,
+        "peur": 50,
+        "mental": 60,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "Crachat de venin",
+          "description": "<p>Diffuse un gaz toxique autour de votre position actuelle. Vous êtes immunisé à ce gaz. Toutes les cibles rentrant en contact de ce gaz ont un malus à leur prochain jet de -40% et reçoivent 7 dommages directement aux PV. La zone reste jusqu'à la fin de votre prochain tour avant de se dissiper.</p>",
+          "img": "systems/aurore/assets/icons/poison-gas.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 7,
+          "range": 0,
+          "aoeSize": 2,
+          "aoePattern": "eeeeeeeeeeeeneeeeeeeeeeee"
+        },
+        {
+          "name": "Etreinte mortelle",
+          "description": "<p>Inflige 8 dommages à la cible.<br>Isolement : Double les dommages si la cible touché est à plus de 4 cases de son plus proche allié.</p>",
+          "img": "systems/aurore/assets/icons/snake-spiral.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 8,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Allonge",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Impact : Après avoir réussi le coup vous pouvez repousser la cible de 2 cases.</p>",
+          "img": "systems/aurore/assets/icons/snake-tongue.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 9,
+          "range": 3,
+          "aoeSize": 3,
+          "aoePattern": "...m......m......m...mmmnmme...m......m......m..."
+        }
+      ],
+      "passif": "<p>Impose un malus de -10% à tous les jets des attaques visant la créature.</p>",
+      "biography": "<p>Familier reptilien difficile à toucher, qui empoisonne puis étrangle les isolés.</p>"
+    },
+    {
+      "id": "NPC-12",
+      "name": "Aigle - Familier",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Aigle - Familier.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Aigle - Familier.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 10
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 50,
+        "peur": 70,
+        "mental": 60,
+        "cm": 7
+      },
+      "equipment": [
+        {
+          "name": "Inspiration de l'aigle",
+          "description": "<p>Redonnez 8 PP à vous même et aux alliés à portée ainsi qu'un bonus de +15% au prochain jet.</p>",
+          "img": "systems/aurore/assets/icons/eagle-emblem.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 3,
+          "aoePattern": "...a.....aaa...aaaaa.aaanaaa.aaaaa...aaa.....a..."
+        },
+        {
+          "name": "Attaque en pic",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/eagle-head.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "....ne..."
+        },
+        {
+          "name": "Bourrasque",
+          "description": "<p>Inflige 7 dommages aux cibles.<br>Impact : Après avoir réussi le coup vous pouvez repousser la cible de 2 cases.</p>",
+          "img": "systems/aurore/assets/icons/wind-slap.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 7,
+          "range": 4,
+          "aoeSize": 4,
+          "aoePattern": "................................eeee....neeee.....eeee..........................."
+        }
+      ],
+      "passif": "<p>La créature peut utiliser ses actions de déplacement pour s'envoler à raison de 1 CM = 1 Mètre de hauteur.<br>Deux attaques consécutives reçues en vol fait chuter la créature.</p>",
+      "biography": "<p>Familier ailé qui soutient le groupe depuis les airs et fond sur les cibles isolées.</p>"
+    },
+    {
+      "id": "NPC-13",
+      "name": "Vive-gueule",
+      "kind": "monster",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Vive-gueule.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Vive-gueule.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 60,
+        "surprise": 40,
+        "peur": 50,
+        "mental": 50,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "Attaque au sang",
+          "description": "<p>Inflige 6 dommages à la cible.<br>Saignement : Infligez +1d6 dommages bonus uniquement si la cible n'a pas de PP.</p>",
+          "img": "systems/aurore/assets/icons/bleeding-wound.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 6,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Crocs perforant",
+          "description": "<p>Inflige 6 dommages à la cible.<br>Perforation : Infligez +1d6 dommages bonus uniquement si la cible a des PP.</p>",
+          "img": "systems/aurore/assets/icons/fangs.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 6,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        }
+      ],
+      "passif": "<p>Augmente de +1 les dommages des attaques par le nombre d'autres vive-gueules au contact de la cible.</p>",
+      "biography": "<p>Charognard de meute, dangereux surtout en nombre.</p>"
+    },
+    {
+      "id": "NPC-14",
+      "name": "Vive-gueule Alpha",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Vive-gueule Alpha.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Vive-gueule Alpha.webp",
+      "resources": {
+        "pv": 50,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 70,
+        "surprise": 40,
+        "peur": 50,
+        "mental": 60,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "Cri de meute",
+          "description": "<p>Jusqu'à la fin de votre prochain tour, les alliés dans la zone et vous même réduisent de moitié les dommages de la prochaine attaque subie.</p>",
+          "img": "systems/aurore/assets/icons/wolf-howl.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 3,
+          "aoePattern": "...a.....aaa...aaaaa.aaanaaa.aaaaa...aaa.....a..."
+        },
+        {
+          "name": "Attaque au sang",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Saignement : Infligez +1d6 dommages bonus uniquement si la cible n'a pas de PP.</p>",
+          "img": "systems/aurore/assets/icons/bleeding-wound.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Crocs perforant",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Perforation : Infligez +1d6 dommages bonus uniquement si la cible a des PP.</p>",
+          "img": "systems/aurore/assets/icons/fangs.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        }
+      ],
+      "passif": "<p>Lorsqu'un Alpha est présent, toutes les autres vive-gueules reçoivent un bonus à leur jet de +10%.</p>",
+      "biography": "<p>Meneur de meute. Sa seule présence rend les vive-gueules bien plus dangereuses.</p>"
+    },
+    {
+      "id": "NPC-15",
+      "name": "Golem de geule",
+      "kind": "monster",
+      "niveau": 6,
+      "size": 2,
+      "img": "systems/aurore/assets/npcs/Golem de geule.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Golem de geule.webp",
+      "resources": {
+        "pv": 160,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 70,
+        "surprise": 40,
+        "peur": 50,
+        "mental": 70,
+        "cm": 4
+      },
+      "equipment": [
+        {
+          "name": "Frappe titanesque",
+          "description": "<p>Statique : Contre un malus de -10% au jet frappez le sol, infligez 16 dommages aux cible et également un malus de -30% à leur prochain jet.</p>",
+          "img": "systems/aurore/assets/icons/quake-stomp.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 16,
+          "range": 1,
+          "aoeSize": 3,
+          "aoePattern": "............e......e....nne....nne......e......e."
+        },
+        {
+          "name": "Projection de geules",
+          "description": "<p>Infligez 16 dommages aux cibles autour de vous.</p>",
+          "img": "systems/aurore/assets/icons/acid-blob.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 16,
+          "range": 0,
+          "aoeSize": 2,
+          "aoePattern": "......eeee.enne.enne.eeee"
+        },
+        {
+          "name": "Charge",
+          "description": "<p>Vous vous propulsez en ligne droite en ne tenant pas compte des obstacles et en vous libérant des immobilisations.<br>Infligez 10 dommages à toutes les cibles sur votre passage.<br>Vous pouvez stopper votre course à l'endroit que vous souhaitez. Si la case est occupée par un ennemi, celui-ci est repoussé de 2 cases.</p>",
+          "img": "systems/aurore/assets/icons/charging-bull.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 10,
+          "range": 7,
+          "aoeSize": 9,
+          "aoePattern": "....................................................................................................................................................................................nneeeeeenn.........nneeeeeenn........................................................................................................................................................"
+        },
+        {
+          "name": "Festin",
+          "description": "<p>Dévorez une ville-gueule situé sur une case adjacente.<br>Regagnez 30 PV et 1 PA.</p>",
+          "img": "systems/aurore/assets/icons/meal.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": 1,
+          "aoeSize": 2,
+          "aoePattern": "............nne..nne....."
+        }
+      ],
+      "passif": "<p>Si des vives-gueules sont présentes sur le terrain et en vie, le golem a +1 PA lors de ses tours.</p>",
+      "biography": "<p>Masse de vive-gueules agglomérées. Encaisse énormément et se nourrit des siennes.</p>"
+    },
+    {
+      "id": "NPC-16",
+      "name": "Sombre-ailes",
+      "kind": "monster",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Sombre-ailes.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Sombre-ailes.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 50,
+        "peur": 60,
+        "mental": 50,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "Plumes tranchante",
+          "description": "<p>Inflige 6 dommages à la cible.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/feather-wound.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 6,
+          "range": 5,
+          "aoeSize": 1,
+          "aoePattern": "....ne..."
+        },
+        {
+          "name": "Cri strident",
+          "description": "<p>Générez une impulsion sonique, les cibles dans la zone reçoivent un malus de -40% à leur prochain jet et sont repoussées de 4 cases. Les cibles invisibles sont révélées.</p>",
+          "img": "systems/aurore/assets/icons/sonic-screech.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": 4,
+          "aoeSize": 4,
+          "aoePattern": "................................eeee....neeee.....eeee..........................."
+        }
+      ],
+      "passif": "<p>La créature peut utiliser ses actions de déplacement pour s'envoler à raison de 1 CM = 1 Mètre de hauteur.<br>Toutes attaques reçu en vol fait chuter la créature.</p>",
+      "biography": "<p>Volatile hostile qui harcèle de loin et disperse les groupes au cri.</p>"
+    },
+    {
+      "id": "NPC-17",
+      "name": "Columortis",
+      "kind": "monster",
+      "niveau": 2,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Columortis.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Columortis.webp",
+      "resources": {
+        "pv": 40,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 50,
+        "peur": 70,
+        "mental": 60,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "Tornade",
+          "description": "<p>Inflige 10 dommages aux cibles.<br>Impact : Après avoir réussi le coup vous pouvez repousser la cible de 3 cases.</p>",
+          "img": "systems/aurore/assets/icons/tornado.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 10,
+          "range": 5,
+          "aoeSize": 5,
+          "aoePattern": "..................................................eeeee.....neeeee......eeeee............................................"
+        },
+        {
+          "name": "Vent favorable",
+          "description": "<p>Régénère 7 PP à la cible.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/healing-shield.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 7,
+          "range": 5,
+          "aoeSize": 1,
+          "aoePattern": "....na..."
+        },
+        {
+          "name": "Cri strident",
+          "description": "<p>Générez une impulsion sonique, les cibles dans la zone reçoivent un malus de -40% à leur prochain jet et sont repoussées de 4 cases. Les cibles invisibles sont révélées.</p>",
+          "img": "systems/aurore/assets/icons/sonic-screech.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": 4,
+          "aoeSize": 4,
+          "aoePattern": "................................eeee....neeee.....eeee..........................."
+        }
+      ],
+      "passif": "<p>La créature peut utiliser ses actions de déplacement pour s'envoler à raison de 1 CM = 1 Mètre de hauteur.<br>Deux attaques consécutives reçues en vol fait chuter la créature.</p>",
+      "biography": "<p>Volatile de plus grande envergure, capable de soigner ses congénères en vol.</p>"
+    },
+    {
+      "id": "NPC-18",
+      "name": "Augure",
+      "kind": "monster",
+      "niveau": 4,
+      "size": 2,
+      "img": "systems/aurore/assets/npcs/Augure.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Augure.webp",
+      "resources": {
+        "pv": 120,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 50,
+        "peur": 70,
+        "mental": 70,
+        "cm": 4
+      },
+      "equipment": [
+        {
+          "name": "Plumes lame",
+          "description": "<p>Inflige 16 dommages aux cibles.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/feather-wound.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 16,
+          "range": 1,
+          "aoeSize": 2,
+          "aoePattern": "............nne..nne....."
+        },
+        {
+          "name": "Mur de vent",
+          "description": "<p>Créez un mur de vert de 3 mètres de hauteur qui bloque les tirs ennemis et leurs déplacements mais pas ceux de vos alliés.<br>Le mur disparaît au début de votre prochain tour.</p>",
+          "img": "systems/aurore/assets/icons/wind-hole.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": 4,
+          "aoeSize": 4,
+          "aoePattern": "..........................s........s....nnmms....nnmms........s........s........."
+        },
+        {
+          "name": "Battement d'ailes",
+          "description": "<p>Inflige 12 dommages aux cibles.<br>Impact : Après avoir réussi le coup vous pouvez repousser la cible de 3 cases.</p>",
+          "img": "systems/aurore/assets/icons/spiky-wing.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 12,
+          "range": 6,
+          "aoeSize": 6,
+          "aoePattern": ".........................................................................eeeee......nneeeee......nneeeee........eeeee...................................................."
+        },
+        {
+          "name": "Coup de bec",
+          "description": "<p>Inflige 8 dommages aux cibles.<br>Pulse : Si votre attaque touche une cible qui a subi : repoussement/ immobilisation/ statique ce tour infligez +9 dommages à la cible.</p>",
+          "img": "systems/aurore/assets/icons/bird-mask.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 8,
+          "range": 4,
+          "aoeSize": 4,
+          "aoePattern": ".................................eee....nneee....nneee......eee.................."
+        }
+      ],
+      "passif": "<p>La créature peut utiliser ses actions de déplacement pour s'envoler à raison de 1 CM = 1 Mètre de hauteur.<br>Trois attaques consécutives reçues en vol fait chuter la créature.</p>",
+      "biography": "<p>Grand rapace gravitique. Contrôle le ciel et coupe le terrain d'un mur de vent.</p>"
+    },
+    {
+      "id": "NPC-19",
+      "name": "Scor",
+      "kind": "monster",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Scor.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Scor.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 60,
+        "peur": 50,
+        "mental": 50,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Saut Puissant",
+          "description": "<p>Inflige 5 dommages à la cible.<br>Pulse : Si votre attaque touche une cible qui a subi : repoussement/ immobilisation/ statique ce tour infligez +5 dommages à la cible.</p>",
+          "img": "systems/aurore/assets/icons/jump-across.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 5,
+          "range": 3,
+          "aoeSize": 3,
+          "aoePattern": "...m......m......m...mmmnmme...m......m......m..."
+        },
+        {
+          "name": "Frappe Visqueuse",
+          "description": "<p>Inflige 6 dommages.<br>Immobilisation : Si l'attaque touche une cible elle est immobilisée jusqu'à la fin de son prochain tour.</p>",
+          "img": "systems/aurore/assets/icons/sticky-boot.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 6,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        }
+      ],
+      "passif": "<p>Impose un malus de -10% à tous les jets des attaques visant la créature.</p>",
+      "biography": "<p>Petit prédateur bondissant, gênant à immobiliser.</p>"
+    },
+    {
+      "id": "NPC-20",
+      "name": "Rana",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Rana.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Rana.webp",
+      "resources": {
+        "pv": 50,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 70,
+        "peur": 60,
+        "mental": 60,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Frappe multiple",
+          "description": "<p>Inflige 9 dommages.<br>Enchainement : Si vous continuez d'attaquer la cible infligez +1d6 dommages bonus lors des prochaines attaques. Le bonus disparaît si vous bougez.</p>",
+          "img": "systems/aurore/assets/icons/punch-blast.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Lance pierre",
+          "description": "<p>Inflige 15 dommages à la cible.<br>Tir en cloche : Vous pouvez tirer au dessus des obstacles ou alliés.</p>",
+          "img": "systems/aurore/assets/icons/thrown-spear.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 15,
+          "range": null,
+          "aoeSize": 1,
+          "aoePattern": "....ne..."
+        },
+        {
+          "name": "Proie",
+          "description": "<p>Marquez une cible dans votre champ de vision. Jusqu'à la fin de votre prochain tour elle ne peut se rendre invisible, toutes les actions alliés à son encontre ont un bonus de +3 aux dommages et +10% au jet.</p>",
+          "img": "systems/aurore/assets/icons/target-prize.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 0,
+          "range": null,
+          "aoeSize": 0,
+          "aoePattern": ""
+        }
+      ],
+      "passif": "<p>Impose un malus de -10% à tous les jets des attaques visant la créature.</p>",
+      "biography": "<p>Batracien gravitique. Désigne une proie puis l'accable de coups répétés.</p>"
+    },
+    {
+      "id": "NPC-21",
+      "name": "Aranéa",
+      "kind": "monster",
+      "niveau": 6,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Aranéa.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Aranéa.webp",
+      "resources": {
+        "pv": 90,
+        "pa": 2,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 50,
+        "peur": 50,
+        "mental": 80,
+        "cm": 8
+      },
+      "equipment": [
+        {
+          "name": "Drain Boréale",
+          "description": "<p>Absorbez 1 P.A d'une cible dans votre champ de vision. Vous pouvez tentez d'utiliser ce pouvoir qu'une seule fois par tour.</p>",
+          "img": "systems/aurore/assets/icons/life-tap.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": null,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Toile projeté",
+          "description": "<p>Choisissez une case vide à portée de déplacement. Celle-ci sera piégée pendant le tour ennemi, infligeant 8 dommages et immobilisant la cible passant dessus.</p>",
+          "img": "systems/aurore/assets/icons/spider-web.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 8,
+          "range": null,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Acide",
+          "description": "<p>Inflige 10 dommages à la cible.<br>Pulse : Si votre attaque touche une cible qui a subi repoussement/ immobilisation/ statique ce tour, infligez +1d6 dommages bonus à la cible.<br>Tir en cloche possible contre un malus de -15%.</p>",
+          "img": "systems/aurore/assets/icons/acid.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 10,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": ".m.mne.m."
+        },
+        {
+          "name": "Stupeur",
+          "description": "<p>Étourdit la cible, elle ne peut agir lors du prochain tour.<br>-50% au jet si vous l'utilisez sur la même cible au tour suivant.</p>",
+          "img": "systems/aurore/assets/icons/stun-grenade.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 0,
+          "range": 3,
+          "aoeSize": 3,
+          "aoePattern": "...m.....mmm...mmmmm.mmmnmme.mmmmm...mmm.....m..."
+        }
+      ],
+      "passif": "<p>Impose un malus de -10% à tous les jets des attaques visant la créature.<br>Ne peut pas être immobilisé.</p>",
+      "biography": "<p>Arachnide gravitique embusquée. Piège le terrain, draine ses proies et se replie.</p>"
+    },
+    {
+      "id": "NPC-22",
+      "name": "Noctis",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Noctis.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Noctis.webp",
+      "resources": {
+        "pv": 1,
+        "pa": 2,
+        "pp": 50
+      },
+      "mental": {
+        "rage": 40,
+        "surprise": 50,
+        "peur": 70,
+        "mental": 80,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Manteau Boréale",
+          "description": "<p>Devenez invisible jusqu'à la fin de votre prochain tour ou jusqu'à l'utilisation d'une action. Pour chaque ennemi regardant dans votre direction vous avez un malus de -10% à ce jet.<br>La première action hostile réalisée en étant invisible a un bonus au jet de +20%.</p>",
+          "img": "systems/aurore/assets/icons/invisible.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Explosion Boréale",
+          "description": "<p>Générez une explosion émotionnelle à partir d'une cible dans le coma dans votre champ de vision.<br>Infligez le montant maximal de PV de la cible dans la zone. Ne peut s'utiliser qu'une fois par cible.</p>",
+          "img": "systems/aurore/assets/icons/bright-explosion.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": null,
+          "aoeSize": 2,
+          "aoePattern": "eeeeeeeeeeee.eeeeeeeeeeee"
+        },
+        {
+          "name": "Don de l'Aurore",
+          "description": "<p>Vous invoquez une créature aléatoire du bestiaire borélien dans la limite de 5 cases visibles devant vous. Cette créature pourra être d'un niveau égale ou inférieur à celui de votre personnage. Le monstre n'est pas votre allié et s'attaque à tout ce qui l'entoure. Une créature invoqué à la fois.</p>",
+          "img": "systems/aurore/assets/icons/magic-portal.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": 5,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Chaîne Boréale",
+          "description": "<p>Liez vous à une cible dans votre champ de vision, tous les dommages que vous recevez sont partagés avec la cible.<br>Le lien se rompt si la cible réussit un jet de mental au début d'un de ses tours contre 1 PA.</p>",
+          "img": "systems/aurore/assets/icons/chain-lightning.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": null,
+          "aoeSize": 0,
+          "aoePattern": ""
+        }
+      ],
+      "passif": "<p>Divise par 2 tous les dommages reçus sauf ceux infligés par la navigation.<br>En cas de chasse d'auromancien le niveau et la dizaine des PV et PP de la créature sont égaux au niveau de l'auromancien du groupe que le noctis traque.</p>",
+      "biography": "<p>Traqueur boréal. Invisible, il lie sa proie à lui et la vide de sa substance.</p>"
+    },
+    {
+      "id": "NPC-23",
+      "name": "Rémanent",
+      "kind": "monster",
+      "niveau": 5,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/Rémanent.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Rémanent.webp",
+      "resources": {
+        "pv": 1,
+        "pa": 2,
+        "pp": 70
+      },
+      "mental": {
+        "rage": 70,
+        "surprise": 70,
+        "peur": 70,
+        "mental": 70,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Forme Boréale",
+          "description": "<p>Une fois par combat en utilisant 2 PA, transformez vous en une créature aléatoire du bestiaire borélien de votre niveau ou inférieur.<br>Si les PV de la créature tombent à 0 vous quittez la transformation et tombez dans le coma à 0 PV.<br>Vous perdez 2D6 points de mental au début de chaque tour transformé.</p>",
+          "img": "systems/aurore/assets/icons/chameleon-glyph.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Souvenir solaire",
+          "description": "<p>Utilisez un pouvoir navigant de l'école solaire de votre choix.</p>",
+          "img": "systems/aurore/assets/icons/sun-radiations.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Souvenir jolien",
+          "description": "<p>Utilisez un pouvoir navigant de l'école jolienne de votre choix.</p>",
+          "img": "systems/aurore/assets/icons/wind-slap.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Souvenir tellurique",
+          "description": "<p>Utilisez un pouvoir navigant de l'école tellurique de votre choix.</p>",
+          "img": "systems/aurore/assets/icons/stone-sphere.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 0,
+          "aoePattern": ""
+        }
+      ],
+      "passif": "<p>Divise par 2 tous les dommages reçus sauf ceux infligés par la navigation.</p>",
+      "biography": "<p>Écho boréal instable. Emprunte la forme des créatures et les pouvoirs des trois écoles.</p>"
+    },
+    {
+      "id": "NPC-24",
+      "name": "Velue",
+      "kind": "monster",
+      "niveau": 8,
+      "size": 2,
+      "img": "systems/aurore/assets/npcs/Velue.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Velue.webp",
+      "resources": {
+        "pv": 220,
+        "pa": 3,
+        "pp": 0
+      },
+      "mental": {
+        "rage": 80,
+        "surprise": 80,
+        "peur": 80,
+        "mental": 80,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Projection de gaz",
+          "description": "<p>Diffuse un gaz toxique autour de votre position actuelle. Vous êtes immunisé à ce gaz. Toutes les cibles rentrant en contact de ce gaz ont un malus à leur prochain jet de -40% et reçoivent 12 dommages directement aux PV. La zone reste jusqu'à la fin de votre prochain tour avant de se dissiper.</p>",
+          "img": "systems/aurore/assets/icons/poison-gas.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 12,
+          "range": 0,
+          "aoeSize": 2,
+          "aoePattern": "......eeee.enne.enne.eeee"
+        },
+        {
+          "name": "Rafale de pics",
+          "description": "<p>Inflige 18 dommages aux cibles.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/spiky-field.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 18,
+          "range": 1,
+          "aoeSize": 3,
+          "aoePattern": "............e......e....nne....nne......e......e."
+        },
+        {
+          "name": "Roulade",
+          "description": "<p>Vous vous propulsez en ligne droite en ne tenant pas compte des obstacles et en vous libérant des immobilisations.<br>Infligez 18 dommages à toutes les cibles sur votre passage.<br>Vous pouvez stopper votre course à l'endroit que vous souhaitez. Si la case est occupée par un ennemi, celui-ci est repoussé de 2 cases.</p>",
+          "img": "systems/aurore/assets/icons/rolling-energy.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 18,
+          "range": 7,
+          "aoeSize": 9,
+          "aoePattern": "....................................................................................................................................................................................nneeeeeenn.........nneeeeeenn........................................................................................................................................................"
+        },
+        {
+          "name": "Manteau Boréale",
+          "description": "<p>Devenez invisible jusqu'à la fin de votre prochain tour ou jusqu'à l'utilisation d'une action. La première action hostile réalisée en étant invisible a un bonus au jet de +20%.</p>",
+          "img": "systems/aurore/assets/icons/invisible.svg",
+          "category": "boreale",
+          "trinity": "",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 0,
+          "aoePattern": ""
+        }
+      ],
+      "passif": "<p>Chaque attaque touchant les PV du monstre, provoque une projection d'acide infligeant le montant de dégâts reçu aux cases adjacentes à la créature.</p>",
+      "biography": "<p>Colosse acide du bestiaire borélien. Tout ce qui la frappe se fait asperger en retour.</p>"
+    },
+    {
+      "id": "NPC-25",
+      "name": "WM-68",
+      "kind": "monster",
+      "niveau": 1,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/WM-68.webp",
+      "portraitImage": "systems/aurore/assets/npcs/WM-68.webp",
+      "resources": {
+        "pv": 5,
+        "pa": 2,
+        "pp": 20
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 70,
+        "peur": 40,
+        "mental": 0,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "E.M.P",
+          "description": "<p>Déclenchez une décharge magnétique qui supprime les PP des cibles présentent dans la zone.</p>",
+          "img": "systems/aurore/assets/icons/electrical-crescent.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 3,
+          "aoePattern": "...e.....eee...eeeee.eeeneee.eeeee...eee.....e..."
+        },
+        {
+          "name": "Piqûre",
+          "description": "<p>Inflige 6 dommages.<br>Immobilisation : Si l'attaque touche une cible elle est immobilisée jusqu'à la fin de son prochain tour.</p>",
+          "img": "systems/aurore/assets/icons/scorpion-tail.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 6,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Focus",
+          "description": "<p>Choisissez une cible située dans votre champ de vision.<br>Jusqu'à la fin de votre prochain tour la cible ne peut plus recevoir aucun PP ou PV et ne peut plus bénéficier d'action de soutien de ses alliés.<br>Augmente votre chance de critique contre elle de +15%.</p>",
+          "img": "systems/aurore/assets/icons/targeting.svg",
+          "category": "attack",
+          "trinity": "green",
+          "damage": 0,
+          "range": null,
+          "aoeSize": 0,
+          "aoePattern": ""
+        }
+      ],
+      "passif": "<p>Lorsque l'unité arrive à 0 PV elle provoque une explosion infligeant 5 dommages à toutes les cases adjacentes.</p>",
+      "biography": "<p>Drone de guerre léger. Coupe les boucliers adverses avant de se faire sauter.</p>"
+    },
+    {
+      "id": "NPC-26",
+      "name": "WM-66",
+      "kind": "monster",
+      "niveau": 2,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/WM-66.webp",
+      "portraitImage": "systems/aurore/assets/npcs/WM-66.webp",
+      "resources": {
+        "pv": 10,
+        "pa": 2,
+        "pp": 30
+      },
+      "mental": {
+        "rage": 70,
+        "surprise": 60,
+        "peur": 50,
+        "mental": 0,
+        "cm": 6
+      },
+      "equipment": [
+        {
+          "name": "Mâchoire mécanique",
+          "description": "<p>Inflige 7 dommages à la cible.<br>Charge : +1 aux dommages pour chaque cases parcourues lors de ce tour (le montant de dommages supplémentaire ne peut pas dépasser les dommages de l'arme).</p>",
+          "img": "systems/aurore/assets/icons/steel-claws.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 7,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Cage",
+          "description": "<p>Jusqu'à la fin de votre prochain tour tous les ennemis situés dans la zone sont immobilisés.</p>",
+          "img": "systems/aurore/assets/icons/cage.svg",
+          "category": "attack",
+          "trinity": "red",
+          "damage": 0,
+          "range": 0,
+          "aoeSize": 2,
+          "aoePattern": "eeeeeeeeeeeeneeeeeeeeeeee"
+        }
+      ],
+      "passif": "<p>Lorsque l'unité arrive à 0 PV elle provoque une explosion infligeant 10 dommages à toutes les cases adjacentes.</p>",
+      "biography": "<p>Drone de guerre médian. Verrouille une zone entière puis mord ce qui s'y trouve.</p>"
+    },
+    {
+      "id": "NPC-27",
+      "name": "WM-67",
+      "kind": "monster",
+      "niveau": 3,
+      "size": 1,
+      "img": "systems/aurore/assets/npcs/WM-67.webp",
+      "portraitImage": "systems/aurore/assets/npcs/WM-67.webp",
+      "resources": {
+        "pv": 15,
+        "pa": 2,
+        "pp": 40
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 40,
+        "peur": 70,
+        "mental": 0,
+        "cm": 5
+      },
+      "equipment": [
+        {
+          "name": "Proté-bot",
+          "description": "<p>Déploie un bot défensif qui va protéger un allié situé dans votre champ de vision, lui ajoutant 18 PP BONUS.</p>",
+          "img": "systems/aurore/assets/icons/round-shield.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": null,
+          "aoeSize": 0,
+          "aoePattern": ""
+        },
+        {
+          "name": "Broyage",
+          "description": "<p>Inflige 9 dommages à la cible.<br>Absorption : Si la cible a des PP absorbez les dans la limite de votre seuil d'armure.</p>",
+          "img": "systems/aurore/assets/icons/monster-grasp.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 9,
+          "range": 1,
+          "aoeSize": 1,
+          "aoePattern": "mmmmnemmm"
+        },
+        {
+          "name": "Machine Gun",
+          "description": "<p>Inflige 10 dommages aux cibles.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/spectre-m4.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 10,
+          "range": 3,
+          "aoeSize": 3,
+          "aoePattern": "..................eee...neee....eee.............."
+        }
+      ],
+      "passif": "<p>Lorsque l'unité arrive à 0 PV elle provoque une explosion infligeant 15 dommages à toutes les cases adjacentes.</p>",
+      "biography": "<p>Drone de guerre lourd. Protège une cible alliée tout en arrosant la zone.</p>"
+    },
+    {
+      "id": "NPC-28",
+      "name": "Sentinelle MK-21",
+      "kind": "monster",
+      "niveau": 6,
+      "size": 2,
+      "img": "systems/aurore/assets/npcs/Sentinelle MK-21.webp",
+      "portraitImage": "systems/aurore/assets/npcs/Sentinelle MK-21.webp",
+      "resources": {
+        "pv": 30,
+        "pa": 2,
+        "pp": 140
+      },
+      "mental": {
+        "rage": 50,
+        "surprise": 40,
+        "peur": 80,
+        "mental": 0,
+        "cm": 4
+      },
+      "equipment": [
+        {
+          "name": "Protection",
+          "description": "<p>Créez un mur balistique de 3 mètres de hauteur qui bloque les tirs ennemis et leurs déplacements mais pas ceux de vos alliés.<br>Le mur disparaît au début de votre prochain tour.</p>",
+          "img": "systems/aurore/assets/icons/bolt-shield.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 0,
+          "range": 4,
+          "aoeSize": 4,
+          "aoePattern": "..........................s........s....nnmms....nnmms........s........s........."
+        },
+        {
+          "name": "Mortier",
+          "description": "<p>Vous pouvez tirer sur toutes cibles situées sur une des 5 rangées de cases devant vous avec un tir en cloche, inutilisable au corps à corps.<br>Les tirs infligent 16 dommages aux cible dans la zone.</p>",
+          "img": "systems/aurore/assets/icons/mortar.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 16,
+          "range": null,
+          "aoeSize": 1,
+          "aoePattern": "eeeeeeeee"
+        },
+        {
+          "name": "Double canons",
+          "description": "<p>Inflige 18 dommages aux cibles.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+          "img": "systems/aurore/assets/icons/sawed-off-shotgun.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 18,
+          "range": 8,
+          "aoeSize": 8,
+          "aoePattern": "................................................................................................................................................nnmmmmmme........nnmmmmmme......................................................................................................................."
+        },
+        {
+          "name": "Tourelles",
+          "description": "<p>Déployez une tourelle devant vous et orientez là dans la direction de votre choix.<br>Au début de vos tours celle-ci tir automatiquement une rafale de projectiles infligeant 16 dommages aux cibles.<br>Les tourelles ont 21 PV.</p>",
+          "img": "systems/aurore/assets/icons/steyr-aug.svg",
+          "category": "attack",
+          "trinity": "blue",
+          "damage": 16,
+          "range": 6,
+          "aoeSize": 6,
+          "aoePattern": "....................................................................................seeeeee.............................................................................."
+        }
+      ],
+      "passif": "<p>Lorsque l'unité arrive à 0 PV elle provoque une explosion infligeant 30 dommages à toutes les cases adjacentes.</p>",
+      "biography": "<p>Plateforme d'artillerie autonome. Se retranche derrière un mur et sature le terrain.</p>"
+    }
+  ]
+}

@@ -19,6 +19,12 @@
           <input type="number" name="system.niveau" value="{{system.niveau}}" min="1">
         </label>
         <span class="meta-sep">·</span>
+        <label class="meta-field">
+          <span class="meta-label">{{localize "AURORE.Npc.size"}}</span>
+          <input type="number" name="system.size" value="{{system.size}}" min="1" step="1"
+                 title="{{localize 'AURORE.Npc.sizeHint'}}">
+        </label>
+        <span class="meta-sep">·</span>
         <span class="trinity-badge trinity-{{trinityDominant}}">{{trinityDominantLabel}}</span>
       </div>
     </div>
@@ -114,7 +120,8 @@
       </div>
     </section>
 
-    {{!-- Equipment slots --}}
+    {{!-- Equipment slots — human NPCs equip from the compendiums --}}
+    {{#unless isMonster}}
     <section class="section equipment-section">
       <h3 class="section-label">{{localize "AURORE.Sections.equipment"}}</h3>
       <div class="equipment-grid">
@@ -211,6 +218,49 @@
 
       </div>
     </section>
+    {{/unless}}
+
+    {{!-- Inline equipment — monster NPCs carry their own gear (max 4) --}}
+    {{#if isMonster}}
+    <section class="section equipment-section monster-equipment">
+      <h3 class="section-label">{{localize "AURORE.Npc.equipment"}}</h3>
+      {{#if monsterEquipment.length}}
+        <ul class="monster-equip-list">
+          {{#each monsterEquipment}}
+            <li class="monster-equip {{#if isBoreale}}is-boreale{{else}}trinity-{{trinity}}{{/if}}"
+                data-equip-index="{{index}}">
+              <div class="monster-equip-head">
+                {{#if img}}<img src="{{img}}" class="item-icon" alt="">{{/if}}
+                <span class="item-name">{{name}}</span>
+                <span class="item-tag {{#if isBoreale}}is-boreale{{else}}trinity-{{trinity}}{{/if}}">
+                  {{#if isBoreale}}{{localize "AURORE.Npc.equipmentCategory.boreale"}}{{else}}{{trinity}}{{/if}}
+                </span>
+                {{#if damage}}<span class="item-stat">{{damage}} dmg</span>{{/if}}
+                <span class="item-stat">{{localize "AURORE.Weapon.range"}} {{range}}</span>
+                {{#if hasAoe}}
+                  <a class="slot-aoe" data-action="showEquipmentAoe" data-equip-index="{{index}}"
+                     title="{{localize 'AURORE.Aoe.show'}}"><i class="fas fa-bullseye"></i></a>
+                {{/if}}
+              </div>
+              {{#if description}}
+                <div class="monster-equip-desc">{{{description}}}</div>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Npc.equipmentEmpty"}}</p>
+      {{/if}}
+    </section>
+    {{/if}}
+
+    {{!-- Passive trait --}}
+    {{#if system.passif}}
+    <section class="section passif-section">
+      <h3 class="section-label">{{localize "AURORE.Npc.passif"}}</h3>
+      <div class="passif-content">{{{system.passif}}}</div>
+    </section>
+    {{/if}}
 
   </div>{{!-- /tab combat --}}
 

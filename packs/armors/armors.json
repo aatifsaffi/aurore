@@ -43,8 +43,8 @@
       "trinity": "red",
       "ppBonus": 20,
       "cmModifier": -1,
-      "aoeSize": 1,
-      "aoePattern": "eeeeneeee",
+      "aoeSize": 2,
+      "aoePattern": "mmmmmmeeemmenemmeeemmmmmm",
       "highlightColor": "#ff332244",
       "img": "systems/aurore/assets/icons/armor-icon.svg"
     },
@@ -152,7 +152,7 @@
       "ppBonus": 16,
       "cmModifier": 0,
       "aoeSize": 6,
-      "aoePattern": "......n............n............n............n............n............n......nnnnnn.nnnnne......n............n............n............n............n............n......",
+      "aoePattern": "......m............m............m............m............m............m......mmmmmm.mmmmme......m............m............m............m............m............m......",
       "highlightColor": "#ff332244",
       "img": "systems/aurore/assets/icons/armor-icon.svg"
     },
@@ -212,7 +212,7 @@
       "ppBonus": 12,
       "cmModifier": 1,
       "aoeSize": 3,
-      "aoePattern": ".............s......s...nnns......s......s.......",
+      "aoePattern": ".............s......s...nmms......s......s.......",
       "highlightColor": "#ffcc0044",
       "img": "systems/aurore/assets/icons/armor-icon.svg"
     },

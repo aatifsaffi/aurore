@@ -27,6 +27,7 @@
   --accent:        #2471a3;   /* royal blue — PP / dossier headers      */
   --accent-hover:  #1a5580;   /* darker royal blue on hover             */
   --danger:        #b83025;
+  --thumb-bg:      #000000;   /* backing fill behind item thumbnails    */
   --radius:        4px;
   --radius-lg:     8px;
 
@@ -464,6 +465,7 @@
   object-fit: cover;
   border-radius: 2px;
   flex-shrink: 0;
+  background-color: var(--thumb-bg);
 }
 .aurore .slot-name {
   flex: 1;
@@ -798,11 +800,18 @@
 }
 .aurore .items-list .item:hover { background: var(--bg-hover); }
 
+/* Shared backing for any item thumbnail — black fill shows through
+   transparent icon art. Add `.item-thumb` to an <img> to opt in. */
+.aurore .item-thumb {
+  background-color: var(--thumb-bg);
+}
+
 .aurore .item-icon {
   width: 24px;
   height: 24px;
   object-fit: cover;
   border-radius: 2px;
+  background-color: var(--thumb-bg);
 }
 
 .aurore .item-name {
@@ -897,6 +906,7 @@
   border-radius: var(--radius);
   border: 1px solid var(--border-light);
   flex-shrink: 0;
+  background-color: var(--thumb-bg);
 }
 .aurore .race-info {
   display: flex;
@@ -1019,6 +1029,7 @@
   border: 2px solid var(--color-border-light-tertiary, #c9c7b8);
   flex-shrink: 0;
   transition: border-color 0.15s ease;
+  background-color: var(--thumb-bg, #000);
 }
 .equip-dialog-img.trinity-red   { border-color: var(--trinity-red); }
 .equip-dialog-img.trinity-green { border-color: var(--trinity-green); }
@@ -1149,6 +1160,7 @@
   cursor: pointer;
   flex-shrink: 0;
   transition: border-color 0.15s;
+  background-color: var(--thumb-bg);
 }
 .aurore .item-portrait:hover { border-color: var(--accent-hover); }
 
@@ -1280,22 +1292,25 @@
   border: 1px solid;
   flex-shrink: 0;
 }
-.aurore .aoe-legend-swatch[data-color="1"] { background: #c0392b99; border-color: #e74c3c; }
-.aurore .aoe-legend-swatch[data-color="2"] { background: #27ae6099; border-color: #2ecc71; }
-.aurore .aoe-legend-swatch[data-color="3"] { background: #2980b999; border-color: #3498db; }
-.aurore .aoe-legend-swatch[data-color="4"] { background: #f1c40f99; border-color: #f39c12; }
+.aurore .aoe-legend-swatch[data-color="1"] { background: #c0392b99; border-color: #ff6b5b; }
+.aurore .aoe-legend-swatch[data-color="2"] { background: #27ae6099; border-color: #5cff8f; }
+.aurore .aoe-legend-swatch[data-color="3"] { background: #2980b999; border-color: #5cc3ff; }
+.aurore .aoe-legend-swatch[data-color="4"] { background: #f1c40f99; border-color: #ffe680; }
+.aurore .aoe-legend-swatch[data-color="5"] { background: #80808099; border-color: #ffffff; }
 
-/* Colored cells — data-color: 1=red 2=green 3=blue 4=yellow */
-.aurore .aoe-grid-cell[data-color="1"] { background: #c0392b99; border-color: #e74c3c; }
-.aurore .aoe-grid-cell[data-color="2"] { background: #27ae6099; border-color: #2ecc71; }
-.aurore .aoe-grid-cell[data-color="3"] { background: #2980b999; border-color: #3498db; }
-.aurore .aoe-grid-cell[data-color="4"] { background: #f1c40f99; border-color: #f39c12; }
+/* Colored cells — data-color: 1=red 2=green 3=blue 4=yellow 5=gray */
+.aurore .aoe-grid-cell[data-color="1"] { background: #c0392b99; border-color: #ff6b5b; }
+.aurore .aoe-grid-cell[data-color="2"] { background: #27ae6099; border-color: #5cff8f; }
+.aurore .aoe-grid-cell[data-color="3"] { background: #2980b999; border-color: #5cc3ff; }
+.aurore .aoe-grid-cell[data-color="4"] { background: #f1c40f99; border-color: #ffe680; }
+.aurore .aoe-grid-cell[data-color="5"] { background: #80808099; border-color: #ffffff; }
 
 /* Hover on colored cells */
 .aurore .aoe-grid-cell:not(.is-center)[data-color="1"]:hover { background: #c0392bcc; }
 .aurore .aoe-grid-cell:not(.is-center)[data-color="2"]:hover { background: #27ae60cc; }
 .aurore .aoe-grid-cell:not(.is-center)[data-color="3"]:hover { background: #2980b9cc; }
 .aurore .aoe-grid-cell:not(.is-center)[data-color="4"]:hover { background: #f1c40fcc; }
+.aurore .aoe-grid-cell:not(.is-center)[data-color="5"]:hover { background: #808080cc; }
 
 /* ════════════════════════════════════════════════════════
    CHAT — Mental stat rolls
@@ -1322,4 +1337,113 @@
   background: rgba(220, 20, 60, 0.1);
   border-radius: 4px;
   padding: 8px 12px;
+}
+
+/* ════════════════════════════════════════════════════════
+   NPC — Monster inline equipment + passive
+   ════════════════════════════════════════════════════════ */
+.aurore .monster-equip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aurore .monster-equip {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--text-dim);
+  border-radius: var(--radius);
+  padding: 5px 8px;
+  background: var(--bg-hover);
+}
+.aurore .monster-equip.trinity-red   { border-left-color: var(--trinity-red);   }
+.aurore .monster-equip.trinity-green { border-left-color: var(--trinity-green); }
+.aurore .monster-equip.trinity-blue  { border-left-color: var(--trinity-blue);  }
+.aurore .monster-equip.is-boreale    { border-left-color: #7d3c98; }
+
+.aurore .monster-equip-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.aurore .monster-equip-head .item-name { flex: 1; }
+
+.aurore .item-tag.is-boreale { border-color: #7d3c98; color: #7d3c98; }
+
+.aurore .monster-equip-desc {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.aurore .monster-equip-desc p { margin: 2px 0; }
+
+.aurore .passif-section .passif-content {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+}
+.aurore .passif-section .passif-content p { margin: 2px 0; }
+
+/* ── Token framing dialog (token-stamp-config) ─────────────── */
+.aurore.aurore-token-stamp-config .stamp-config-grid {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 4px 2px 8px;
+}
+.aurore.aurore-token-stamp-config .preview-col {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.aurore.aurore-token-stamp-config canvas.preview {
+  width: 240px;
+  height: 240px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #666);
+  background:
+    repeating-conic-gradient(#0000000f 0% 25%, transparent 0% 50%) 50% / 22px 22px;
+}
+.aurore.aurore-token-stamp-config .preview-col .hint {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted, #999);
+  max-width: 240px;
+}
+.aurore.aurore-token-stamp-config .controls-col {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.aurore.aurore-token-stamp-config .slider-row .form-fields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.aurore.aurore-token-stamp-config .slider-row input[type="range"] { flex: 1; }
+.aurore.aurore-token-stamp-config .slider-row output {
+  min-width: 3.5ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted, #999);
+}
+.aurore.aurore-token-stamp-config .form-fields label.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.aurore.aurore-token-stamp-config .form-fields input[type="color"] {
+  width: 42px;
+  height: 26px;
+  padding: 0;
+}
+.aurore.aurore-token-stamp-config .form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }

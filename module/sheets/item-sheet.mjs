@@ -1,6 +1,11 @@
+import { AOE_PATTERN_LEGEND } from "../config.mjs";
+
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 const { TextEditor } = foundry.applications.ux;
+
+// Number of distinct cell states (off + one per AOE_PATTERN_LEGEND color) to cycle through.
+const AOE_CELL_STATE_COUNT = Object.keys(AOE_PATTERN_LEGEND).length;
 
 export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
@@ -71,7 +76,7 @@ export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   /**
    * Build the AoE grid context. Size = (2 × aoeSize + 1)².
-   * Cell color values: 0=off, 1=red, 2=green, 3=blue, 4=yellow.
+   * Cell color values: 0=off, 1=red, 2=green, 3=blue, 4=yellow, 5=gray (movement).
    * @param {Item} item
    * @returns {{ size: number, cells: Array<Array<object>> }}
    */
@@ -110,7 +115,7 @@ export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   /**
-   * Cycle a cell through: off → red → green → blue → yellow → off.
+   * Cycle a cell through: off → red → green → blue → yellow → gray → off.
    * @param {PointerEvent} event
    */
   async _onGridCellClick(event) {
@@ -131,7 +136,7 @@ export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     while (pattern.length < total) pattern.push(0);
 
     const idx = row * size + col;
-    pattern[idx] = (pattern[idx] + 1) % 5;
+    pattern[idx] = (pattern[idx] + 1) % AOE_CELL_STATE_COUNT;
 
     // Optimistic visual update
     cell.dataset.color = pattern[idx];

@@ -15,6 +15,12 @@ const PATTERN_COLORS = Object.values(AOE_PATTERN_LEGEND)
   .sort((a, b) => a.index - b.index)
   .map(def => def.color ? parseInt(def.color.slice(1), 16) : 0);
 
+// Same, but the outline color drawn around each cell so fills that are close in
+// tone to the canvas grid (e.g. movement's gray) still read as highlighted.
+const PATTERN_BORDERS = Object.values(AOE_PATTERN_LEGEND)
+  .sort((a, b) => a.index - b.index)
+  .map(def => def.border ? parseInt(def.border.slice(1), 16) : null);
+
 /**
  * Returns pixel-space [x, y] pairs for all grid cells within `range` squares of (cx, cy).
  * @param {number} cx     Top-left pixel x of the origin cell
@@ -84,6 +90,7 @@ function _drawHighlight(layerName, cx, cy, rotation, item) {
           x: cx + rx * gridSize,
           y: cy + ry * gridSize,
           color: PATTERN_COLORS[colorIdx],
+          border: PATTERN_BORDERS[colorIdx],
           alpha: 0.35
         });
       }
@@ -149,6 +156,32 @@ export function clearAllAoe() {
     canvas.interface.grid.clearHighlightLayer(`${LAYER_PREFIX}.${itemId}`);
   }
   _active.clear();
+}
+
+/**
+ * Clear any active AoE anchored to a given token. Call from the deleteToken hook
+ * so a highlight does not linger after its source token is removed.
+ * @param {string} tokenId
+ */
+export function clearAoeForToken(tokenId) {
+  for (const [itemId, { token }] of _active) {
+    if (token.id !== tokenId) continue;
+    canvas.interface.grid.clearHighlightLayer(`${LAYER_PREFIX}.${itemId}`);
+    _active.delete(itemId);
+  }
+}
+
+/**
+ * Clear any active AoE belonging to a given actor. Call from the deleteActor hook
+ * so a highlight does not linger after its owning actor is removed.
+ * @param {string} actorId
+ */
+export function clearAoeForActor(actorId) {
+  for (const [itemId, { token, item }] of _active) {
+    if (token.actor?.id !== actorId && item.parent?.id !== actorId) continue;
+    canvas.interface.grid.clearHighlightLayer(`${LAYER_PREFIX}.${itemId}`);
+    _active.delete(itemId);
+  }
 }
 
 /**

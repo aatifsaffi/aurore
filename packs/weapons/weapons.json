@@ -9,7 +9,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sword-hilt.svg"
     },
     {
@@ -21,7 +21,7 @@
       "damage": 5,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": ".............ee..........",
+      "aoePattern": "..m....m..mmnee..m....m..",
       "img": "systems/aurore/assets/icons/barbed-spear.svg"
     },
     {
@@ -33,7 +33,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/flanged-mace.svg"
     },
     {
@@ -45,7 +45,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/battered-axe.svg"
     },
     {
@@ -57,7 +57,7 @@
       "damage": 2,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/bolt-shield.svg"
     },
     {
@@ -69,7 +69,7 @@
       "damage": 12,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/two-handed-sword.svg"
     },
     {
@@ -81,7 +81,7 @@
       "damage": 12,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": ".............ee..........",
+      "aoePattern": "..m....m..mmnee..m....m..",
       "img": "systems/aurore/assets/icons/spiked-mace.svg"
     },
     {
@@ -93,7 +93,7 @@
       "damage": 12,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": ".............ee..........",
+      "aoePattern": "..m....m..mmnee..m....m..",
       "img": "systems/aurore/assets/icons/battle-axe.svg"
     },
     {
@@ -105,7 +105,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sparkling-sabre.svg"
     },
     {
@@ -117,7 +117,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": "eeee.eeee",
+      "aoePattern": "eeeeneeee",
       "img": "systems/aurore/assets/icons/battered-axe.svg"
     },
     {
@@ -129,7 +129,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sword-hilt.svg"
     },
     {
@@ -141,7 +141,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/flanged-mace.svg"
     },
     {
@@ -153,7 +153,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sparkling-sabre.svg"
     },
     {
@@ -165,7 +165,7 @@
       "damage": 10,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": ".............ee..........",
+      "aoePattern": "..m....m..mmnee..m....m..",
       "img": "systems/aurore/assets/icons/barbed-spear.svg"
     },
     {
@@ -177,7 +177,7 @@
       "damage": 12,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": "....e...ee...ee...ee....e",
+      "aoePattern": "....e...ee..nee...ee....e",
       "img": "systems/aurore/assets/icons/spiked-mace.svg"
     },
     {
@@ -189,7 +189,7 @@
       "damage": 12,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": "eeeeeeeeeeee.eeeeeeeeeeee",
+      "aoePattern": "eeeeeeeeeeeeneeeeeeeeeeee",
       "img": "systems/aurore/assets/icons/battle-axe.svg"
     },
     {
@@ -201,7 +201,7 @@
       "damage": 5,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "memmnemmm",
       "img": "systems/aurore/assets/icons/plain-dagger.svg"
     },
     {
@@ -212,8 +212,8 @@
       "heavy": false,
       "damage": 6,
       "range": 4,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 4,
+      "aoePattern": "....m........m........m........m....mmmmnmmme....m........m........m........m....",
       "img": "systems/aurore/assets/icons/barbed-spear.svg"
     },
     {
@@ -225,7 +225,7 @@
       "damage": 5,
       "range": 4,
       "aoeSize": 4,
-      "aoePattern": "e.......e.e.....e...e...e.....e.e...............e.e.....e...e...e.....e.e.......e",
+      "aoePattern": "e.......e.e.....e...e...e.....e.e.......n.......e.e.....e...e...e.....e.e.......e",
       "img": "systems/aurore/assets/icons/chakram.svg"
     },
     {
@@ -237,7 +237,7 @@
       "damage": 2,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/round-shield.svg"
     },
     {
@@ -249,7 +249,7 @@
       "damage": 5,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sai.svg"
     },
     {
@@ -260,8 +260,8 @@
       "heavy": false,
       "damage": 5,
       "range": 3,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 3,
+      "aoePattern": "...m......m......m...mmmnmme...m......m......m...",
       "img": "systems/aurore/assets/icons/bowie-knife.svg"
     },
     {
@@ -273,7 +273,7 @@
       "damage": 12,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": ".............ee..........",
+      "aoePattern": "..m....m..mmnee..m....m..",
       "img": "systems/aurore/assets/icons/telescopic-baton.svg"
     },
     {
@@ -285,7 +285,7 @@
       "damage": 12,
       "range": 2,
       "aoeSize": 2,
-      "aoePattern": ".............ee..........",
+      "aoePattern": "..m....m..mmnee..m....m..",
       "img": "systems/aurore/assets/icons/telescopic-baton.svg"
     },
     {
@@ -297,7 +297,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sparkling-sabre.svg"
     },
     {
@@ -309,7 +309,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/sword-hilt.svg"
     },
     {
@@ -320,8 +320,8 @@
       "heavy": true,
       "damage": 12,
       "range": 6,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 6,
+      "aoePattern": "......m............m............m............m............m............m......mmmmmmnmmmmme......m............m............m............m............m............m......",
       "img": "systems/aurore/assets/icons/heavy-arrow.svg"
     },
     {
@@ -332,8 +332,8 @@
       "heavy": true,
       "damage": 12,
       "range": 5,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 5,
+      "aoePattern": ".....m..........m..........m..........m..........m.....mmmmmnmmmme.....m..........m..........m..........m..........m.....",
       "img": "systems/aurore/assets/icons/crossbow.svg"
     },
     {
@@ -344,8 +344,8 @@
       "heavy": true,
       "damage": 10,
       "range": 6,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 6,
+      "aoePattern": "......m............m............m............m............m............m......mmmmmmnmmmmme......m............m............m............m............m............m......",
       "img": "systems/aurore/assets/icons/heavy-arrow.svg"
     },
     {
@@ -356,8 +356,8 @@
       "heavy": false,
       "damage": 6,
       "range": 3,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 3,
+      "aoePattern": "...m......m......m...mmmnmme...m......m......m...",
       "img": "systems/aurore/assets/icons/crossbow.svg"
     },
     {
@@ -368,8 +368,8 @@
       "heavy": true,
       "damage": 10,
       "range": 6,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 6,
+      "aoePattern": "......m............m............m............m............m............m......mmmmmmnmmmmme......m............m............m............m............m............m......",
       "img": "systems/aurore/assets/icons/heavy-arrow.svg"
     },
     {
@@ -380,8 +380,8 @@
       "heavy": true,
       "damage": 10,
       "range": 6,
-      "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoeSize": 6,
+      "aoePattern": "......m............m............m............m............m............m......mmmmmmnmmmmme......m............m............m............m............m............m......",
       "img": "systems/aurore/assets/icons/heavy-arrow.svg"
     },
     {
@@ -393,7 +393,7 @@
       "damage": 6,
       "range": 5,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "....ne...",
       "img": "systems/aurore/assets/icons/luger.svg"
     },
     {
@@ -405,7 +405,7 @@
       "damage": 4,
       "range": 4,
       "aoeSize": 4,
-      "aoePattern": "................................eeee.....eeee.....eeee...........................",
+      "aoePattern": "................................eeee....neeee.....eeee...........................",
       "img": "systems/aurore/assets/icons/sawed-off-shotgun.svg"
     },
     {
@@ -417,7 +417,7 @@
       "damage": 5,
       "range": 3,
       "aoeSize": 3,
-      "aoePattern": "......e.....e.....e......eee....e.......e.......e",
+      "aoePattern": "......e.....e.....e.....neee....e.......e.......e",
       "img": "systems/aurore/assets/icons/telescopic-baton.svg"
     },
     {
@@ -429,7 +429,7 @@
       "damage": 2,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "mmmmnemmm",
       "img": "systems/aurore/assets/icons/round-shield.svg"
     },
     {
@@ -441,7 +441,7 @@
       "damage": 6,
       "range": 1,
       "aoeSize": 1,
-      "aoePattern": ".....e..."
+      "aoePattern": "mmmmnemmm"
     },
     {
       "id": "WB-06",
@@ -452,7 +452,7 @@
       "damage": 8,
       "range": 3,
       "aoeSize": 3,
-      "aoePattern": "............ee....eee....eee....eee.....ee.......",
+      "aoePattern": "............ee....eee...neee....eee.....ee.......",
       "img": "systems/aurore/assets/icons/target-shot.svg"
     },
     {
@@ -464,7 +464,7 @@
       "damage": 12,
       "range": 10,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "....ne...",
       "img": "systems/aurore/assets/icons/lee-enfield.svg"
     },
     {
@@ -476,7 +476,7 @@
       "damage": 8,
       "range": 5,
       "aoeSize": 5,
-      "aoePattern": "..................................................eeeee......eeeee......eeeee............................................",
+      "aoePattern": "..................................................eeeee.....neeeee......eeeee............................................",
       "img": "systems/aurore/assets/icons/sawed-off-shotgun.svg"
     },
     {
@@ -488,7 +488,7 @@
       "damage": 5,
       "range": 5,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "....ne...",
       "img": "systems/aurore/assets/icons/luger.svg"
     },
     {
@@ -500,7 +500,7 @@
       "damage": 4,
       "range": 3,
       "aoeSize": 3,
-      "aoePattern": "..................eee....eee....eee..............",
+      "aoePattern": "..................eee...neee....eee..............",
       "img": "systems/aurore/assets/icons/spectre-m4.svg"
     },
     {
@@ -512,7 +512,7 @@
       "damage": 10,
       "range": 10,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "....ne...",
       "img": "systems/aurore/assets/icons/lee-enfield.svg"
     },
     {
@@ -536,7 +536,7 @@
       "damage": 12,
       "range": 10,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "....ne...",
       "img": "systems/aurore/assets/icons/lee-enfield.svg"
     },
     {
@@ -548,7 +548,7 @@
       "damage": 10,
       "range": 3,
       "aoeSize": 3,
-      "aoePattern": "..................eee....eee....eee..............",
+      "aoePattern": "..................eee...neee....eee..............",
       "img": "systems/aurore/assets/icons/steyr-aug.svg"
     },
     {
@@ -560,7 +560,7 @@
       "damage": 12,
       "range": 10,
       "aoeSize": 1,
-      "aoePattern": ".....e...",
+      "aoePattern": "....ne...",
       "img": "systems/aurore/assets/icons/lee-enfield.svg"
     },
     {

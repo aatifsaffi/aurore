@@ -1,0 +1,55 @@
+<div class="stamp-config-body">
+<div class="stamp-config-grid">
+
+  <div class="preview-col">
+    <canvas class="preview" width="240" height="240"></canvas>
+    <p class="hint">
+      {{#if isToken}}{{localize "AURORE.TokenStamp.ScopeToken"}}{{else}}{{localize "AURORE.TokenStamp.ScopeActor"}}{{/if}}
+    </p>
+  </div>
+
+  <div class="controls-col">
+    {{#each sliders}}
+    <div class="form-group slider-row">
+      <label>{{localize this.label}}</label>
+      <div class="form-fields">
+        <input type="range" name="{{this.key}}" data-framing
+               min="{{this.min}}" max="{{this.max}}" step="{{this.step}}" value="{{this.value}}">
+        <output data-for="{{this.key}}">{{this.display}}</output>
+      </div>
+    </div>
+    {{/each}}
+
+    <div class="form-group">
+      <label>{{localize "AURORE.TokenStamp.RingColor"}}</label>
+      <div class="form-fields">
+        <label class="checkbox">
+          <input type="checkbox" name="useTrinity" {{#unless f.ringColor}}checked{{/unless}}>
+          {{localize "AURORE.TokenStamp.UseTrinity"}}
+        </label>
+        <input type="color" name="ringColor" value="{{#if f.ringColor}}{{f.ringColor}}{{else}}{{trinityColor}}{{/if}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>{{localize "AURORE.TokenStamp.Background"}}</label>
+      <div class="form-fields">
+        <label class="checkbox">
+          <input type="checkbox" name="bgTransparent" {{#unless f.background}}checked{{/unless}}>
+          {{localize "AURORE.TokenStamp.Transparent"}}
+        </label>
+        <input type="color" name="background" value="{{#if f.background}}{{f.background}}{{else}}#ffffff{{/if}}">
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="form-footer">
+  <button type="button" data-action="reset">
+    <i class="fa-solid fa-rotate-left"></i> {{localize "AURORE.TokenStamp.ResetDefaults"}}
+  </button>
+  <button type="submit">
+    <i class="fa-solid fa-check"></i> {{localize "AURORE.TokenStamp.Save"}}
+  </button>
+</footer>
+</div>

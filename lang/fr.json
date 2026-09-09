@@ -54,7 +54,8 @@
       "enemy":   "Ennemis",
       "ally":    "Alliés",
       "neutral": "Neutre",
-      "special": "Spécial"
+      "special": "Spécial",
+      "movement": "Mouvement"
     },
     "Powers": {
       "offensive": "Offensif",
@@ -128,7 +129,22 @@
       "namePlaceholder": "Nom du personnage"
     },
     "Npc": {
-      "namePlaceholder": "Nom du PNJ"
+      "namePlaceholder": "Nom du PNJ",
+      "size":            "Taille",
+      "sizeHint":        "Nombre de cases par côté occupées par le jeton (1 = 1 case, 2 = 4 cases, 3 = 9 cases…)",
+      "kindLabel":       "Type",
+      "passif":          "Passif",
+      "equipment":       "Équipement",
+      "equipmentHint":   "Équipement propre au monstre (4 max), non issu des compendiums",
+      "equipmentEmpty":  "Aucun équipement défini pour ce monstre.",
+      "kind": {
+        "human":   "Humain",
+        "monster": "Monstre"
+      },
+      "equipmentCategory": {
+        "attack":  "Attaque",
+        "boreale": "Boréale"
+      }
     },
     "Item": {
       "trinity":         "Couleur Trinity",
@@ -236,7 +252,25 @@
       "CritSuccessEffect": "Fichier d'effet — Succès critique",
       "CritSuccessEffectHint": "Chemin du fichier d'animation pour un succès critique (chemin de module Sequencer)",
       "CritFailureEffect": "Fichier d'effet — Échec critique",
-      "CritFailureEffectHint": "Chemin du fichier d'animation pour un échec critique (chemin de module Sequencer)"
+      "CritFailureEffectHint": "Chemin du fichier d'animation pour un échec critique (chemin de module Sequencer)",
+      "AutoStampTokens": "Habiller les pions automatiquement",
+      "AutoStampTokensHint": "À la création d'un pion, recadre le portrait en cercle avec un anneau de la couleur Trinity dominante"
+    },
+    "TokenStamp": {
+      "Regenerate": "Régénérer l'image du pion",
+      "Configure": "Cadrage du pion",
+      "Save": "Enregistrer",
+      "ResetDefaults": "Réinitialiser",
+      "ScopeActor": "S'applique au pion prototype (nouveaux pions).",
+      "ScopeToken": "S'applique uniquement à ce pion placé.",
+      "Scale": "Zoom du portrait",
+      "OffsetX": "Décalage horizontal",
+      "OffsetY": "Décalage vertical",
+      "Inset": "Marge sous l'anneau",
+      "RingColor": "Couleur de l'anneau",
+      "UseTrinity": "Couleur Trinity",
+      "Background": "Fond",
+      "Transparent": "Transparent"
     },
     "Chat": {
       "CritSuccess": "SUCCÈS CRITIQUE !",

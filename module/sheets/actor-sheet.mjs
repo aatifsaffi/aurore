@@ -1,5 +1,7 @@
 import { highlightItemAoe } from "../canvas/grid-highlight.mjs";
 import { classifyRoll, playCritEffect } from "../helpers/critEffects.mjs";
+import { stampActorPrototype } from "../helpers/token-stamp.mjs";
+import { openTokenStampConfig } from "../apps/token-stamp-config.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -28,7 +30,12 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
   static DEFAULT_OPTIONS = {
     classes: ["aurore", "sheet", "actor"],
     tag: "form",
-    window: { resizable: true },
+    window: {
+      resizable: true,
+      controls: [
+        { icon: "fa-solid fa-crop-simple", label: "AURORE.TokenStamp.Configure", action: "configTokenStamp" }
+      ]
+    },
     form: {
       handler: AuroreActorSheetV2._onSubmitDocument,
       submitOnChange: true,
@@ -44,7 +51,8 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
       unequipSlot:    AuroreActorSheetV2._onUnequipSlot,
       selectSlotItem: AuroreActorSheetV2._onSelectSlotItem,
       showItemAoe:    AuroreActorSheetV2._onShowItemAoe,
-      rollMentalStat: AuroreActorSheetV2._onRollMentalStat
+      rollMentalStat: AuroreActorSheetV2._onRollMentalStat,
+      configTokenStamp: AuroreActorSheetV2._onConfigTokenStamp
     }
   };
 
@@ -121,11 +129,20 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
       )
     };
 
+    // Ids currently occupying an equipment slot. Slotted gear is attached to the
+    // actor but must not appear in the inventory lists — the equipment area owns it.
+    const equippedIds = new Set([
+      system.equippedWeapon1,
+      system.equippedWeapon2,
+      system.equippedArmor,
+      system.equippedGadget
+    ].filter(Boolean));
+
     // Items by type — subclasses may add more (gifts, race, racial…)
     context.items = {
-      weapons: actor.items.filter(i => i.type === "weapon"),
-      armors:  actor.items.filter(i => i.type === "armor"),
-      gadgets: actor.items.filter(i => i.type === "gadget"),
+      weapons: actor.items.filter(i => i.type === "weapon" && !equippedIds.has(i.id)),
+      armors:  actor.items.filter(i => i.type === "armor"  && !equippedIds.has(i.id)),
+      gadgets: actor.items.filter(i => i.type === "gadget" && !equippedIds.has(i.id)),
       powers:  actor.items.filter(i => i.type === "power")
     };
 
@@ -216,8 +233,11 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
   // ── Actions ───────────────────────────────────────────
 
   /**
-   * Open the FilePicker to change the actor portrait.
-   * Also syncs the prototype token and any placed tokens.
+   * Open the FilePicker to change the actor portrait, then re-stamp the
+   * prototype token image so newly-placed tokens get the circular Trinity
+   * ring. Already-placed tokens are left untouched (use the token HUD's
+   * "regenerate" button for those). If stamping is disabled or fails, the
+   * raw portrait set here stays.
    * @param {PointerEvent} event
    */
   static async _onEditPortrait(_event) {
@@ -229,13 +249,20 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
           img: path,
           "prototypeToken.texture.src": path
         });
-        for (const token of this.document.getActiveTokens(false, true)) {
-          await token.update({ "texture.src": path });
-        }
+        await stampActorPrototype(this.document, { force: true });
         this.render();
       }
     });
     fp.render(true);
+  }
+
+  /**
+   * Open the "Token framing" dialog for this actor's prototype token.
+   * @param {PointerEvent} event
+   */
+  static _onConfigTokenStamp(_event) {
+    if (!this.document.isOwner) return;
+    openTokenStampConfig({ actor: this.document });
   }
 
   /**
