@@ -1,4 +1,4 @@
-import { SYSTEM_ID, RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, AOE_SHAPES, POWER_CATEGORIES } from "./module/config.mjs";
+import { SYSTEM_ID, RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, AOE_SHAPES, POWER_CATEGORIES } from "./module/config.mjs";
 import { CharacterData } from "./module/data-models/character.mjs";
 import { NpcData } from "./module/data-models/npc.mjs";
 import { WeaponData } from "./module/data-models/weapon.mjs";
@@ -18,13 +18,14 @@ import { highlightItemAoe, clearAllAoe, onTokenMoved, clearAoeForToken, clearAoe
 import { DEFAULT_CRIT_SUCCESS_EFFECT, DEFAULT_CRIT_FAILURE_EFFECT } from "./module/helpers/critEffects.mjs";
 import { stampToken } from "./module/helpers/token-stamp.mjs";
 import { openTokenStampConfig } from "./module/apps/token-stamp-config.mjs";
+import { AuroreCombatHud } from "./module/apps/combat-hud.mjs";
 
 Hooks.once("init", () => {
   console.log(`${SYSTEM_ID} | Initializing Aurore system`);
 
 
   // Store config on game object for global access
-  CONFIG[SYSTEM_ID] = { RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, AOE_SHAPES, POWER_CATEGORIES };
+  CONFIG[SYSTEM_ID] = { RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, AOE_SHAPES, POWER_CATEGORIES };
 
   // ── Handlebars helpers ────────────────────────────────
   Handlebars.registerHelper("or", (...args) => { args.pop(); return args.some(Boolean); });
@@ -118,6 +119,17 @@ Hooks.once("init", () => {
     config: true,
     type: Boolean,
     default: true
+  });
+
+  // ── Combat HUD ────────────────────────────────────────
+  game.settings.register(SYSTEM_ID, "combatHudEnabled", {
+    name: "AURORE.Settings.CombatHudEnabled",
+    hint: "AURORE.Settings.CombatHudEnabledHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: () => AuroreCombatHud.refresh()
   });
 });
 
@@ -233,6 +245,24 @@ Hooks.on("renderChatMessageHTML", (_msg, html) => {
       highlightItemAoe(token, weapon);
     });
   }
+});
+
+// ── Combat HUD ───────────────────────────────────────────
+// Pure render layer: every combat/target change just schedules a (debounced) refresh.
+for (const hook of ["ready", "canvasReady", "combatStart", "combatTurn", "combatRound", "updateCombat",
+  "deleteCombat", "createCombatant", "deleteCombatant", "updateCombatant", "targetToken"]) {
+  Hooks.on(hook, () => AuroreCombatHud.refresh());
+}
+Hooks.on("updateActor", (actor) => {
+  if (game.combat?.combatants.some(c => c.actorId === actor.id)) AuroreCombatHud.refresh();
+});
+// Status effects (e.g. "dead") can mark a defender defeated without touching the combatant.
+for (const hook of ["createActiveEffect", "deleteActiveEffect"]) {
+  Hooks.on(hook, () => { if (game.combat?.started) AuroreCombatHud.refresh(); });
+}
+Hooks.on("updateToken", (tokenDoc, changes) => {
+  if (!game.combat?.combatants.some(c => c.tokenId === tokenDoc.id)) return;
+  if (["name", "hidden", "texture", "actorData"].some(k => k in changes)) AuroreCombatHud.refresh();
 });
 
 Hooks.once("ready", async () => {

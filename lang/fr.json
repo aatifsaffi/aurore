@@ -254,7 +254,16 @@
       "CritFailureEffect": "Fichier d'effet — Échec critique",
       "CritFailureEffectHint": "Chemin du fichier d'animation pour un échec critique (chemin de module Sequencer)",
       "AutoStampTokens": "Habiller les pions automatiquement",
-      "AutoStampTokensHint": "À la création d'un pion, recadre le portrait en cercle avec un anneau de la couleur Trinity dominante"
+      "AutoStampTokensHint": "À la création d'un pion, recadre le portrait en cercle avec un anneau de la couleur Trinity dominante",
+      "CombatHudEnabled": "Activer l'interface de combat",
+      "CombatHudEnabledHint": "Affiche en haut de l'écran les cartes attaquant / défenseur et la frise d'initiative pendant un combat"
+    },
+    "CombatHud": {
+      "Round": "Round",
+      "NoTarget": "Aucune cible",
+      "Attacker": "Attaquant",
+      "Defender": "Défenseur",
+      "Defeated": "Vaincu"
     },
     "TokenStamp": {
       "Regenerate": "Régénérer l'image du pion",

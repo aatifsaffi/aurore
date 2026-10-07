@@ -75,6 +75,20 @@ export const TOKEN_DEFAULTS = {
   displayBars: 20    // resource bars shown to owners on hover
 };
 
+// ── Combat HUD (top-of-screen duel cards + initiative strip) ──
+// Sizes in px; exposed as CSS custom properties on the HUD root.
+// See specs/08-combat-hud.md.
+export const COMBAT_HUD = {
+  cardWidth: 220,          // big attacker / defender card
+  cardHeight: 300,
+  stripCardWidth: 64,      // initiative strip card
+  stripCardHeight: 80,
+  stripMaxVisible: 8,      // strip scrolls beyond this many cards
+  animationMs: 400,        // slide-in on turn change
+  topOffset: 48,           // px from top of viewport (clears #navigation)
+  defeatedIcon: "icons/svg/skull.svg" // overlay on defeated cards
+};
+
 // ── Armor PP/CM bonuses per Trinity color ─────────────────
 export const ARMOR_BONUSES = {
   red:   { ppBonus: 20, cmModifier: -1 },

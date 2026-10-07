@@ -1,0 +1,52 @@
+<div class="hud-bar">
+
+  {{#if attacker}}
+  <div class="hud-card hud-card--attacker {{#if attacker.hidden}}hidden-card{{/if}}" data-trinity="{{attacker.trinity}}" style="--hud-color: {{attacker.color}};"
+       data-action="panToCombatant" data-token-id="{{attacker.tokenId}}">
+    <img class="hud-card-img" src="{{attacker.img}}" alt="{{attacker.name}}">
+    <span class="hud-card-role">{{localize "AURORE.CombatHud.Attacker"}}</span>
+    <div class="hud-card-plate">
+      <span class="hud-card-name">{{attacker.name}}</span>
+      <div class="hud-bar-row hud-bar-pv"><div class="hud-bar-fill" style="width: {{attacker.pv.pct}}%"></div>{{#if attacker.showNumbers}}<span class="hud-bar-text">{{attacker.pv.value}} / {{attacker.pv.max}}</span>{{/if}}</div>
+      <div class="hud-bar-row hud-bar-pp"><div class="hud-bar-fill" style="width: {{attacker.pp.pct}}%"></div>{{#if attacker.showNumbers}}<span class="hud-bar-text">{{attacker.pp.value}} / {{attacker.pp.max}}</span>{{/if}}</div>
+    </div>
+  </div>
+  {{else}}
+  <div class="hud-card hud-card--attacker hud-card--empty"></div>
+  {{/if}}
+
+  <div class="hud-middle">
+    <div class="hud-round">{{localize "AURORE.CombatHud.Round"}} {{round}}</div>
+    <div class="hud-strip">
+      {{#each strip}}
+      <div class="hud-strip-card {{#if isActive}}active{{/if}} {{#if isDefeated}}defeated{{/if}} {{#if isTargeted}}targeted{{/if}}"
+           data-trinity="{{trinity}}" style="--hud-color: {{color}};"
+           data-action="panToCombatant" data-token-id="{{tokenId}}"
+           {{#if isDefeated}}title="{{name}} — {{localize "AURORE.CombatHud.Defeated"}}"{{else}}title="{{name}}"{{/if}}>
+        <img src="{{img}}" alt="{{name}}">
+        <div class="hud-strip-bar"><div class="hud-bar-fill" style="width: {{pv.pct}}%"></div></div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{#if defender}}
+  <div class="hud-card hud-card--defender {{#if defender.isDefeated}}defeated{{/if}} {{#if defender.hidden}}hidden-card{{/if}}" data-trinity="{{defender.trinity}}" style="--hud-color: {{defender.color}};"
+       data-action="panToCombatant" data-token-id="{{defender.tokenId}}">
+    <img class="hud-card-img" src="{{defender.img}}" alt="{{defender.name}}">
+    <span class="hud-card-role">{{localize "AURORE.CombatHud.Defender"}}</span>
+    {{#if extraTargets}}<span class="hud-card-extra">+{{extraTargets}}</span>{{/if}}
+    {{#if defender.isDefeated}}<img class="hud-card-skull" src="{{defeatedIcon}}" alt="{{localize "AURORE.CombatHud.Defeated"}}" title="{{localize "AURORE.CombatHud.Defeated"}}">{{/if}}
+    <div class="hud-card-plate">
+      <span class="hud-card-name">{{defender.name}}</span>
+      <div class="hud-bar-row hud-bar-pv"><div class="hud-bar-fill" style="width: {{defender.pv.pct}}%"></div>{{#if defender.showNumbers}}<span class="hud-bar-text">{{defender.pv.value}} / {{defender.pv.max}}</span>{{/if}}</div>
+      <div class="hud-bar-row hud-bar-pp"><div class="hud-bar-fill" style="width: {{defender.pp.pct}}%"></div>{{#if defender.showNumbers}}<span class="hud-bar-text">{{defender.pp.value}} / {{defender.pp.max}}</span>{{/if}}</div>
+    </div>
+  </div>
+  {{else}}
+  <div class="hud-card hud-card--defender hud-card--empty">
+    <span class="hud-card-empty-label">{{localize "AURORE.CombatHud.NoTarget"}}</span>
+  </div>
+  {{/if}}
+
+</div>

@@ -129,20 +129,11 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
       )
     };
 
-    // Ids currently occupying an equipment slot. Slotted gear is attached to the
-    // actor but must not appear in the inventory lists — the equipment area owns it.
-    const equippedIds = new Set([
-      system.equippedWeapon1,
-      system.equippedWeapon2,
-      system.equippedArmor,
-      system.equippedGadget
-    ].filter(Boolean));
-
     // Items by type — subclasses may add more (gifts, race, racial…)
     context.items = {
-      weapons: actor.items.filter(i => i.type === "weapon" && !equippedIds.has(i.id)),
-      armors:  actor.items.filter(i => i.type === "armor"  && !equippedIds.has(i.id)),
-      gadgets: actor.items.filter(i => i.type === "gadget" && !equippedIds.has(i.id)),
+      weapons: actor.items.filter(i => i.type === "weapon"),
+      armors:  actor.items.filter(i => i.type === "armor"),
+      gadgets: actor.items.filter(i => i.type === "gadget"),
       powers:  actor.items.filter(i => i.type === "power")
     };
 
