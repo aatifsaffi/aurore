@@ -110,7 +110,7 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
       key,
       label: game.i18n.localize(`AURORE.Mental.${key}`),
       value: system.mental[key],
-      pct:   Math.min(100, Math.round((system.mental[key] / 100) * 100))
+      pct:   Math.min(100, system.mental[key])
     }));
 
     // Trinity dominant label (localized)
@@ -213,11 +213,22 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
         itemId = created.id;
       }
       await this.document.update({ [`system.${slotField}`]: itemId });
-    } else {
-      // Dropped onto inventory list — add from external source only
-      if (item.parent?.id !== this.document.id) {
-        await ItemCls.createDocuments([item.toObject()], { parent: this.document });
+    } else if (item.parent?.id !== this.document.id) {
+      // Dropped onto inventory list — add from external source only.
+
+      // Race/racial are singletons managed by the character sheet's pickers.
+      // Enforce that here so a raw drop can't stack a second (invisible) one.
+      if (item.type === "race" || item.type === "racial") {
+        if (this.document.type !== "character") return; // NPCs don't use them
+        // A new race also clears the coupled racial; a new racial clears only racials.
+        const dropTypes = item.type === "race" ? ["race", "racial"] : ["racial"];
+        const existing  = this.document.items.filter(i => dropTypes.includes(i.type)).map(i => i.id);
+        if (existing.length) {
+          await ItemCls.deleteDocuments(existing, { parent: this.document });
+        }
       }
+
+      await ItemCls.createDocuments([item.toObject()], { parent: this.document });
     }
   }
 
@@ -534,7 +545,13 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
         gadget: ["system.trinity", "system.maxUses"]
       };
       const index = await pack.getIndex({ fields: fieldMap[type] ?? [] });
-      for (const entry of index) {
+
+      // Compendium entries are sorted alphabetically.
+      const entries = [...index].sort((a, b) =>
+        a.name.localeCompare(b.name, game.i18n.lang, { sensitivity: "base" })
+      );
+
+      for (const entry of entries) {
         results.push({
           name:    entry.name,
           uuid:    `Compendium.${pack.collection}.${entry._id}`,

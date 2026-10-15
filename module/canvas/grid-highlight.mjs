@@ -32,12 +32,52 @@ function _getCellsInRange(cx, cy, range) {
   const size  = canvas.grid.size;
   const cells = [];
 
+  // Full (range × range) square around the origin, in Chebyshev distance.
   for (let dx = -range; dx <= range; dx++) {
     for (let dy = -range; dy <= range; dy++) {
-      const dist = Math.max(Math.abs(dx), Math.abs(dy));
-      if (dist <= range) {
-        cells.push([cx + dx * size, cy + dy * size]);
-      }
+      cells.push([cx + dx * size, cy + dy * size]);
+    }
+  }
+
+  return cells;
+}
+
+/**
+ * Rotate a square aoePattern around its centre and return the cells to paint,
+ * as integer grid offsets from the origin cell. Pure (no canvas) so it can be
+ * unit-tested. Cells that round onto the same offset at odd angles are deduped,
+ * first-encountered (row-major) winning.
+ * @param {number[]} pattern   Row-major cell values; 0 = off/skip.
+ * @param {number}   radius    aoeSize; the pattern is (2·radius + 1) square.
+ * @param {number}   rotation  Token rotation in degrees (clockwise on screen).
+ * @returns {Array<{rx: number, ry: number, colorIdx: number}>}
+ */
+export function computePatternCells(pattern, radius, rotation) {
+  const size = 2 * radius + 1;
+  // Rotate each cell offset around the origin cell so the pattern follows the
+  // token's facing. Screen y points down, so this matrix rotates clockwise.
+  const angle = (((rotation ?? 0) + PATTERN_ROTATION_OFFSET) * Math.PI) / 180;
+  const cos   = Math.cos(angle);
+  const sin   = Math.sin(angle);
+  const painted = new Set();
+  const cells = [];
+
+  for (let row = 0; row < size; row++) {
+    for (let col = 0; col < size; col++) {
+      const colorIdx = pattern[row * size + col] ?? 0;
+      if (!colorIdx) continue;
+
+      const ox = col - radius;
+      const oy = row - radius;
+      const rx = Math.round(ox * cos - oy * sin);
+      const ry = Math.round(ox * sin + oy * cos);
+
+      // Two source cells can snap onto the same grid cell at odd angles.
+      const key = `${rx},${ry}`;
+      if (painted.has(key)) continue;
+      painted.add(key);
+
+      cells.push({ rx, ry, colorIdx });
     }
   }
 
@@ -63,37 +103,14 @@ function _drawHighlight(layerName, cx, cy, rotation, item) {
   const hasPattern = pattern.some(v => v !== 0);
 
   if (hasPattern) {
-    const size  = 2 * radius + 1;
-    // Rotate each cell offset around the origin cell so the pattern follows the
-    // token's facing. Screen y points down, so this matrix rotates clockwise.
-    const angle = (((rotation ?? 0) + PATTERN_ROTATION_OFFSET) * Math.PI) / 180;
-    const cos   = Math.cos(angle);
-    const sin   = Math.sin(angle);
-    const painted = new Set();
-
-    for (let row = 0; row < size; row++) {
-      for (let col = 0; col < size; col++) {
-        const colorIdx = pattern[row * size + col] ?? 0;
-        if (!colorIdx) continue;
-
-        const ox = col - radius;
-        const oy = row - radius;
-        const rx = Math.round(ox * cos - oy * sin);
-        const ry = Math.round(ox * sin + oy * cos);
-
-        // Two source cells can snap onto the same grid cell at odd angles.
-        const key = `${rx},${ry}`;
-        if (painted.has(key)) continue;
-        painted.add(key);
-
-        canvas.interface.grid.highlightPosition(layerName, {
-          x: cx + rx * gridSize,
-          y: cy + ry * gridSize,
-          color: PATTERN_COLORS[colorIdx],
-          border: PATTERN_BORDERS[colorIdx],
-          alpha: 0.35
-        });
-      }
+    for (const { rx, ry, colorIdx } of computePatternCells(pattern, radius, rotation)) {
+      canvas.interface.grid.highlightPosition(layerName, {
+        x: cx + rx * gridSize,
+        y: cy + ry * gridSize,
+        color: PATTERN_COLORS[colorIdx],
+        border: PATTERN_BORDERS[colorIdx],
+        alpha: 0.35
+      });
     }
   } else {
     const hex   = (item.system.highlightColor ?? "#ff000044").replace("#", "");
@@ -182,36 +199,4 @@ export function clearAoeForActor(actorId) {
     canvas.interface.grid.clearHighlightLayer(`${LAYER_PREFIX}.${itemId}`);
     _active.delete(itemId);
   }
-}
-
-/**
- * Post a weapon AoE info card to the chat log.
- * @param {Actor}  actor
- * @param {Item}   weapon
- * @param {string} tokenId
- */
-export async function postAoeChatCard(actor, weapon, tokenId) {
-  const range   = weapon.system.range   ?? 1;
-  const aoeSize = weapon.system.aoeSize ?? 0;
-
-  const content = `<div class="aurore aurore-aoe-card">
-    <img src="${weapon.img}" class="aoe-card-icon" alt="">
-    <div class="aoe-card-body">
-      <strong class="aoe-card-name">${weapon.name}</strong>
-      <span>${game.i18n.localize("AURORE.Weapon.range")} : ${range} case${range !== 1 ? "s" : ""}</span>
-      <span>${game.i18n.localize("AURORE.Weapon.aoeSize")} : ${aoeSize} case${aoeSize !== 1 ? "s" : ""}</span>
-    </div>
-    <button class="aoe-show-btn"
-            data-actor-id="${actor.id}"
-            data-weapon-id="${weapon.id}"
-            data-token-id="${tokenId}">
-      <i class="fas fa-bullseye"></i>
-      ${game.i18n.localize("AURORE.Aoe.show")}
-    </button>
-  </div>`;
-
-  await ChatMessage.create({
-    content,
-    speaker: ChatMessage.getSpeaker({ actor })
-  });
 }

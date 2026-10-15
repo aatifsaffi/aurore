@@ -35,7 +35,7 @@ const AOE_CHAR = Object.fromEntries(
  * @param {string} pattern
  * @param {string} [context]  Record name, for warning messages on unknown characters.
  */
-function parseAoePattern(pattern, context = "") {
+export function parseAoePattern(pattern, context = "") {
   if (!pattern) return "";
   if (pattern.startsWith("[")) return pattern; // already numeric JSON
   return JSON.stringify(pattern.split("").map(c => {
@@ -237,6 +237,19 @@ const PACK_SOURCES = {
 };
 
 /**
+ * Small, stable string hash (djb2-xor) of a source record array, used to detect
+ * whether a pack's JSON changed since the last import.
+ * @param {Array} records
+ * @returns {string} base-36 hash
+ */
+function hashRecords(records) {
+  const str = JSON.stringify(records);
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = (Math.imul(h, 33) ^ str.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+
+/**
  * Fetch JSON source data for a pack.
  * @param {string} path  URL path (relative to Foundry root)
  * @returns {Promise<Array|null>}
@@ -291,22 +304,32 @@ async function ensureFolderPath(pack, path, cache) {
 
 /**
  * Import one source file into its compendium pack.
- * @param {string} packName  e.g. "races"
+ * @param {string}  packName    e.g. "races"
+ * @param {string} [storedHash] last-imported source hash; when it matches the
+ *                              current source the pack is skipped entirely.
+ * @returns {Promise<{changed: boolean, hash?: string}>}
  */
-async function importPack(packName) {
+async function importPack(packName, storedHash) {
   const config = PACK_SOURCES[packName];
-  if (!config) return;
+  if (!config) return { changed: false };
 
   const pack = game.packs.get(`${SYSTEM_ID}.${packName}`);
   if (!pack) {
     console.warn(`Aurore | Compendium pack "${SYSTEM_ID}.${packName}" not found.`);
-    return;
+    return { changed: false };
   }
 
   const records = await fetchSource(config.sourceFile);
   if (!records?.length) {
     console.log(`Aurore | No source data found at ${config.sourceFile} — skipping.`);
-    return;
+    return { changed: false };
+  }
+
+  // Skip untouched sources — avoids a full rewrite + toast on every world load.
+  const hash = hashRecords(records);
+  if (storedHash && storedHash === hash) {
+    console.log(`Aurore | Pack "${packName}" source unchanged — skipping.`);
+    return { changed: false, hash };
   }
 
   // Build a name → existing entry map for upsert (create new, update changed)
@@ -345,7 +368,7 @@ async function importPack(packName) {
   if (!toCreate.length && !toUpdate.length) {
     await pack.configure({ locked: true });
     console.log(`Aurore | Pack "${packName}" is already up to date.`);
-    return;
+    return { changed: false, hash };
   }
 
   if (toCreate.length) {
@@ -361,6 +384,7 @@ async function importPack(packName) {
   ui.notifications.info(
     `Aurore : ${total} entrée(s) synchronisée(s) dans le compendium « ${pack.metadata.label} ».`
   );
+  return { changed: true, hash };
 }
 
 /**
@@ -434,14 +458,33 @@ async function importNpcEquipment() {
   if (equipped) console.log(`Aurore | Resolved equipment for ${equipped} NPC(s).`);
 }
 
+/** Packs whose change requires re-resolving NPC equipment (see importNpcEquipment). */
+const NPC_EQUIP_DEPENDENCIES = ["npcs", "weapons", "armors", "gadgets"];
+
 /**
  * Import all configured source packs.
- * Only runs for the GM and only if source files are present.
+ * Only runs for the GM and only if source files are present. Packs whose JSON
+ * is unchanged since the last import are skipped (see importPack); pass
+ * `{ force: true }` to re-sync everything regardless.
+ * @param {{force?: boolean}} [opts]
  */
-export async function importAllPacks() {
+export async function importAllPacks({ force = false } = {}) {
   if (!game.user.isGM) return;
+
+  const stored = force ? {} : (game.settings.get(SYSTEM_ID, "packImportHashes") ?? {});
+  const next = { ...stored };
+  const changed = new Set();
+
   for (const packName of Object.keys(PACK_SOURCES)) {
-    await importPack(packName);
+    const res = await importPack(packName, stored[packName]);
+    if (res?.hash) next[packName] = res.hash;
+    if (res?.changed) changed.add(packName);
   }
-  await importNpcEquipment();
+
+  // Only rebuild NPC loadouts when the NPCs or any referenced item pack changed.
+  if (NPC_EQUIP_DEPENDENCIES.some(p => changed.has(p))) {
+    await importNpcEquipment();
+  }
+
+  await game.settings.set(SYSTEM_ID, "packImportHashes", next);
 }

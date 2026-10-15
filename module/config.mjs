@@ -44,8 +44,7 @@ export const TOKEN_STAMP = {
   enabled: true,
   size: 400,                      // output px, square
   portraitScale: 0.72,           // <1 shrinks the artwork inside the circular crop
-  illustrationRotation: 45,      // degrees to rotate the portrait inside the crop (ring stays put)
-  tokenRotation: 315,           // rotation applied to each placed token on drop (not the prototype)
+  illustrationRotation: 0,       // degrees to rotate the portrait inside the crop (ring stays put)
   background: "#ffffff",         // fill inside the crop behind the portrait ("" / null = transparent)
   ring: {
     mode: "auto",                 // "auto" = template if it loads, else code-drawn; "off" = crop only
@@ -89,28 +88,6 @@ export const COMBAT_HUD = {
   defeatedIcon: "icons/svg/skull.svg" // overlay on defeated cards
 };
 
-// ── Armor PP/CM bonuses per Trinity color ─────────────────
-export const ARMOR_BONUSES = {
-  red:   { ppBonus: 20, cmModifier: -1 },
-  green: { ppBonus: 16, cmModifier: 0 },
-  blue:  { ppBonus: 12, cmModifier: 1 }
-};
-
-// ── Gadget max uses tiers ─────────────────────────────────
-export const GADGET_TIERS = {
-  1: { label: "X1", uses: 1 },
-  2: { label: "X2", uses: 2 },
-  3: { label: "X3", uses: 3 }
-};
-
-// ── Equipment Slots ───────────────────────────────────────
-export const EQUIPMENT_SLOTS = {
-  weapon1: "AURORE.Slots.weapon1",
-  weapon2: "AURORE.Slots.weapon2",
-  armor:   "AURORE.Slots.armor",
-  gadget:  "AURORE.Slots.gadget"
-};
-
 // ── NPC kinds ─────────────────────────────────────────────
 // "human"   — plays like a character: equips items from the compendiums.
 // "monster" — carries its own inline `system.equipment` (max NPC_MAX_EQUIPMENT),
@@ -129,25 +106,6 @@ export const NPC_MAX_EQUIPMENT = 4;
 export const NPC_EQUIPMENT_CATEGORIES = {
   attack:  "AURORE.Npc.equipmentCategory.attack",
   boreale: "AURORE.Npc.equipmentCategory.boreale"
-};
-
-// ── Inventory / Backpack ──────────────────────────────────
-export const BACKPACK_SIZE = 9;
-
-export const ITEM_SLOT_COSTS = {
-  consumable:     1,
-  "weapon-light": 1,
-  "weapon-heavy": 2,
-  armor:          3,
-  gadget:         1
-};
-
-export const BACKPACK_COLORS = {
-  consumable:     "#9ca3af",
-  "weapon-light": "#a16207",
-  "weapon-heavy": "#7c2d12",
-  armor:          "#1e3a5f",
-  gadget:         "#6d28d9"
 };
 
 // ── Power categories ──────────────────────────────────────
@@ -178,15 +136,6 @@ export const XP_COSTS = {
 export const CRIT_THRESHOLDS = {
   success: 5,   // roll <= this is a critical success
   failure: 95   // roll >= this is a critical failure
-};
-
-// ── AoE Shapes (for grid highlight) ──────────────────────
-export const AOE_SHAPES = {
-  circle: "AURORE.AoeShapes.circle",
-  cone:   "AURORE.AoeShapes.cone",
-  line:   "AURORE.AoeShapes.line",
-  square: "AURORE.AoeShapes.square",
-  around: "AURORE.AoeShapes.around"
 };
 
 // ── AoE Pattern Legend ─────────────────────────────────────

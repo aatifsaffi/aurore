@@ -1,4 +1,4 @@
-import { SYSTEM_ID, RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, AOE_SHAPES, POWER_CATEGORIES } from "./module/config.mjs";
+import { SYSTEM_ID, RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, POWER_CATEGORIES } from "./module/config.mjs";
 import { CharacterData } from "./module/data-models/character.mjs";
 import { NpcData } from "./module/data-models/npc.mjs";
 import { WeaponData } from "./module/data-models/weapon.mjs";
@@ -14,7 +14,7 @@ import { AuroreCharacterSheet } from "./module/sheets/character-sheet.mjs";
 import { AuroreNpcSheet } from "./module/sheets/npc-sheet.mjs";
 import { AuroreItemSheet } from "./module/sheets/item-sheet.mjs";
 import { importAllPacks } from "./module/helpers/compendium-import.mjs";
-import { highlightItemAoe, clearAllAoe, onTokenMoved, clearAoeForToken, clearAoeForActor } from "./module/canvas/grid-highlight.mjs";
+import { clearAllAoe, onTokenMoved, clearAoeForToken, clearAoeForActor } from "./module/canvas/grid-highlight.mjs";
 import { DEFAULT_CRIT_SUCCESS_EFFECT, DEFAULT_CRIT_FAILURE_EFFECT } from "./module/helpers/critEffects.mjs";
 import { stampToken } from "./module/helpers/token-stamp.mjs";
 import { openTokenStampConfig } from "./module/apps/token-stamp-config.mjs";
@@ -25,7 +25,7 @@ Hooks.once("init", () => {
 
 
   // Store config on game object for global access
-  CONFIG[SYSTEM_ID] = { RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, AOE_SHAPES, POWER_CATEGORIES };
+  CONFIG[SYSTEM_ID] = { RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, POWER_CATEGORIES };
 
   // ── Handlebars helpers ────────────────────────────────
   Handlebars.registerHelper("or", (...args) => { args.pop(); return args.some(Boolean); });
@@ -131,10 +131,22 @@ Hooks.once("init", () => {
     default: true,
     onChange: () => AuroreCombatHud.refresh()
   });
+
+  // ── Compendium import ─────────────────────────────────
+  // Per-pack source hashes so startup import skips packs whose JSON is unchanged.
+  game.settings.register(SYSTEM_ID, "packImportHashes", {
+    scope: "world",
+    config: false,
+    type: Object,
+    default: {}
+  });
 });
 
 Hooks.once("ready", () => {
   importAllPacks();
+  // Escape hatch: `game.aurore.reimportPacks()` forces a full re-sync from the
+  // JSON sources, ignoring the stored source hashes.
+  game.aurore = { reimportPacks: () => importAllPacks({ force: true }) };
 });
 
 Hooks.on("canvasReady", clearAllAoe);
@@ -159,14 +171,6 @@ Hooks.on("preCreateToken", (tokenDoc, data) => {
   const span = Math.max(1, Math.round(Number(actor.system?.size) || 1));
   if (data.width === span && data.height === span) return;
   tokenDoc.updateSource({ width: span, height: span });
-});
-
-// Rotate the token as it's created (not a post-create update, so no spin
-// animation) to counter the baked-in illustration rotation.
-Hooks.on("preCreateToken", (tokenDoc, data) => {
-  if (!["character", "npc"].includes(tokenDoc.actor?.type)) return;
-  const rot = CONFIG[SYSTEM_ID]?.TOKEN_STAMP?.tokenRotation;
-  if (Number.isFinite(rot) && data.rotation !== rot) tokenDoc.updateSource({ rotation: rot });
 });
 
 // Drop any highlight anchored to a token/actor that no longer exists.
@@ -233,20 +237,6 @@ Hooks.on("updateToken", (tokenDoc, changes) => {
   }
 });
 
-Hooks.on("renderChatMessageHTML", (_msg, html) => {
-  for (const btn of html.querySelectorAll(".aoe-show-btn")) {
-    btn.addEventListener("click", async () => {
-      const { actorId, weaponId, tokenId } = btn.dataset;
-      const actor = game.actors.get(actorId);
-      const weapon = actor?.items.get(weaponId);
-      const token = canvas.tokens.get(tokenId) ?? actor?.getActiveTokens()[0];
-
-      if (!weapon || !token) return ui.notifications.warn(game.i18n.localize("AURORE.Aoe.noToken"));
-      highlightItemAoe(token, weapon);
-    });
-  }
-});
-
 // ── Combat HUD ───────────────────────────────────────────
 // Pure render layer: every combat/target change just schedules a (debounced) refresh.
 for (const hook of ["ready", "canvasReady", "combatStart", "combatTurn", "combatRound", "updateCombat",
@@ -265,8 +255,3 @@ Hooks.on("updateToken", (tokenDoc, changes) => {
   if (["name", "hidden", "texture", "actorData"].some(k => k in changes)) AuroreCombatHud.refresh();
 });
 
-Hooks.once("ready", async () => {
-  if (game.user.isGM && game.settings.get("core", "tokenAutoRotate") !== false) {
-    await game.settings.set("core", "tokenAutoRotate", false);
-  }
-});
