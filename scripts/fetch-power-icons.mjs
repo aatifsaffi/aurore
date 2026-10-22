@@ -28,24 +28,30 @@ const ICON_URL  = (slug) => `https://game-icons.net/icons/ffffff/transparent/1x1
 /** Power id → game-icons.net "<author>/<name>" slug. */
 const ICONS = {
   // Passifs
-  "PAS-01": "lorc/crossed-swords",        // Engagement
-  "PAS-02": "lorc/sentry-gun",            // Sentinelle
-  "PAS-03": "lorc/crowned-skull",         // Domination
-  "PAS-04": "lorc/shield-reflect",        // Renforcement
-  "PAS-05": "lorc/bloody-sword",          // Prix du sang
-  "PAS-06": "andymeneely/riposte",        // Contre-coup
-  "PAS-07": "lorc/target-arrows",         // Point faible
-  "PAS-08": "delapouite/sai",             // Ambidextrie
-  "PAS-09": "delapouite/achilles-heel",   // Coupe-jarret
-  "PAS-10": "lorc/swords-emblem",         // Maître d'arme
-  "PAS-11": "lorc/decapitation",          // Goût du meurtre
-  "PAS-12": "lorc/double-shot",           // Combo
-  "PAS-13": "sbed/battery-pack",          // Surcharge
-  "PAS-14": "lorc/hidden",                // Embuscade
-  "PAS-15": "lorc/bolt-shield",           // Protection
-  "PAS-16": "delapouite/team-idea",       // Esprit d'équipe
-  "PAS-17": "lorc/meditation",            // Concentration
-  "PAS-18": "lorc/backup",                // Soutien
+  "PAS-01": "delapouite/rolling-dices",   // Affinité RAGE
+  "PAS-02": "lorc/crossed-swords",        // Engagement
+  "PAS-03": "lorc/sentry-gun",            // Sentinelle
+  "PAS-04": "lorc/crowned-skull",         // Domination
+  "PAS-05": "lorc/shield-reflect",        // Renforcement
+  "PAS-06": "lorc/bloody-sword",          // Prix du sang
+  "PAS-07": "andymeneely/riposte",        // Contre-coup
+  "PAS-08": "lorc/processor",             // Implants de RAGE
+  "PAS-09": "delapouite/rolling-dices",   // Affinité SURPRISE
+  "PAS-10": "lorc/target-arrows",         // Point faible
+  "PAS-11": "delapouite/sai",             // Ambidextrie
+  "PAS-12": "delapouite/achilles-heel",   // Coupe-jarret
+  "PAS-13": "lorc/swords-emblem",         // Maître d'arme
+  "PAS-14": "lorc/decapitation",          // Goût du meurtre
+  "PAS-15": "lorc/double-shot",           // Combo
+  "PAS-16": "lorc/processor",             // Implants de SURPRISE
+  "PAS-17": "delapouite/rolling-dices",   // Affinité PEUR
+  "PAS-18": "sbed/battery-pack",          // Surcharge
+  "PAS-19": "lorc/hidden",                // Embuscade
+  "PAS-20": "lorc/bolt-shield",           // Protection
+  "PAS-21": "delapouite/team-idea",       // Esprit d'équipe
+  "PAS-22": "lorc/meditation",            // Concentration
+  "PAS-23": "lorc/backup",                // Soutien
+  "PAS-24": "lorc/processor",             // Implants de PEUR
   // Auromancie
   "AUR-01": "lorc/life-tap",              // Drain Boréale
   "AUR-02": "lorc/mushroom-cloud",        // Explosion Boréale

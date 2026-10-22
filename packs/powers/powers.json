@@ -2,6 +2,14 @@
   "items": [
     {
       "id": "PAS-01",
+      "name": "Affinité RAGE",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>+10% bonus aux jets d'équipement de RAGE.</p>",
+      "img": "systems/aurore/assets/icons/rolling-dices.svg"
+    },
+    {
+      "id": "PAS-02",
       "name": "Engagement",
       "discipline": "passif",
       "trinity": "red",
@@ -9,7 +17,7 @@
       "img": "systems/aurore/assets/icons/crossed-swords.svg"
     },
     {
-      "id": "PAS-02",
+      "id": "PAS-03",
       "name": "Sentinelle",
       "discipline": "passif",
       "trinity": "red",
@@ -17,7 +25,7 @@
       "img": "systems/aurore/assets/icons/sentry-gun.svg"
     },
     {
-      "id": "PAS-03",
+      "id": "PAS-04",
       "name": "Domination",
       "discipline": "passif",
       "trinity": "red",
@@ -25,7 +33,7 @@
       "img": "systems/aurore/assets/icons/crowned-skull.svg"
     },
     {
-      "id": "PAS-04",
+      "id": "PAS-05",
       "name": "Renforcement",
       "discipline": "passif",
       "trinity": "red",
@@ -33,7 +41,7 @@
       "img": "systems/aurore/assets/icons/shield-reflect.svg"
     },
     {
-      "id": "PAS-05",
+      "id": "PAS-06",
       "name": "Prix du sang",
       "discipline": "passif",
       "trinity": "red",
@@ -41,7 +49,7 @@
       "img": "systems/aurore/assets/icons/bloody-sword.svg"
     },
     {
-      "id": "PAS-06",
+      "id": "PAS-07",
       "name": "Contre-coup",
       "discipline": "passif",
       "trinity": "red",
@@ -49,7 +57,23 @@
       "img": "systems/aurore/assets/icons/riposte.svg"
     },
     {
-      "id": "PAS-07",
+      "id": "PAS-08",
+      "name": "Implants de RAGE",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>Vous pouvez équiper des implants de RAGE.</p>",
+      "img": "systems/aurore/assets/icons/processor.svg"
+    },
+    {
+      "id": "PAS-09",
+      "name": "Affinité SURPRISE",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>+10% bonus aux jets d'équipement de SURPRISE.</p>",
+      "img": "systems/aurore/assets/icons/rolling-dices.svg"
+    },
+    {
+      "id": "PAS-10",
       "name": "Point faible",
       "discipline": "passif",
       "trinity": "green",
@@ -57,7 +81,7 @@
       "img": "systems/aurore/assets/icons/target-arrows.svg"
     },
     {
-      "id": "PAS-08",
+      "id": "PAS-11",
       "name": "Ambidextrie",
       "discipline": "passif",
       "trinity": "green",
@@ -65,7 +89,7 @@
       "img": "systems/aurore/assets/icons/sai.svg"
     },
     {
-      "id": "PAS-09",
+      "id": "PAS-12",
       "name": "Coupe-jarret",
       "discipline": "passif",
       "trinity": "green",
@@ -73,7 +97,7 @@
       "img": "systems/aurore/assets/icons/achilles-heel.svg"
     },
     {
-      "id": "PAS-10",
+      "id": "PAS-13",
       "name": "Maître d'arme",
       "discipline": "passif",
       "trinity": "green",
@@ -81,7 +105,7 @@
       "img": "systems/aurore/assets/icons/swords-emblem.svg"
     },
     {
-      "id": "PAS-11",
+      "id": "PAS-14",
       "name": "Goût du meurtre",
       "discipline": "passif",
       "trinity": "green",
@@ -89,7 +113,7 @@
       "img": "systems/aurore/assets/icons/decapitation.svg"
     },
     {
-      "id": "PAS-12",
+      "id": "PAS-15",
       "name": "Combo",
       "discipline": "passif",
       "trinity": "green",
@@ -97,7 +121,23 @@
       "img": "systems/aurore/assets/icons/double-shot.svg"
     },
     {
-      "id": "PAS-13",
+      "id": "PAS-16",
+      "name": "Implants de SURPRISE",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Vous pouvez équiper des implants de SURPRISE.</p>",
+      "img": "systems/aurore/assets/icons/processor.svg"
+    },
+    {
+      "id": "PAS-17",
+      "name": "Affinité PEUR",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>+10% bonus aux jets d'équipement de PEUR.</p>",
+      "img": "systems/aurore/assets/icons/rolling-dices.svg"
+    },
+    {
+      "id": "PAS-18",
       "name": "Surcharge",
       "discipline": "passif",
       "trinity": "blue",
@@ -105,7 +145,7 @@
       "img": "systems/aurore/assets/icons/battery-pack.svg"
     },
     {
-      "id": "PAS-14",
+      "id": "PAS-19",
       "name": "Embuscade",
       "discipline": "passif",
       "trinity": "blue",
@@ -113,7 +153,7 @@
       "img": "systems/aurore/assets/icons/hidden.svg"
     },
     {
-      "id": "PAS-15",
+      "id": "PAS-20",
       "name": "Protection",
       "discipline": "passif",
       "trinity": "blue",
@@ -121,7 +161,7 @@
       "img": "systems/aurore/assets/icons/bolt-shield.svg"
     },
     {
-      "id": "PAS-16",
+      "id": "PAS-21",
       "name": "Esprit d'équipe",
       "discipline": "passif",
       "trinity": "blue",
@@ -129,7 +169,7 @@
       "img": "systems/aurore/assets/icons/team-idea.svg"
     },
     {
-      "id": "PAS-17",
+      "id": "PAS-22",
       "name": "Concentration",
       "discipline": "passif",
       "trinity": "blue",
@@ -137,12 +177,20 @@
       "img": "systems/aurore/assets/icons/meditation.svg"
     },
     {
-      "id": "PAS-18",
+      "id": "PAS-23",
       "name": "Soutien",
       "discipline": "passif",
       "trinity": "blue",
       "description": "<p>Si un allié se trouve à moins de 4 cases de vous, bénéficiez de 1 PA supplémentaire utilisable uniquement pour réaliser des actions d'équipement de soutien (action qui n'inflige aucun dommage).</p>",
       "img": "systems/aurore/assets/icons/backup.svg"
+    },
+    {
+      "id": "PAS-24",
+      "name": "Implants de PEUR",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Vous pouvez équiper des implants de PEUR.</p>",
+      "img": "systems/aurore/assets/icons/processor.svg"
     },
     {
       "id": "AUR-01",
