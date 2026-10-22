@@ -1,0 +1,308 @@
+{
+  "items": [
+    {
+      "id": "RAC-01",
+      "name": "Cuve d'Askelon",
+      "kind": "racial",
+      "race": "valien",
+      "description": "<p>Si vous portez un coup fatal à un ennemi, vous rechargez les utilisations de votre gadget.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-02",
+      "name": "Cuve d'Hellonde",
+      "kind": "racial",
+      "race": "valien",
+      "description": "<p>Une fois durant un combat, si vous venez d'échouer lors d'un jet, vous pouvez appliquer une réussite (non critique) à la place.<br>À partir du niveau 5 vous pouvez utiliser votre racial deux fois par combat.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-03",
+      "name": "Origine Dominion",
+      "kind": "racial",
+      "race": "relien",
+      "description": "<p>Votre personnage dispose d'un emplacement biomécanique dans son bras lui permettant d'équiper une arme légère supplémentaire. Cet emplacement n'est pas pris en compte pour l'équilibre émotionnel de votre personnage et ne pourra pas recevoir d'implant.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-04",
+      "name": "Origine Nations du Sud",
+      "kind": "racial",
+      "race": "relien",
+      "description": "<p>Une fois par combat, lors de votre tour, générez 2 PA à utiliser directement, toutes vos actions souffriront alors d'un malus de -10% pour le reste du tour.<br>Vous ne pouvez pas combiner ce don avec d'autres sources de gain de PA temporaire.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-05",
+      "name": "Origine insulaire",
+      "kind": "racial",
+      "race": "relien",
+      "description": "<p>Votre personnage vient de contrées au-delà du continent Oulien, la vie dans ces terres inexplorées est rude, obligeant à faire preuve d'une efficacité meurtrière.<br>En combat votre personnage augmente toujours de +1 les dommages et PP octroyés par toutes vos actions. À partir du niveau 5 le montant bonus passe à +2.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-06",
+      "name": "Ascendance de la griffe",
+      "kind": "racial",
+      "race": "oulien",
+      "description": "<p>Si vous portez un coup fatal à un ennemi vous régénérez 3d6 + le niveau de votre victime en PV ou gagnez ce montant en PV bonus si votre capital est déjà au maximum. Les dégâts infligés avec l'action « Lutte » sont doublés.<br>Vous pouvez parler aux animaux de votre ascendance (chat, loup, tigre…).</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-07",
+      "name": "Ascendance de l'écaille",
+      "kind": "racial",
+      "race": "oulien",
+      "description": "<p>Votre capital de CM augmente de +1. Toutes les actions hostiles à votre encontre ont un malus de -5% aux jets.<br>Vous pouvez parler aux animaux de votre ascendance (lézard, serpent,…).</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-08",
+      "name": "Ascendance de la plume",
+      "kind": "racial",
+      "race": "oulien",
+      "description": "<p>Contre 1 PA vous pouvez vous envoler au-dessus du sol à une hauteur maximum équivalente à votre nombre max de CM (par exemple 4 CM = 4 mètres). Vous restez en vol jusqu'à la fin de votre prochain tour. Vous pouvez ainsi franchir les obstacles et vous mettre hors de portée de certaines actions.<br>Vous pouvez parler aux animaux de votre ascendance (aigle, corbeau,…).</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-09",
+      "name": "Ascendance de la corne",
+      "kind": "racial",
+      "race": "oulien",
+      "description": "<p>Votre capital de point de vie augmente de +2 PV pour chaque niveau que possède votre personnage. Contre 1 PA vous chargez en ligne droite et repoussez les cibles avec qui vous rentrez en contact. Lancez 1D6 + vos CM, le montant de ce dès représente le nombre de case parcourue et repoussez les cibles du même montant de cases opposé à leur direction. Votre charge s'arrête si vous rencontrez un obstacle.<br>Vous pouvez parler aux animaux de votre ascendance (taureau, bouc,…).</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-10",
+      "name": "Fabrication : Combat",
+      "kind": "racial",
+      "race": "candry",
+      "description": "<p>La conception de votre personnage a été pensée pour résister aux pires batailles. Votre capital de point de vie augmente de +1 PV pour chaque niveau que possède votre personnage.<br>Une fois par combat, si votre seuil de PV est réduit de moitié vous gagnez immédiatement la moitié de votre montant max de PV en PP bonus.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-11",
+      "name": "Fabrication : Service",
+      "kind": "racial",
+      "race": "candry",
+      "description": "<p>La conception de votre personnage à été pensée pour servir au mieux les êtres qui ont conçu les candrys. Vous recevez un bonus de +5% aux jets pour tous les talents.<br>De plus, toutes vos actions qui n'infligent pas de dommage ont toujours un bonus de +5% aux jets.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "RAC-12",
+      "name": "Fabrication : Furtif",
+      "kind": "racial",
+      "race": "candry",
+      "description": "<p>La conception de votre personnage à été pensée pour s'infiltrer entre les lignes ennemis et rassembler des informations. Contre 1 PA et un jet avec l'émotion de votre choix votre personnage devient invisible jusqu'à la fin de votre prochain tour ou jusqu'à l'utilisation d'une action. Pour chaque ennemi regardant dans votre direction vous avez un malus de -10% à ce jet.<br>La première action hostile réalisée en étant invisible a un bonus au jet de +20%.</p>",
+      "img": "systems/aurore/assets/icons/dna2.svg"
+    },
+    {
+      "id": "COM-01",
+      "name": "Mule",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre capital de PV augmente de +10, vous pouvez ajoute 3 rectangles d'emplacement dans votre inventaire. En combat contre 1 PA et un jet d'Endurance vous pouvez lancer un équipement situé dans votre inventaire sur une case à portée de déplacement. L'équipement inflige son action lors de l'impact et est détruit.<br>+5 à votre talent d'Endurance.</p>",
+      "img": "systems/aurore/assets/icons/backpack.svg"
+    },
+    {
+      "id": "COM-02",
+      "name": "Mobile",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre capital de CM augmente de +2.<br>+5 à votre talent Coordination.</p>",
+      "img": "systems/aurore/assets/icons/run.svg"
+    },
+    {
+      "id": "COM-03",
+      "name": "Vigilant",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par tour vous esquivez automatiquement la première action hostile déclenché par les passifs SENTINELLE et EMBUSCADE vous visant. Également vous commencez toujours les combats en premier.<br>+5 à votre talent Perception.</p>",
+      "img": "systems/aurore/assets/icons/eye-target.svg"
+    },
+    {
+      "id": "COM-04",
+      "name": "Bourreau",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par tour, si vous infligez un coup fatal à un ennemi vous regagnez 1 PA.<br>+5 à votre talent Autorité.</p>",
+      "img": "systems/aurore/assets/icons/executioner-hood.svg"
+    },
+    {
+      "id": "COM-05",
+      "name": "Increvable",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par combat, si une action doit vous mettre à 0 PV, annulez là et recevez 3D10 PV supplémentaires à la place.<br>+5 à votre talent Frisson.</p>",
+      "img": "systems/aurore/assets/icons/half-dead.svg"
+    },
+    {
+      "id": "COM-06",
+      "name": "Ami des bêtes",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre personnage peut parler à tous les animaux. Au début de chaque scénario, choisissez un familier de votre niveau au sein du bestiaire qui vous accompagnera. Si votre familier atteint 0 PV il meurt, vous pourrez alors en choisir un nouveau au début d'un autre scénario.<br>+5 à votre talent Empathie.</p>",
+      "img": "systems/aurore/assets/icons/paw-heart.svg"
+    },
+    {
+      "id": "COM-07",
+      "name": "Haltérophilie",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre capital de PV augmente de +8. Vous pouvez soulever une cible occupant une seule case contre 1 PA et un jet Endurance. Si vous avez réussi, vous lancez la cible à une distance de 1D6 + vos CM. Lors de l'impact la cible reçoit la distance parcourue en dégâts. Si un obstacle, un ennemi ou un allié se trouve sur la case de destination, la règle de Repoussement ! s'applique.<br>+5 à votre talent Endurance.</p>",
+      "img": "systems/aurore/assets/icons/weight-lifting-up.svg"
+    },
+    {
+      "id": "COM-08",
+      "name": "Recherche de faille",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Lors de la réalisation d'une action hostile à l'encontre d'une cible vous pouvez réaliser un jet de Logique pour endommager une pièce d'équipement spécifique de la cible. La pièce sera alors inutilisable pour une durée de 2 tours. Utilisable une seule fois par cible.<br>+5 à votre talent Logique.</p>",
+      "img": "systems/aurore/assets/icons/cracked-shield.svg"
+    },
+    {
+      "id": "COM-09",
+      "name": "Rôdeur",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Contre 1 PA vous pouvez réaliser un jet de Sang-Froid afin de vous faire oublier par vos ennemis en plein combat. Pour chaque ennemi regardant dans votre direction vous avez un malus de -10% à ce jet. Si cette action réussi les ennemis ne vous attaqueront pas jusqu'à la fin de votre prochain tour et votre prochaine action hostile aura un bonus de +20% au jet.<br>+5 à votre talent Sang-Froid.</p>",
+      "img": "systems/aurore/assets/icons/hood.svg"
+    },
+    {
+      "id": "COM-10",
+      "name": "Médecin de guerre",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre personnage peut utiliser une trousse de soin par tour sans avoir besoin de PA. Lors de l'utilisation d'une trousse de soin, vous lancez un jet d'Encyclopédie pour rendre 1d6 de PV + votre niveau à votre allié en plus des soins de base de la trousse.<br>+5 à votre talent Encyclopédie.</p>",
+      "img": "systems/aurore/assets/icons/first-aid-kit.svg"
+    },
+    {
+      "id": "COM-11",
+      "name": "Artificier",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre personnage peut utiliser une grenade ou mine par tour sans avoir besoin d'utiliser de PA mais vous devez toujours réaliser un jet. Une fois par combat vous pouvez lancer un jet de Coordination afin de doubler les dégâts de la prochaine grenade ou mine que vous utilisez.<br>+5 à votre talent Coordination.</p>",
+      "img": "systems/aurore/assets/icons/grenade.svg"
+    },
+    {
+      "id": "COM-12",
+      "name": "Domination",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Vous incarnez une figure d'autorité qui impressionne. En combat, tous les ennemis dans la portée de vos CM ont un malus de -5% et les alliés un bonus de +5% aux jets de toutes leurs actions.<br>+5 à votre talent Autorité.</p>",
+      "img": "systems/aurore/assets/icons/crown.svg"
+    },
+    {
+      "id": "COM-13",
+      "name": "Urbex",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Lorsque vous vous déplacez en combat, vous ne tenez jamais compte des difficultés du terrain, des effets de ralentissement et des dégâts de chutes sauf si ces dommages sont supérieurs à 10. Une fois par tour, lorsque vous êtes immobilisé vous pouvez réaliser un jet de Sang-Froid pour vous libérer.<br>+5 à votre talent Sang-Froid.</p>",
+      "img": "systems/aurore/assets/icons/modern-city.svg"
+    },
+    {
+      "id": "COM-14",
+      "name": "Oeil de lynx",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par tour, contre un malus de -30% au jet, vous pouvez viser les jambes d'une cible avec votre arme pour l'immobiliser durant ce tour. Également, augmentez passivement de trois cases la portée de toutes vos armes qui ont au minimum 3 cases de portée.<br>+5 à votre talent Perception.</p>",
+      "img": "systems/aurore/assets/icons/lynx-head.svg"
+    },
+    {
+      "id": "COM-15",
+      "name": "Super Instinct",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par combat contre un jet de Frisson, mettez tous vos sens en alerte. Tous vos alliés situés dans la portée de vos CM ainsi que vous même avez un bonus de +20% à tous vos jets jusqu'à la fin de votre prochain tour.<br>+5 à votre talent Frisson.</p>",
+      "img": "systems/aurore/assets/icons/brain.svg"
+    },
+    {
+      "id": "COM-16",
+      "name": "Logique martiale",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par tour, lorsque vous infligez des dommages bonus grâce à des compétences d'arme comme « saignement », « enchaînement » ext… doublez ce montant de dommage bonus si vous réussissez un jet de Logique.<br>+5 à votre talent Logique.</p>",
+      "img": "systems/aurore/assets/icons/sword-clash.svg"
+    },
+    {
+      "id": "COM-17",
+      "name": "Science du combat",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Une fois par tour, contre un jet d'Encyclopédie, retirez tous les malus aux jets qui vous affectent ou affectent un allié à portée de déplacement.<br>+5 à votre talent d'Encyclopédie.</p>",
+      "img": "systems/aurore/assets/icons/open-book.svg"
+    },
+    {
+      "id": "COM-18",
+      "name": "Esprit d'équipe",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Lorsque deux alliés ou plus se trouvent à moins de 5 cases de votre personnage en combat vous avez +10% à tous vos jets d'actions qui n'infligent pas de dommage.<br>+5 à votre talent d'Empathie.</p>",
+      "img": "systems/aurore/assets/icons/team-idea.svg"
+    },
+    {
+      "id": "COM-19",
+      "name": "Affinité avec l'Aurore",
+      "kind": "common",
+      "race": "",
+      "description": "<p>+10% à vos jets lorsque vous utilisez des pouvoirs d'Auromancie.<br>Une fois par combat contre 2 PA vous pouvez lancer un pouvoir d'Auromancie de votre choix qui réussira.</p>",
+      "img": "systems/aurore/assets/icons/aura.svg"
+    },
+    {
+      "id": "COM-20",
+      "name": "Affinité avec la Navigation",
+      "kind": "common",
+      "race": "",
+      "description": "<p>+10% à vos jets lorsque vous utilisez des pouvoirs de Navigation.<br>Une fois par combat contre 2 PA vous pouvez lancer un pouvoir de Navigation de votre choix qui réussira.</p>",
+      "img": "systems/aurore/assets/icons/compass.svg"
+    },
+    {
+      "id": "COM-21",
+      "name": "Affinité avec la Gravitation",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Lorsque vous utilisez un pouvoir gravitant générez +2D6 à ajouter à l'effet numérique de ce pouvoir.<br>Une fois par combat, débloquer un usage supplémentaire de vos pouvoirs de Gravitation contre l'usage de 1 PA et -10 PV.</p>",
+      "img": "systems/aurore/assets/icons/orbital.svg"
+    },
+    {
+      "id": "COM-22",
+      "name": "Loup solitaire",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Lorsque vous vous trouvez à 5 cases de distances minimum de vos alliés, augmentez de +2 vos dommages et PP octroyés par vos toutes vos actions et ajoutez +5% à tous vos jets en combat.<br>Non compatible avec « Canon de verre ».</p>",
+      "img": "systems/aurore/assets/icons/wolf-howl.svg"
+    },
+    {
+      "id": "COM-23",
+      "name": "Canon de verre",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Votre capital de PV n'augmente plus que de +3 PV par niveau (rétroactif). Une fois par tour, lorsque vous réalisez une action hostile, vous pouvez l'amplifier en sacrifiant de 1 à 6 PP afin d'augmenter du même montant les dommages de l'action.<br>Non compatible avec « Loup solitaire ».</p>",
+      "img": "systems/aurore/assets/icons/broken-heart.svg"
+    },
+    {
+      "id": "COM-24",
+      "name": "Combattant équilibré",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Si votre équipement n'affiche pas de couleur dominante ajoutez +10% à tous vos jets d'équipement.</p>",
+      "img": "systems/aurore/assets/icons/scales.svg"
+    },
+    {
+      "id": "COM-25",
+      "name": "Combattant émotionnel",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Si votre équipement est constitué de pièces d'une seule couleur ajoutez +1d6 supplémentaire lors d'activation de dommages ou de résistances bonus en lien avec la règle de trinité.</p>",
+      "img": "systems/aurore/assets/icons/heartburn.svg"
+    },
+    {
+      "id": "COM-26",
+      "name": "Résistant",
+      "kind": "common",
+      "race": "",
+      "description": "<p>Augmentez votre capital de PV de +5 pour chaque niveau de votre personnage.</p>",
+      "img": "systems/aurore/assets/icons/checked-shield.svg"
+    }
+  ]
+}

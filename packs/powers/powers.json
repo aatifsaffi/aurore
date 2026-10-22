@@ -1,0 +1,420 @@
+{
+  "items": [
+    {
+      "id": "PAS-01",
+      "name": "Engagement",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>Le premier coup de votre tour avec une arme ROUGE inflige +1 dommage / niveau.</p>",
+      "img": "systems/aurore/assets/icons/crossed-swords.svg"
+    },
+    {
+      "id": "PAS-02",
+      "name": "Sentinelle",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>Lorsque ce n'est pas votre tour, le premier ennemi quittant la zone d'une de vos armes de portée maximum de 2 cases, déclenche une attaque avec cette arme.</p>",
+      "img": "systems/aurore/assets/icons/sentry-gun.svg"
+    },
+    {
+      "id": "PAS-03",
+      "name": "Domination",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>Si votre cible est affectée par un effet d'immobilisation ou de statique toutes vos attaque avec des actions d'équipement ROUGE ont un bonus de +15% aux jets contre elle.</p>",
+      "img": "systems/aurore/assets/icons/crowned-skull.svg"
+    },
+    {
+      "id": "PAS-04",
+      "name": "Renforcement",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>La réussite d'une action d'équipement suite à un jet inférieur à 30% redonne 1 PP / niveau à votre capital armure.</p>",
+      "img": "systems/aurore/assets/icons/shield-reflect.svg"
+    },
+    {
+      "id": "PAS-05",
+      "name": "Prix du sang",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>Sacrifiez vos PV pour augmenter la puissance de vos actions d'équipement ROUGE jusqu'à la fin de votre prochain tour. 2 PV pour +1 dommage.</p>",
+      "img": "systems/aurore/assets/icons/bloody-sword.svg"
+    },
+    {
+      "id": "PAS-06",
+      "name": "Contre-coup",
+      "discipline": "passif",
+      "trinity": "red",
+      "description": "<p>1 fois lors du tour des ennemis, si vous subissez une attaque et que celle-ci ne touche que vos PP, elle vous offre 1 PA à utiliser immédiatement.</p>",
+      "img": "systems/aurore/assets/icons/riposte.svg"
+    },
+    {
+      "id": "PAS-07",
+      "name": "Point faible",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Le premier coup de votre tour avec une arme VERTE peut infliger, contre un malus au jet de -15%, des dommages supplémentaires équivalant au double de votre niveau.</p>",
+      "img": "systems/aurore/assets/icons/target-arrows.svg"
+    },
+    {
+      "id": "PAS-08",
+      "name": "Ambidextrie",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Si vous équipez deux armes légères identiques vous pouvez, contre un malus aux jets de -15%, infliger les deux actions d'arme avec un seul PA.<br>Tous les bonus de dégâts (trinité/passif ext…) ne s'appliqueront par contre qu'une seule fois.</p>",
+      "img": "systems/aurore/assets/icons/sai.svg"
+    },
+    {
+      "id": "PAS-09",
+      "name": "Coupe-jarret",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Une fois par tour, vous réussissez un jet avec une action d'équipement VERT, la prochaine action hostile qui vous vise aura un malus au jet de -30%.</p>",
+      "img": "systems/aurore/assets/icons/achilles-heel.svg"
+    },
+    {
+      "id": "PAS-10",
+      "name": "Maître d'arme",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Vous êtes doté d'un emplacement d'arme supplémentaire. La couleur de cet emplacement n'affecte pas l'équilibrage de trinité de votre personnage et ne pourra pas recevoir d'implant.</p>",
+      "img": "systems/aurore/assets/icons/swords-emblem.svg"
+    },
+    {
+      "id": "PAS-11",
+      "name": "Goût du meurtre",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Inflige +1 dommage tous les 2 niveaux de votre personnage avec vos actions d'équipement VERT si la cible n'a plus de PP.</p>",
+      "img": "systems/aurore/assets/icons/decapitation.svg"
+    },
+    {
+      "id": "PAS-12",
+      "name": "Combo",
+      "discipline": "passif",
+      "trinity": "green",
+      "description": "<p>Au cours de votre tour, si vous réussissez deux actions d'équipement de couleurs différentes, vous obtenez 1 PA supplémentaire.</p>",
+      "img": "systems/aurore/assets/icons/double-shot.svg"
+    },
+    {
+      "id": "PAS-13",
+      "name": "Surcharge",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Le premier coup de votre tour avec une arme BLEU vous accorde +1 PP bonus / Niveau. Ces PP disparaissent au début de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/battery-pack.svg"
+    },
+    {
+      "id": "PAS-14",
+      "name": "Embuscade",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Lorsque ce n'est pas votre tour, le premier ennemi ENTRANT dans la zone d'une arme de portée MINIMUM de 3 cases déclenche un jet d'attaque avec cette arme.</p>",
+      "img": "systems/aurore/assets/icons/hidden.svg"
+    },
+    {
+      "id": "PAS-15",
+      "name": "Protection",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Une fois par tour, si vous réussissez un jet avec une action d'équipement BLEU, la prochaine attaque subie vous infligera seulement la moitié des dommages.</p>",
+      "img": "systems/aurore/assets/icons/bolt-shield.svg"
+    },
+    {
+      "id": "PAS-16",
+      "name": "Esprit d'équipe",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Lors de votre tour vous pouvez transférer 1 PA à un allié. Ce dernier va utiliser ce PA directement dans une action de son choix. Si il réussit une action avec ce PA, vous et votre allié récupérez +1 PP / Niveau.</p>",
+      "img": "systems/aurore/assets/icons/team-idea.svg"
+    },
+    {
+      "id": "PAS-17",
+      "name": "Concentration",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Si vous décidez de ne pas vous déplacer ou de vous orienter, infligez +1 dommage tous les 2 niveaux de votre personnage avec vos actions d'équipement BLEU pour ce tour.</p>",
+      "img": "systems/aurore/assets/icons/meditation.svg"
+    },
+    {
+      "id": "PAS-18",
+      "name": "Soutien",
+      "discipline": "passif",
+      "trinity": "blue",
+      "description": "<p>Si un allié se trouve à moins de 4 cases de vous, bénéficiez de 1 PA supplémentaire utilisable uniquement pour réaliser des actions d'équipement de soutien (action qui n'inflige aucun dommage).</p>",
+      "img": "systems/aurore/assets/icons/backup.svg"
+    },
+    {
+      "id": "AUR-01",
+      "name": "Drain Boréale",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Absorbez 1 P.A d'une cible dans votre champ de vision. Vous pouvez tentez d'utiliser ce pouvoir qu'une seule fois par tour.</p>",
+      "img": "systems/aurore/assets/icons/life-tap.svg"
+    },
+    {
+      "id": "AUR-02",
+      "name": "Explosion Boréale",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Générez une explosion émotionnelle à partir d'une cible dans le coma dans votre champ de vision.<br>Infligez le montant maximal de PV de la cible dans la zone. Ne peut s'utiliser qu'une fois par cible.</p>",
+      "img": "systems/aurore/assets/icons/mushroom-cloud.svg"
+    },
+    {
+      "id": "AUR-03",
+      "name": "Couleur de l'Aurore",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Changez ou ajoutez une couleur de trinité de votre choix à une cible dans votre champ de vision jusqu'à la fin du combat.</p>",
+      "img": "systems/aurore/assets/icons/palette.svg"
+    },
+    {
+      "id": "AUR-04",
+      "name": "Don de l'Aurore",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Vous invoquez une créature aléatoire du bestiaire borélien dans la limite de 5 cases visibles devant vous. Cette créature pourra être d'un niveau égale à celui de votre personnage -2. Le monstre n'est pas votre allié et s'attaque à tout ce qui l'entoure.<br>Sort inutilisable avant le niveau 3 !</p>",
+      "img": "systems/aurore/assets/icons/portal.svg"
+    },
+    {
+      "id": "AUR-05",
+      "name": "Manteau Boréale",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Devenez invisible jusqu'à la fin de votre prochain tour ou jusqu'à l'utilisation d'une action. Pour chaque ennemi regardant dans votre direction vous avez un malus de -10% à ce jet.<br>La première action hostile réalisée en étant invisible a un bonus au jet de +20%.</p>",
+      "img": "systems/aurore/assets/icons/cloak-dagger.svg"
+    },
+    {
+      "id": "AUR-06",
+      "name": "Voyage Boréale",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Téléportez vous sur une case visible dans une limite de 15 cases.<br>Ne retire pas l'invisibilité.</p>",
+      "img": "systems/aurore/assets/icons/teleport.svg"
+    },
+    {
+      "id": "AUR-07",
+      "name": "Chaîne Boréale",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Liez vous à une cible visible, tous les dommages que vous recevez sont partagés avec la cible.<br>Le lien se rompt si la cible réussit un jet de mental au début d'un de ses tours contre 1 PA.</p>",
+      "img": "systems/aurore/assets/icons/chained-heart.svg"
+    },
+    {
+      "id": "AUR-08",
+      "name": "Terreur Boréale",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Toutes les cibles ennemis à portée de déplacement reçoivent un malus à leur jet de -20% jusqu'à la fin de leur prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/terror.svg"
+    },
+    {
+      "id": "AUR-09",
+      "name": "Maître de l'Aurore",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Prenez le contrôle d'une créature de l'Aurore non large dans votre champ de vision égale ou inférieur à votre niveau jusqu'à la fin de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/puppet.svg"
+    },
+    {
+      "id": "AUR-10",
+      "name": "Sacrifice à l'Aurore",
+      "discipline": "auromancie",
+      "trinity": "",
+      "description": "<p>Retirez vous un montant de PV que vous infligez comme dommages directement aux PV d'une cible dans votre champ de vision.</p>",
+      "img": "systems/aurore/assets/icons/sacrificial-dagger.svg"
+    },
+    {
+      "id": "NAV-01",
+      "name": "Éruption Solaire",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Canalisez la puissance d'une éruption solaire pour la libérer sur vos ennemis.<br>Inflige 8+Niv+R dommages à toutes les cibles présentes sur la ligne. Traverse et détruit les obstacles sur son passage.</p>",
+      "img": "systems/aurore/assets/icons/sunbeams.svg"
+    },
+    {
+      "id": "NAV-02",
+      "name": "Frappe Solaire",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Concentrer la brillance d'une étoile en un point précis sur la surface du terrain.<br>Inflige 6+Niv+R dommages à la cible. Toutes cibles du terrain peut être touché du moment qu'elle est dans votre champ de vision.</p>",
+      "img": "systems/aurore/assets/icons/sun-radiations.svg"
+    },
+    {
+      "id": "NAV-03",
+      "name": "Orbe Aveuglante",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Choisissez un des 4 bords du terrain. Créez y une orbe flottante jusqu'à la fin de votre prochain tour. Toutes les cibles orientées dans cette direction qui réalisent des actions dans le sens de l'orbe ont un malus de -30%+Niv+R aux jets.</p>",
+      "img": "systems/aurore/assets/icons/orb-wand.svg"
+    },
+    {
+      "id": "NAV-04",
+      "name": "Combustion Spontanée",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>La cible allié s'immole subitement et subit 6+Niv+R dommages. Ces dégâts sont ensuite infligés en double à toutes les cibles au contact de votre allié.<br>Ce sort fut inventé par Edgar Hautsoleil lui-même afin d'éprouver la dévotion de ses soldats.</p>",
+      "img": "systems/aurore/assets/icons/fire-silhouette.svg"
+    },
+    {
+      "id": "NAV-05",
+      "name": "Boule de magma",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Projetez une boule de magma en tir en cloche (fig.1). Inflige 10+Niv+R dommages à toutes les cibles présentes dans la zone d'impact (fig.2).<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -10% au jet par case de portée ajoutée.</p>",
+      "img": "systems/aurore/assets/icons/lava.svg"
+    },
+    {
+      "id": "NAV-06",
+      "name": "Sabotage",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Concentrez la chaleur d'une étoile sur l'équipement d'une cible situé à 2+Niv+R cases.<br>La cible doit lâcher ses armes tenues en main et ne peut les utiliser jusqu'à la fin de son prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/burning-dot.svg"
+    },
+    {
+      "id": "NAV-07",
+      "name": "Puit de lave",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Vous invoquez un puit de lave à portée de déplacement qui protège la zone. Toute cible ennemi entrant dans la zone reçoit 6+Niv+R dommages et recevra une autre attaque identique si elle termine son tour dans la zone. L'effet dure jusqu'à la fin de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/volcano.svg"
+    },
+    {
+      "id": "NAV-08",
+      "name": "Armes solaires",
+      "discipline": "navigation",
+      "trinity": "red",
+      "description": "<p>Une aura solaire entoure les armes des alliés situés dans la zone procurant +3+Niv+R dommages bonus lors de la prochaine action hostile réalisé avec leurs armes.<br>L'effet dure jusqu'à la fin de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/fire-axe.svg"
+    },
+    {
+      "id": "NAV-09",
+      "name": "Charge en Hélium",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Le corps de la cible à portée de déplacement devient plus léger que l'air. Il entre en lévitation à une hauteur de 1+Niv+R mètres pour 2 tours. Il ne tient plus compte des obstacles lors de ses déplacements et se libère des immobilisations.</p>",
+      "img": "systems/aurore/assets/icons/floating-crystal.svg"
+    },
+    {
+      "id": "NAV-10",
+      "name": "Charge en Hydrogène",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Les poumons de la cible organique à portée de déplacement se chargent en gaz toxique jusqu'à votre prochain tour. Pour chaques PA utilisé la cible subit 3+Niv+R dommages directement à ses PV.</p>",
+      "img": "systems/aurore/assets/icons/poison-bottle.svg"
+    },
+    {
+      "id": "NAV-11",
+      "name": "Éclair en Chaîne",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Canalisez la puissance de la foudre qui se déchaîne dans le ciel d'une géante gazeuse.<br>La cible subit 8+Niv+R dommages. L'éclair va ensuite rebondir 2 fois sur n'importe quelle nouvelle cible située à moins de 3 cases de la première et infliger moitié moins de dommages.</p>",
+      "img": "systems/aurore/assets/icons/chain-lightning.svg"
+    },
+    {
+      "id": "NAV-12",
+      "name": "Oeil du Cyclone",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Invoquez une tempête d'une planète gazeuse sur le terrain. Une zone immobile se crée autour du navigateur où rien ne se passe. En dehors de cette zone la tempête fait rage sur tout le terrain : Les cibles subissent 2+Niv+R dommages et toutes les actions réalisées à une portée supérieur de 3 cases ont un malus de -15% au jet jusqu'à la fin de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/tornado.svg"
+    },
+    {
+      "id": "NAV-13",
+      "name": "Échange Jolien",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Ouvrez une faille vers une planète jolienne. Échangez les places de deux cibles situées toutes deux à une portée de 4+Niv+R cases.<br>Une des cibles peut être vous même.</p>",
+      "img": "systems/aurore/assets/icons/body-swapping.svg"
+    },
+    {
+      "id": "NAV-14",
+      "name": "Sublimation",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Votre corps devient un nuage de fumée jusqu'à la fin de votre prochain tour. Vous pouvez traverser les obstacles et vous déplacer librement.<br>Vous ne pouvez pas attaquer ou recevoir des actions de soutien. Tous les dommages reçus sont divisés par 3.</p>",
+      "img": "systems/aurore/assets/icons/smoke-bomb.svg"
+    },
+    {
+      "id": "NAV-15",
+      "name": "Décharge électrique",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Canalisez la puissance de la foudre pour électrocuter vos ennemis.<br>Inflige 4+Niv+R dégâts à toutes les cibles présentes sur la ligne.<br>Statique : les cibles reçoivent également un malus de -30% à son prochain jet.</p>",
+      "img": "systems/aurore/assets/icons/lightning-arc.svg"
+    },
+    {
+      "id": "NAV-16",
+      "name": "Distortion électrique",
+      "discipline": "navigation",
+      "trinity": "green",
+      "description": "<p>Créez une distorsion à portée de déplacement qui recharge les PP des cibles dans la zone à hauteur de 6+Niv+R PP. L'effet de recharge se produit si l'alliée termine son tour dans la zone. La zone disparaît à la fin de votre prochain tour.<br>Les cibles mécaniques reçoivent également un bonus de +30% à leur prochain jet.</p>",
+      "img": "systems/aurore/assets/icons/electric.svg"
+    },
+    {
+      "id": "NAV-17",
+      "name": "Souffle Tellurique",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Matérialisez un puissant geyser infranchissable, de 5 mètres de hauteur sur une surface à portée de déplacement jusqu'à la fin de votre prochain tour. Les cibles présentes sur cette surface sont repoussées de 6+Niv+R dans le sens opposé à leur direction. Elles subissent également la moitié de la distance ainsi parcourue en dommages.</p>",
+      "img": "systems/aurore/assets/icons/steam-blast.svg"
+    },
+    {
+      "id": "NAV-18",
+      "name": "Piliers de Terre",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Modelez le terrain selon vos besoins. Fait apparaître 1+Niv+R piliers de terre de hauteur de 1 à 4 mètres sur des cases à porté du double de vos CM. Chaques pilier a 10 PV.<br>Si une cible se trouve sur la case où le pilier est créé, elle est repoussée de 2 cases opposés à sa direction.</p>",
+      "img": "systems/aurore/assets/icons/stone-tower.svg"
+    },
+    {
+      "id": "NAV-19",
+      "name": "Secousse Tellurique",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Canalisez la puissance d'un séisme pour secouer le sol et renverser vos cibles.<br>Inflige 2+Niv+R et retire 1 PA à toutes les cibles lors de leur prochain tour.<br>Toutes les structures dans la zone d'impact sont détruites.</p>",
+      "img": "systems/aurore/assets/icons/earth-crack.svg"
+    },
+    {
+      "id": "NAV-20",
+      "name": "Armure de Glace",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Le corps de la cible à portée de déplacement se recouvre d'une épaisse couche de glace pour une durée de 2 tours.<br>Cela lui procure temporairement 10+Niv+R PV Bonus, et réduit ses CM de moitié.</p>",
+      "img": "systems/aurore/assets/icons/ice-shield.svg"
+    },
+    {
+      "id": "NAV-21",
+      "name": "Pièges de terre",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Placez Niv+R pièges de terre invisibles sur une case libre du terrain dans la limite du double de vos CM. Lorsqu'une cible marche dessus elles sont immobilisés. Les pièges disparaissent au début de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/wolf-trap.svg"
+    },
+    {
+      "id": "NAV-22",
+      "name": "Surface gelée",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Créez Niv+R surface gelée sur le terrain dans la limite du double de vos CM. Les cibles qui tentent de parcourir des cases sur ces surfaces doivent lancer un jet d'endurance, en cas d'échec elles tombent mettant fin à leur tour ou leur prochain tour si elles sont repoussées sur ces surfaces. Les surfaces fondent à la fin de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/ice-cube.svg"
+    },
+    {
+      "id": "NAV-23",
+      "name": "Frappe Fossile",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Projetez un rocher sur la cible. Inflige 8+Niv+R dommages et repousse la cible de 3 cases.<br>Tir précis : Vous pouvez tirer au-delà de la portée prévue avec un malus de -5% au jet par case de portée ajoutée.</p>",
+      "img": "systems/aurore/assets/icons/boulder-dash.svg"
+    },
+    {
+      "id": "NAV-24",
+      "name": "Armes telluriques",
+      "discipline": "navigation",
+      "trinity": "blue",
+      "description": "<p>Des secousses telluriques animent les armes de vos alliées dans la zone. Tous les jets d'armes de vos alliés ont un bonus aux jets de +15%+Niv+R.<br>L'effet dure jusqu'à la fin de votre prochain tour.</p>",
+      "img": "systems/aurore/assets/icons/earth-spit.svg"
+    }
+  ]
+}

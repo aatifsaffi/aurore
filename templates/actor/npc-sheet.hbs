@@ -402,6 +402,46 @@
       {{/if}}
     </div>
 
+    {{!-- Extras — free-form items that are not in the compendiums --}}
+    <div class="items-section">
+      <div class="section-header-row">
+        <h3 class="section-label">{{localize "AURORE.ItemTypes.extra"}}</h3>
+        <a class="item-add" data-action="createItem" data-type="extra"
+           title="{{localize 'AURORE.Actions.addExtra'}}">
+          <i class="fas fa-plus"></i>
+        </a>
+      </div>
+      {{#if items.extras.length}}
+        <div class="items-header-cols">
+          <span class="col-icon"></span>
+          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
+          <span class="col-tag"></span>
+          <span class="col-stat"></span>
+          <span class="col-controls"></span>
+        </div>
+        <ul class="items-list" data-item-type="extra">
+          {{#each items.extras}}
+            <li class="item" data-item-id="{{id}}" draggable="true">
+              <img src="{{img}}" class="item-icon" alt="">
+              <span class="item-name">{{name}}</span>
+              <span class="item-tag"></span>
+              <span class="item-stat"></span>
+              <div class="item-controls">
+                <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="items-empty">{{localize "AURORE.Empty.extras"}}</p>
+      {{/if}}
+    </div>
+
   </div>{{!-- /tab inventory --}}
 
   {{!-- ══════════════════════════════════════════════════
@@ -412,34 +452,33 @@
       <div class="section-header-row">
         <h3 class="section-label">{{localize "AURORE.Sections.powers"}}</h3>
         {{#if items.powers.length}}<span class="powers-count">{{items.powers.length}}</span>{{/if}}
-        <a class="item-add" data-action="createItem" data-type="power"
+        <a class="item-add" data-action="pickPowers"
            title="{{localize 'AURORE.Actions.addPower'}}">
           <i class="fas fa-plus"></i>
         </a>
       </div>
       {{#if items.powers.length}}
-        <div class="items-header-cols">
-          <span class="col-icon"></span>
-          <span class="col-name">{{localize "AURORE.ItemHeaders.name"}}</span>
-          <span class="col-tag">{{localize "AURORE.Powers.type"}}</span>
-          <span class="col-stat">PA</span>
-          <span class="col-controls"></span>
-        </div>
-        <ul class="items-list" data-item-type="power">
+        <ul class="monster-equip-list items-list" data-item-type="power">
           {{#each items.powers}}
-            <li class="item" data-item-id="{{id}}" draggable="true">
-              <img src="{{img}}" class="item-icon" alt="">
-              <span class="item-name">{{name}}</span>
-              <span class="item-tag power-{{system.powerType}}">{{system.powerType}}</span>
-              <span class="item-stat">{{system.cost}}</span>
-              <div class="item-controls">
-                <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
-                  <i class="fas fa-edit"></i>
-                </a>
-                <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
-                  <i class="fas fa-trash"></i>
-                </a>
+            <li class="monster-equip item {{#if system.trinity}}trinity-{{system.trinity}}{{else}}is-boreale{{/if}}"
+                data-item-id="{{id}}" draggable="true">
+              <div class="monster-equip-head">
+                <img src="{{img}}" class="item-icon" alt="">
+                <span class="item-name">{{name}}</span>
+                <span class="item-tag power-{{system.discipline}}">{{localize (concat "AURORE.Powers.discipline." system.discipline)}}</span>
+                {{#if system.trinity}}<span class="item-tag trinity-{{system.trinity}}">{{localize (concat "AURORE.Trinity." system.trinity)}}</span>{{/if}}
+                <div class="item-controls">
+                  <a data-action="editItem" title="{{localize 'AURORE.Actions.edit'}}">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a data-action="deleteItem" title="{{localize 'AURORE.Actions.delete'}}">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </div>
               </div>
+              {{#if system.description}}
+                <div class="monster-equip-desc">{{{system.description}}}</div>
+              {{/if}}
             </li>
           {{/each}}
         </ul>

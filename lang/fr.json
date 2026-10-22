@@ -58,23 +58,16 @@
       "movement": "Mouvement"
     },
     "Powers": {
-      "offensive": "Offensif",
-      "defensive": "Défensif",
-      "healing":   "Soin",
-      "mobility":  "Mobilité",
-      "support":   "Soutien",
-      "stealth":   "Discrétion",
-      "combat":    "Combat",
-      "nature":    "Nature",
-      "chance":    "Chance",
-      "magic":     "Magie",
-      "typeActive":  "Actif",
-      "typePassive": "Passif",
-      "type":      "Type",
-      "category":  "Catégorie",
-      "cost":      "Coût (PA)",
-      "minLevel":  "Niveau minimum",
-      "empty":     "Aucun pouvoir"
+      "discipline": {
+        "label":      "Discipline",
+        "passif":     "Passif",
+        "navigation": "Navigation",
+        "auromancie": "Auromancie"
+      },
+      "empty":     "Aucun pouvoir",
+      "selectTitle": "Ajouter des pouvoirs",
+      "filter":      "Rechercher un pouvoir…",
+      "noneFound":   "Aucun pouvoir dans le compendium."
     },
     "Tabs": {
       "combat":      "Combat",
@@ -92,7 +85,11 @@
       "LevelUp":    "Monter de niveau"
     },
     "Roll": {
-      "rollDice": "Lancer le dé"
+      "rollDice": "Lancer le dé",
+      "success":  "RÉUSSITE",
+      "failed":   "ÉCHEC",
+      "critSuccess": "RÉUSSITE CRITIQUE",
+      "critFailure": "ÉCHEC CRITIQUE"
     },
     "Warnings": {
       "MaxPowers": "Limite atteinte : 6 pouvoirs maximum par personnage."
@@ -160,7 +157,8 @@
       "power":  "Pouvoir",
       "race":   "Race",
       "racial": "Racial",
-      "gift":   "Don Commun"
+      "gift":   "Don Commun",
+      "extra":  "Objets divers"
     },
     "ItemHeaders": {
       "name":    "Nom",
@@ -206,12 +204,16 @@
       "noBonus":      "Aucun"
     },
     "Gifts": {
-      "empty": "Aucun don commun"
+      "empty":       "Aucun don commun",
+      "selectTitle": "Ajouter des dons communs",
+      "filter":      "Rechercher un don…",
+      "noneFound":   "Aucun don commun dans le compendium."
     },
     "Empty": {
       "weapons": "Aucune arme",
       "armors":  "Aucune armure",
-      "gadgets": "Aucun gadget"
+      "gadgets": "Aucun gadget",
+      "extras":  "Aucun objet divers"
     },
     "Actions": {
       "edit":          "Modifier",
@@ -223,8 +225,10 @@
       "addGadget":     "Ajouter un gadget",
       "addPower":      "Ajouter un pouvoir",
       "addGift":       "Ajouter un don",
+      "addExtra":      "Ajouter un objet divers",
       "editPortrait":  "Changer le portrait",
-      "select":        "Sélectionner"
+      "select":        "Sélectionner",
+      "add":           "Ajouter"
     },
     "Aoe": {
       "show":    "Afficher la portée",
@@ -256,7 +260,13 @@
       "AutoStampTokens": "Habiller les pions automatiquement",
       "AutoStampTokensHint": "À la création d'un pion, recadre le portrait en cercle avec un anneau de la couleur Trinity dominante",
       "CombatHudEnabled": "Activer l'interface de combat",
-      "CombatHudEnabledHint": "Affiche en haut de l'écran les cartes attaquant / défenseur et la frise d'initiative pendant un combat"
+      "CombatHudEnabledHint": "Affiche en haut de l'écran les cartes attaquant / défenseur et la frise d'initiative pendant un combat",
+      "AurSheetUrl": "URL d'aur-sheet",
+      "AurSheetUrlHint": "Adresse de l'application aur-sheet utilisée pour générer la fiche image (ex. https://aur-sheet.example.com)"
+    },
+    "AurSheet": {
+      "open": "Générer la fiche image",
+      "noUrl": "L'URL d'aur-sheet n'est pas configurée (paramètres du système)."
     },
     "CombatHud": {
       "Round": "Round",

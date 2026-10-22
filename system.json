@@ -2,7 +2,7 @@
   "id": "aurore",
   "title": "Aurore",
   "description": "Aurore — Tactical sci-fi/fantasy RPG with Trinity combat system.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14.367",
@@ -86,7 +86,8 @@
       "power": {},
       "race": {},
       "racial": {},
-      "gift": {}
+      "gift": {},
+      "extra": {}
     }
   },
   "grid": { "type": 1 },
@@ -109,6 +110,6 @@
     ]
   },
   "manifest": "https://raw.githubusercontent.com/aatifsaffi/aurore/main/system.json",
-  "download": "https://github.com/aatifsaffi/aurore/releases/download/v1.4.0/aurore.zip"
+  "download": "https://github.com/aatifsaffi/aurore/releases/download/v1.5.0/aurore.zip"
 
 }

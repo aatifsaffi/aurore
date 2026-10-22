@@ -101,6 +101,9 @@
   font-size: inherit;
   font-family: inherit;
 }
+.aurore input[type="text"] {
+  font-size: x-large;
+}
 .aurore input:focus,
 .aurore select:focus {
   outline: 1px solid var(--accent);
@@ -822,7 +825,7 @@
   text-overflow: ellipsis;
 }
 
-.aurore .item-tag {
+.aurore .item-tag:not(.extras)  {
   font-size: 0.68rem;
   padding: 1px 5px;
   border-radius: 3px;
@@ -837,9 +840,10 @@
 .aurore .item-tag.trinity-red   { border-color: var(--trinity-red);   color: var(--trinity-red); }
 .aurore .item-tag.trinity-green { border-color: var(--trinity-green); color: var(--trinity-green); }
 .aurore .item-tag.trinity-blue  { border-color: var(--trinity-blue);  color: var(--trinity-blue); }
-/* Power type tags */
-.aurore .item-tag.power-active  { border-color: var(--accent); color: var(--accent); }
-.aurore .item-tag.power-passive { border-color: var(--text-dim); color: var(--text-dim); }
+/* Power discipline tags */
+.aurore .item-tag.power-passif     { border-color: var(--text-dim); color: var(--text-dim); }
+.aurore .item-tag.power-navigation { border-color: var(--accent);   color: var(--accent); }
+.aurore .item-tag.power-auromancie { border-color: #7d3c98; color: #7d3c98; font-style: italic; }
 
 .aurore .item-stat {
   font-size: 0.8rem;
@@ -919,9 +923,6 @@
 .aurore .race-hint {
   font-size: 0.75rem;
   color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .aurore .race-controls {
   display: flex;
@@ -1045,6 +1046,28 @@
   font-size: 0.82em;
   min-height: 18px;
 }
+
+/* ════════════════════════════════════════════════════════
+   DIALOG: Power picker (multi-select)
+   ════════════════════════════════════════════════════════ */
+.aurore-power-dialog { display: flex; flex-direction: column; gap: 8px; }
+.aurore-power-dialog .power-pick-filter { width: 100%; }
+.aurore-power-dialog .power-pick-list {
+  max-height: 55vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.aurore-power-dialog .power-pick-group { margin: 4px 0 0; font-size: 0.8rem; color: var(--text-muted); }
+.aurore-power-dialog li[hidden],
+.aurore-power-dialog .power-pick-group[hidden],
+.aurore-power-dialog .power-pick-group-list[hidden] { display: none; }
+.aurore-power-dialog .power-pick-row { display: block; cursor: pointer; }
+.aurore-power-dialog .power-pick-row:hover { background: var(--bg-hover); filter: brightness(1.15); }
+.aurore-power-dialog .power-pick-row:has(input:checked:not(:disabled)) { outline: 1px solid var(--accent); }
+.aurore-power-dialog .power-pick-row:has(input:disabled) { opacity: 0.55; cursor: default; }
+.aurore-power-dialog .power-pick-row input { margin: 0; flex-shrink: 0; }
 
 /* ════════════════════════════════════════════════════════
    TAB: BIOGRAPHY
@@ -1172,6 +1195,7 @@
   border: 1px solid var(--border);
   padding: 2px 7px;
   border-radius: 10px;
+  width: fit-content;
 }
 
 .aurore .item-sheet-body {
@@ -1371,6 +1395,11 @@
 .aurore .monster-equip-head .item-name { flex: 1; }
 
 .aurore .item-tag.is-boreale { border-color: #7d3c98; color: #7d3c98; }
+/* Powers tab: cards inside .items-list keep the drag/drop hooks (.item) but not the table grid */
+.aurore .items-list .monster-equip.item {
+  display: block;
+  padding: 5px 8px;
+}
 
 .aurore .monster-equip-desc {
   margin-top: 4px;
@@ -1672,3 +1701,11 @@
   .aurore.aurore-combat-hud .hud-bar-fill,
   .aurore.aurore-combat-hud .hud-strip-card { transition: none; }
 }
+
+/* Character sheet slot rows reuse .monster-equip; colour the card from its head */
+.aurore .monster-equip:has(.trinity-red)   { border-left-color: var(--trinity-red);   }
+.aurore .monster-equip:has(.trinity-green) { border-left-color: var(--trinity-green); }
+.aurore .monster-equip:has(.trinity-blue)  { border-left-color: var(--trinity-blue);  }
+.aurore .monster-equip-head[data-action] { cursor: pointer; }
+.aurore .monster-equip-head .slot-label { min-width: 52px; }
+.aurore .monster-equip-head.slot-empty { color: var(--text-dim); }

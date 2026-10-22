@@ -10,7 +10,7 @@
       "aoeSize": 3,
       "aoePattern": "...a.....aaa...aaaaa.aaanaaa.aaaaa...aaa.....a...",
       "highlightColor": "#22cc5544",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/shield-opposition.svg"
     },
     {
       "id": "AR-02",
@@ -22,7 +22,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/centurion-helmet.svg"
     },
     {
       "id": "AR-03",
@@ -34,7 +34,7 @@
       "aoeSize": 2,
       "aoePattern": "eeeeeeeeeeeeneeeeeeeeeeee",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/spinning-blades.svg"
     },
     {
       "id": "AR-04",
@@ -46,7 +46,7 @@
       "aoeSize": 2,
       "aoePattern": "mmmmmmeeemmenemmeeemmmmmm",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/rocket-thruster.svg"
     },
     {
       "id": "AR-05",
@@ -58,7 +58,7 @@
       "aoeSize": 2,
       "aoePattern": "eeeeeeeeeeee.eeeeeeeeeeee",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/cage.svg"
     },
     {
       "id": "AR-06",
@@ -70,7 +70,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/shield-echoes.svg"
     },
     {
       "id": "AR-07",
@@ -82,7 +82,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/shield-reflect.svg"
     },
     {
       "id": "AR-08",
@@ -94,7 +94,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/enrage.svg"
     },
     {
       "id": "AR-09",
@@ -106,7 +106,7 @@
       "aoeSize": 3,
       "aoePattern": "...a.....aaa...aaaaa.aaanaaa.aaaaa...aaa.....a...",
       "highlightColor": "#22cc5544",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/sprint.svg"
     },
     {
       "id": "AR-10",
@@ -118,7 +118,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/hunter-eyes.svg"
     },
     {
       "id": "AR-11",
@@ -130,7 +130,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/mantrap.svg"
     },
     {
       "id": "AR-12",
@@ -142,7 +142,7 @@
       "aoeSize": 3,
       "aoePattern": "eeeeeeeeeeeeeeeeeeeeeeeeneeeeeeeeeeeeeeeeeeeeeeee",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/magnet.svg"
     },
     {
       "id": "AR-13",
@@ -154,7 +154,7 @@
       "aoeSize": 6,
       "aoePattern": "......m............m............m............m............m............m......mmmmmm.mmmmme......m............m............m............m............m............m......",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/jump-across.svg"
     },
     {
       "id": "AR-14",
@@ -166,7 +166,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/feathered-wing.svg"
     },
     {
       "id": "AR-15",
@@ -178,7 +178,7 @@
       "aoeSize": 2,
       "aoePattern": "eeeeeeeeeeeeneeeeeeeeeeee",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/poison-gas.svg"
     },
     {
       "id": "AR-16",
@@ -190,7 +190,7 @@
       "aoeSize": 0,
       "aoePattern": "e",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/skull-crossed-bones.svg"
     },
     {
       "id": "AR-17",
@@ -202,7 +202,7 @@
       "aoeSize": 3,
       "aoePattern": "...a.....aaa...aaaaa.aaanaaa.aaaaa...aaa.....a...",
       "highlightColor": "#22cc5544",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/healing.svg"
     },
     {
       "id": "AR-18",
@@ -214,7 +214,7 @@
       "aoeSize": 3,
       "aoePattern": ".............s......s...nmms......s......s.......",
       "highlightColor": "#ffcc0044",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/stone-wall.svg"
     },
     {
       "id": "AR-19",
@@ -226,7 +226,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/mirror-mirror.svg"
     },
     {
       "id": "AR-20",
@@ -238,7 +238,7 @@
       "aoeSize": 4,
       "aoePattern": "................................eeee....neeee.....eeee...........................",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/sonic-shout.svg"
     },
     {
       "id": "AR-21",
@@ -250,7 +250,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/teleport.svg"
     },
     {
       "id": "AR-22",
@@ -262,7 +262,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/whirlwind.svg"
     },
     {
       "id": "AR-23",
@@ -274,7 +274,7 @@
       "aoeSize": 0,
       "aoePattern": "",
       "highlightColor": "",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/bubble-field.svg"
     },
     {
       "id": "AR-24",
@@ -286,7 +286,7 @@
       "aoeSize": 2,
       "aoePattern": "eeeeeeeeeeeeneeeeeeeeeeee",
       "highlightColor": "#ff332244",
-      "img": "systems/aurore/assets/icons/armor-icon.svg"
+      "img": "systems/aurore/assets/icons/lightning-shield.svg"
     }
   ]
 }

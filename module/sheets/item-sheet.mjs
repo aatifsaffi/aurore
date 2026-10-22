@@ -54,13 +54,8 @@ export class AuroreItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       Object.entries(CONFIG.aurore.TRINITY).map(([k, v]) => [k, game.i18n.localize(v.label)])
     );
 
-    context.powerTypeChoices = {
-      active:  game.i18n.localize("AURORE.Powers.typeActive"),
-      passive: game.i18n.localize("AURORE.Powers.typePassive")
-    };
-
-    context.powerCategoryChoices = Object.fromEntries(
-      Object.entries(CONFIG.aurore.POWER_CATEGORIES ?? {}).map(([k, v]) => [k, game.i18n.localize(v)])
+    context.powerDisciplineChoices = Object.fromEntries(
+      Object.entries(CONFIG.aurore.POWER_DISCIPLINES).map(([k, v]) => [k, game.i18n.localize(v)])
     );
 
     context.talentChoices = Object.fromEntries(

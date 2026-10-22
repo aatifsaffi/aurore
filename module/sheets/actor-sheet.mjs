@@ -50,6 +50,7 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
       equipItem:      AuroreActorSheetV2._onEquipItem,
       unequipSlot:    AuroreActorSheetV2._onUnequipSlot,
       selectSlotItem: AuroreActorSheetV2._onSelectSlotItem,
+      pickPowers:     AuroreActorSheetV2._onPickPowers,
       showItemAoe:    AuroreActorSheetV2._onShowItemAoe,
       rollMentalStat: AuroreActorSheetV2._onRollMentalStat,
       configTokenStamp: AuroreActorSheetV2._onConfigTokenStamp
@@ -134,7 +135,8 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
       weapons: actor.items.filter(i => i.type === "weapon"),
       armors:  actor.items.filter(i => i.type === "armor"),
       gadgets: actor.items.filter(i => i.type === "gadget"),
-      powers:  actor.items.filter(i => i.type === "power")
+      powers:  actor.items.filter(i => i.type === "power"),
+      extras:  actor.items.filter(i => i.type === "extra")
     };
 
     return context;
@@ -379,15 +381,133 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
     const token = actor.getActiveTokens()[0] ?? null;
     await playCritEffect(critType, { token, actor });
 
+    // Roll-under: success if total <= stat value; crits override.
+    const success = critType === "critSuccess" || (critType === "normal" && rollTotal <= actor.system.mental[stat]);
+    const outcomeKey = { critSuccess: "critSuccess", critFailure: "critFailure" }[critType] ?? (success ? "success" : "failed");
+    const outcome = game.i18n.localize(`AURORE.Roll.${outcomeKey}`);
+
     const chatClass = critType !== "normal" ? `aurore-crit-${critType}` : "";
     await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor }),
       content: `<div class="aurore roll-mental ${chatClass}">
         <p><strong>${actor.name}</strong> lance un dé de <strong style="--roll-color: var(${colorVar});">${statLabel}</strong></p>
-        <p>Total: <strong style="--roll-color: var(${colorVar});">${rollTotal}</strong></p>
+        <p>Total: <strong style="--roll-color: var(${colorVar});">${rollTotal}</strong> [${outcome}]</p>
       </div>`,
       rolls: [roll]
     });
+  }
+
+  // ── Power selection ───────────────────────────────────
+
+  /**
+   * Open a checklist of every power in the system compendium and add the ticked
+   * ones to the actor. Powers the actor already owns (by name) are pre-ticked
+   * and locked. No cap on how many can be added.
+   * @param {PointerEvent} _event
+   * @param {HTMLElement}  _target
+   */
+  static async _onPickPowers(_event, _target) {
+    return AuroreActorSheetV2._pickFromPack.call(this, {
+      packId:  "aurore.powers",
+      type:    "power",
+      i18n:    "AURORE.Powers",
+      fields:  ["system.discipline", "system.trinity", "system.description"],
+      groups:  Object.entries(CONFIG.aurore.POWER_DISCIPLINES).map(([discipline, labelKey]) => ({
+        label: game.i18n.localize(labelKey),
+        match: e => (e.system?.discipline ?? "passif") === discipline
+      })),
+      // Same card as the equipment slots; auromancie is outside the Trinity (purple, like boreale gear).
+      colorOf: e => e.system?.trinity ? `trinity-${e.system.trinity}` : "is-boreale",
+      tagOf:   e => e.system?.trinity
+        ? { css: `trinity-${e.system.trinity}`, label: game.i18n.localize(`AURORE.Trinity.${e.system.trinity}`) }
+        : null
+    });
+  }
+
+  /**
+   * Shared compendium checklist (powers, gifts): add the ticked entries to the
+   * actor. Entries the actor already owns (by name) are pre-ticked and locked.
+   * @param {object}   opts
+   * @param {string}   opts.packId   Compendium collection id
+   * @param {string}   opts.type     Item type, to detect owned entries
+   * @param {string}   opts.i18n     Key prefix holding selectTitle / filter / noneFound
+   * @param {string[]} opts.fields   Extra index fields to load
+   * @param {{label: string, match: Function}[]} opts.groups  Sections, in order
+   * @param {Function} [opts.colorOf]  Index entry → card CSS class
+   * @param {Function} [opts.tagOf]    Index entry → {css, label} | null
+   */
+  static async _pickFromPack({ packId, type, i18n, fields, groups, colorOf = () => "", tagOf = () => null }) {
+    const dialogId = `aurore-${type}-pick-${this.document.id}`;
+    const existing = foundry.applications.instances.get(dialogId);
+    if (existing) { existing.bringToTop(); return; }
+
+    const pack = game.packs.get(packId);
+    if (!pack) return ui.notifications.warn(game.i18n.localize(`${i18n}.noneFound`));
+    const index = await pack.getIndex({ fields });
+    if (!index.size) return ui.notifications.warn(game.i18n.localize(`${i18n}.noneFound`));
+
+    const owned = new Set(this.document.items.filter(i => i.type === type).map(i => i.name));
+    const esc   = s => String(s ?? "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    const byName = (a, b) => a.name.localeCompare(b.name, game.i18n.lang, { sensitivity: "base" });
+
+    let listHtml = "";
+    for (const group of groups) {
+      const entries = [...index].filter(group.match).sort(byName);
+      if (!entries.length) continue;
+      const rows = entries.map(e => {
+        const has  = owned.has(e.name);
+        const tag  = tagOf(e);
+        const tagHtml = tag ? `<span class="item-tag ${tag.css}">${esc(tag.label)}</span>` : "";
+        const desc = e.system?.description ? `<div class="monster-equip-desc">${e.system.description}</div>` : "";
+        return `<li><label class="monster-equip power-pick-row ${colorOf(e)}" data-name="${esc(e.name.toLowerCase())}">
+          <div class="monster-equip-head">
+            <input type="checkbox" value="${esc(`Compendium.${pack.collection}.${e._id}`)}"${has ? " checked disabled" : ""}>
+            <img src="${esc(e.img ?? "")}" class="item-icon" alt="">
+            <span class="item-name">${esc(e.name)}</span>${tagHtml}
+          </div>${desc}
+        </label></li>`;
+      }).join("");
+      listHtml += `<h4 class="power-pick-group">${esc(group.label)}</h4><ul class="monster-equip-list power-pick-group-list">${rows}</ul>`;
+    }
+
+    let uuids;
+    try {
+      uuids = await foundry.applications.api.DialogV2.prompt({
+        id: dialogId,
+        classes: ["aurore"],
+        position: { width: 460 },
+        window: { title: game.i18n.localize(`${i18n}.selectTitle`), resizable: true },
+        content: `<div class="aurore-power-dialog">
+          <input type="search" class="power-pick-filter" autofocus
+                 placeholder="${esc(game.i18n.localize(`${i18n}.filter`))}">
+          <div class="power-pick-list">${listHtml}</div>
+        </div>`,
+        render: (_event, dialog) => {
+          const root   = dialog.element;
+          const filter = root.querySelector(".power-pick-filter");
+          filter.addEventListener("keydown", ev => { if (ev.key === "Enter") ev.preventDefault(); });
+          filter.addEventListener("input", () => {
+            const q = filter.value.trim().toLowerCase();
+            for (const row of root.querySelectorAll(".power-pick-row")) row.parentElement.hidden = !!q && !row.dataset.name.includes(q);
+            for (const list of root.querySelectorAll(".power-pick-group-list")) {
+              const none = !list.querySelector("li:not([hidden])");
+              list.hidden = none;
+              list.previousElementSibling.hidden = none;
+            }
+          });
+        },
+        ok: {
+          label: game.i18n.localize("AURORE.Actions.add"),
+          callback: (_e, button) => [...button.form.querySelectorAll("input[type=checkbox]:checked:not(:disabled)")].map(c => c.value)
+        }
+      });
+    } catch { return; }
+
+    if (!uuids?.length) return;
+    const docs = (await Promise.all(uuids.map(u => fromUuid(u)))).filter(Boolean);
+    await foundry.documents.Item.createDocuments(
+      docs.map(d => game.items.fromCompendium(d)), { parent: this.document }
+    );
   }
 
   // ── Equipment slot selection ──────────────────────────
@@ -573,9 +693,9 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
    * @param {"weapon"|"armor"|"gadget"} type
    */
   static _equipItemStats(system, type) {
-    if (type === "weapon") return `${system?.damage ?? "?"} dmg · ${system?.trinity ?? ""}`;
-    if (type === "armor")  return `+${system?.ppBonus ?? "?"} PP · ${system?.trinity ?? ""}`;
-    if (type === "gadget") return `${system?.maxUses ?? "?"} charges · ${system?.trinity ?? ""}`;
+    if (type === "weapon") return `${system?.damage ?? "?"} dmg`;
+    if (type === "armor")  return `+${system?.ppBonus ?? "?"} PP`;
+    if (type === "gadget") return `${system?.maxUses ?? "?"} charges`;
     return "";
   }
 }

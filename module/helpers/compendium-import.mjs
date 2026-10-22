@@ -19,8 +19,14 @@ import { AOE_PATTERN_LEGEND, NPC_MAX_EQUIPMENT } from "../config.mjs";
 
 const SYSTEM_ID = "aurore";
 
+/** Version of the source → document mapping; part of the source hash. */
+const IMPORT_FORMAT = "2";
+
 /** Trinity color key → compendium folder name (matches lang/fr.json AURORE.Trinity.*). */
 const TRINITY_FOLDER = { red: "Rouge", green: "Vert", blue: "Bleu" };
+
+/** Power discipline key → compendium folder name (matches lang/fr.json AURORE.Powers.discipline.*). */
+const POWER_DISCIPLINE_FOLDER = { passif: "Passif", navigation: "Navigation", auromancie: "Auromancie" };
 
 /** Sort a Trinity-bearing record into its color folder. */
 const trinityFolder = (record) => TRINITY_FOLDER[record.trinity] ?? TRINITY_FOLDER.red;
@@ -123,6 +129,29 @@ const PACK_SOURCES = {
       };
     }
   },
+  powers: {
+    sourceFile:   `systems/${SYSTEM_ID}/packs/powers/powers.json`,
+    itemType:     "power",
+    alwaysUpdate: true,
+    // "Passif/Rouge", "Navigation/Bleu"… — auromancie has no Trinity subfolder.
+    folderFn(record) {
+      const discipline = POWER_DISCIPLINE_FOLDER[record.discipline] ?? POWER_DISCIPLINE_FOLDER.passif;
+      const color      = TRINITY_FOLDER[record.trinity];
+      return color ? `${discipline}/${color}` : discipline;
+    },
+    mapFn(record) {
+      return {
+        name:   record.name,
+        type:   "power",
+        img:    record.img ?? "icons/svg/aura.svg",
+        system: {
+          description: record.description ?? "",
+          discipline:  record.discipline  ?? "passif",
+          trinity:     record.trinity     ?? ""
+        }
+      };
+    }
+  },
   races: {
     sourceFile: `systems/${SYSTEM_ID}/packs/races/races.json`,
     itemType:   "race",
@@ -151,6 +180,21 @@ const PACK_SOURCES = {
           raceId:      record.raceId      ?? "",
           display:     record.display     ?? ""
         }
+      };
+    }
+  },
+  gifts: {
+    sourceFile:   `systems/${SYSTEM_ID}/packs/gifts/gifts.json`,
+    itemType:     "gift",
+    alwaysUpdate: true,
+    // gifts.json also lists the racials — those still come from racials.json.
+    filterFn: (record) => record.kind === "common",
+    mapFn(record) {
+      return {
+        name:   record.name,
+        type:   "gift",
+        img:    record.img ?? "icons/svg/aura.svg",
+        system: { description: record.description ?? "" }
       };
     }
   },
@@ -243,7 +287,8 @@ const PACK_SOURCES = {
  * @returns {string} base-36 hash
  */
 function hashRecords(records) {
-  const str = JSON.stringify(records);
+  // Bump IMPORT_FORMAT when mapping changes so unchanged sources still re-sync once.
+  const str = IMPORT_FORMAT + JSON.stringify(records);
   let h = 5381;
   for (let i = 0; i < str.length; i++) h = (Math.imul(h, 33) ^ str.charCodeAt(i)) >>> 0;
   return h.toString(36);
@@ -326,8 +371,9 @@ async function importPack(packName, storedHash) {
   }
 
   // Skip untouched sources — avoids a full rewrite + toast on every world load.
+  // Still import when the pack is empty (e.g. deploy's rsync --delete wiped the LevelDB).
   const hash = hashRecords(records);
-  if (storedHash && storedHash === hash) {
+  if (storedHash === hash && (await pack.getIndex()).size) {
     console.log(`Aurore | Pack "${packName}" source unchanged — skipping.`);
     return { changed: false, hash };
   }
@@ -345,8 +391,10 @@ async function importPack(packName, storedHash) {
   const toUpdate    = [];
 
   for (const record of records) {
-    if (!record.name) continue;
+    if (!record.name || config.filterFn?.(record) === false) continue;
     const mapped   = config.mapFn(record);
+    // Source id survives onto actors' copies; the aur-sheet export references items by it.
+    if (record.id) foundry.utils.setProperty(mapped, `flags.${SYSTEM_ID}.sourceId`, record.id);
 
     if (config.folderFn) {
       const folderId = await ensureFolderPath(pack, config.folderFn(record), folderCache);

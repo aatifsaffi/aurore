@@ -108,18 +108,13 @@ export const NPC_EQUIPMENT_CATEGORIES = {
   boreale: "AURORE.Npc.equipmentCategory.boreale"
 };
 
-// ── Power categories ──────────────────────────────────────
-export const POWER_CATEGORIES = {
-  offensive: "AURORE.Powers.offensive",
-  defensive: "AURORE.Powers.defensive",
-  healing:   "AURORE.Powers.healing",
-  mobility:  "AURORE.Powers.mobility",
-  support:   "AURORE.Powers.support",
-  stealth:   "AURORE.Powers.stealth",
-  combat:    "AURORE.Powers.combat",
-  nature:    "AURORE.Powers.nature",
-  chance:    "AURORE.Powers.chance",
-  magic:     "AURORE.Powers.magic"
+// ── Power disciplines ─────────────────────────────────────
+// Passif / navigation powers carry a Trinity color; auromancie (aurora magic)
+// sits outside the Trinity, so its `trinity` is blank.
+export const POWER_DISCIPLINES = {
+  passif:     "AURORE.Powers.discipline.passif",
+  navigation: "AURORE.Powers.discipline.navigation",
+  auromancie: "AURORE.Powers.discipline.auromancie"
 };
 
 // ── XP cost formulas ──────────────────────────────────────

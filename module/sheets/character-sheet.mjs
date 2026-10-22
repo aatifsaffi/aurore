@@ -1,5 +1,6 @@
 import { TALENTS } from "../config.mjs";
 import { XPManager } from "../helpers/xp-manager.mjs";
+import { openInAurSheet } from "../helpers/aur-sheet-export.mjs";
 import { AuroreActorSheetV2 } from "./actor-sheet.mjs";
 
 export class AuroreCharacterSheet extends AuroreActorSheetV2 {
@@ -15,7 +16,9 @@ export class AuroreCharacterSheet extends AuroreActorSheetV2 {
       removeRace:      AuroreCharacterSheet._onRemoveRace,
       selectRacial:    AuroreCharacterSheet._onSelectRacial,
       removeRacial:    AuroreCharacterSheet._onRemoveRacial,
-      spendXP:         AuroreCharacterSheet._onSpendXP
+      pickGifts:       AuroreCharacterSheet._onPickGifts,
+      spendXP:         AuroreCharacterSheet._onSpendXP,
+      openAurSheet:    AuroreCharacterSheet._onOpenAurSheet
     }
   };
 
@@ -32,6 +35,20 @@ export class AuroreCharacterSheet extends AuroreActorSheetV2 {
 
   /** @override */
   static tabGroups = { primary: "combat" };
+
+  /** @override */
+  _getHeaderControls() {
+    const controls = super._getHeaderControls();
+    controls.push({ icon: "fa-solid fa-image", label: "AURORE.AurSheet.open", action: "openAurSheet" });
+    return controls;
+  }
+
+  /**
+   * Open the character in aur-sheet to generate the image sheet.
+   */
+  static _onOpenAurSheet(_event) {
+    openInAurSheet(this.document);
+  }
 
   // ── Context ──────────────────────────────────────────
 
@@ -197,6 +214,19 @@ export class AuroreCharacterSheet extends AuroreActorSheetV2 {
   }
 
   // ── Race / Racial selection ───────────────────────────
+
+  /**
+   * Open a checklist of the common gifts in the system compendium (same picker as powers).
+   */
+  static async _onPickGifts(_event) {
+    return AuroreCharacterSheet._pickFromPack.call(this, {
+      packId: "aurore.gifts",
+      type:   "gift",
+      i18n:   "AURORE.Gifts",
+      fields: ["system.description"],
+      groups: [{ label: game.i18n.localize("AURORE.Sections.gifts"), match: () => true }]
+    });
+  }
 
   /**
    * Open a dialog to pick a race from world items + system compendium.

@@ -104,30 +104,21 @@
     {{!-- ── Power fields ── --}}
     {{#if (eq itemType "power")}}
       <div class="form-group">
-        <label>{{localize "AURORE.Powers.type"}}</label>
-        <select name="system.powerType">
-          {{#each powerTypeChoices}}
-            <option value="{{@key}}" {{#if (eq ../system.powerType @key)}}selected{{/if}}>{{this}}</option>
+        <label>{{localize "AURORE.Powers.discipline.label"}}</label>
+        <select name="system.discipline">
+          {{#each powerDisciplineChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.discipline @key)}}selected{{/if}}>{{this}}</option>
           {{/each}}
         </select>
       </div>
-      <div class="form-group">
-        <label>{{localize "AURORE.Powers.category"}}</label>
-        <select name="system.category">
+      <div class="form-group trinity-group">
+        <label>{{localize "AURORE.Item.trinity"}}</label>
+        <select name="system.trinity">
           <option value="">—</option>
-          {{#each powerCategoryChoices}}
-            <option value="{{@key}}" {{#if (eq ../system.category @key)}}selected{{/if}}>{{this}}</option>
+          {{#each trinityChoices}}
+            <option value="{{@key}}" {{#if (eq ../system.trinity @key)}}selected{{/if}}>{{this}}</option>
           {{/each}}
         </select>
-      </div>
-      <div class="form-group">
-        <label>{{localize "AURORE.Powers.cost"}}</label>
-        <input type="number" name="system.cost" value="{{system.cost}}" min="0">
-      </div>
-      <div class="form-group">
-        <label>{{localize "AURORE.Powers.minLevel"}}</label>
-        <input type="number" name="system.requirements.minLevel"
-               value="{{system.requirements.minLevel}}" min="0">
       </div>
     {{/if}}
 

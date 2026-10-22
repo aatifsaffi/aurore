@@ -1,4 +1,4 @@
-import { SYSTEM_ID, RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, POWER_CATEGORIES } from "./module/config.mjs";
+import { SYSTEM_ID, RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, POWER_DISCIPLINES } from "./module/config.mjs";
 import { CharacterData } from "./module/data-models/character.mjs";
 import { NpcData } from "./module/data-models/npc.mjs";
 import { WeaponData } from "./module/data-models/weapon.mjs";
@@ -8,6 +8,7 @@ import { PowerData } from "./module/data-models/power.mjs";
 import { RaceData } from "./module/data-models/race.mjs";
 import { RacialData } from "./module/data-models/racial.mjs";
 import { GiftData } from "./module/data-models/gift.mjs";
+import { ExtraData } from "./module/data-models/extra.mjs";
 import { AuroreActor } from "./module/documents/actor.mjs";
 import { AuroreItem } from "./module/documents/item.mjs";
 import { AuroreCharacterSheet } from "./module/sheets/character-sheet.mjs";
@@ -25,7 +26,7 @@ Hooks.once("init", () => {
 
 
   // Store config on game object for global access
-  CONFIG[SYSTEM_ID] = { RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, POWER_CATEGORIES };
+  CONFIG[SYSTEM_ID] = { RESOURCES, MENTAL_STATS, TALENTS, TRINITY, TOKEN_STAMP, TOKEN_DEFAULTS, COMBAT_HUD, POWER_DISCIPLINES };
 
   // ── Handlebars helpers ────────────────────────────────
   Handlebars.registerHelper("or", (...args) => { args.pop(); return args.some(Boolean); });
@@ -48,6 +49,7 @@ Hooks.once("init", () => {
   CONFIG.Item.dataModels.race = RaceData;
   CONFIG.Item.dataModels.racial = RacialData;
   CONFIG.Item.dataModels.gift = GiftData;
+  CONFIG.Item.dataModels.extra = ExtraData;
 
   // Register sheets — use fully-qualified namespace (v13+)
   const { Actors: ActorsColl, Items: ItemsColl } = foundry.documents.collections;
@@ -66,7 +68,7 @@ Hooks.once("init", () => {
 
   ItemsColl.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
   ItemsColl.registerSheet(SYSTEM_ID, AuroreItemSheet, {
-    types: ["weapon", "armor", "gadget", "power", "race", "racial", "gift"],
+    types: ["weapon", "armor", "gadget", "power", "race", "racial", "gift", "extra"],
     makeDefault: true,
     label: "AURORE.Sheets.Item"
   });
@@ -130,6 +132,16 @@ Hooks.once("init", () => {
     type: Boolean,
     default: true,
     onChange: () => AuroreCombatHud.refresh()
+  });
+
+  // ── aur-sheet (image character sheet) ─────────────────
+  game.settings.register(SYSTEM_ID, "aurSheetUrl", {
+    name: "AURORE.Settings.AurSheetUrl",
+    hint: "AURORE.Settings.AurSheetUrlHint",
+    scope: "world",
+    config: true,
+    type: String,
+    default: ""
   });
 
   // ── Compendium import ─────────────────────────────────
