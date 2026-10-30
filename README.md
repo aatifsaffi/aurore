@@ -1,11 +1,12 @@
-# 🌌 Aurore — Mise à jour v1.5.0
+# 🌌 Aurore — Mise à jour v1.5.1
 
 Nouvelle version du système Aurore sur Foundry ! Voici ce qui change depuis la v1.4.0 👇
 
 ## ✨ Nouveautés
 
-**🔮 52 pouvoirs disponibles**
-Le compendium des pouvoirs est enfin rempli : **18 Passifs**, **24 Navigation** et **10 Auromancie**, chacun avec son icône.
+**🔮 58 pouvoirs disponibles**
+Le compendium des pouvoirs est enfin rempli : **24 Passifs**, **24 Navigation** et **10 Auromancie**, chacun avec son icône.
+Parmi les passifs : les **Affinités** (+10 % aux jets d'équipement de RAGE, SURPRISE ou PEUR) et les **Implants** (permettent d'équiper des implants de RAGE, SURPRISE ou PEUR).
 Sur la fiche, le bouton ➕ ouvre une liste avec recherche, classée par discipline : cochez ceux que vous voulez, c'est ajouté.
 
 **🎁 26 dons communs**

@@ -463,6 +463,46 @@
       "trinity": "blue",
       "description": "<p>Des secousses telluriques animent les armes de vos alliées dans la zone. Tous les jets d'armes de vos alliés ont un bonus aux jets de +15%+Niv+R.<br>L'effet dure jusqu'à la fin de votre prochain tour.</p>",
       "img": "systems/aurore/assets/icons/earth-spit.svg"
+    },
+    {
+      "id": "GRV-01",
+      "name": "Impulsion",
+      "discipline": "gravitation",
+      "trinity": "",
+      "description": "<p>Toutes les cibles dans la zone reçoivent 2d6 dommages et sont repoussées de 4 cases opposées à leur direction. Détruit tous les éléments du décor dans la zone d'effet.</p>",
+      "img": "systems/aurore/assets/icons/push.svg"
+    },
+    {
+      "id": "GRV-02",
+      "name": "Singularité",
+      "discipline": "gravitation",
+      "trinity": "",
+      "description": "<p>Invoque une singularité autour de vous jusqu'à la fin de votre prochain tour. Vous et toutes les cibles dans la zone ne peuvent plus quitter l'endroit ou cibler des cibles au dehors. Tous les ennemis enfermés subissent 2d6 dommages au début de leur tour.<br>Lors de la fin de votre prochain tour la singularité s'effondre repoussant toutes les cibles de 3 cases opposées à leur direction.</p>",
+      "img": "systems/aurore/assets/icons/vortex.svg"
+    },
+    {
+      "id": "GRV-03",
+      "name": "Aspiration",
+      "discipline": "gravitation",
+      "trinity": "",
+      "description": "<p>Aspirez 3d6 PP d'une cible et régénérez votre protection avec les PP absorbés dans la limite de votre seuil maximum de PP.</p>",
+      "img": "systems/aurore/assets/icons/magnet.svg"
+    },
+    {
+      "id": "GRV-04",
+      "name": "Stase",
+      "discipline": "gravitation",
+      "trinity": "",
+      "description": "<p>Faites entrer une cible n'ayant pas de PP et située à 2d6 cases de vous, en stase.<br>La stase est un effet qui fixe la cible sur place et dans son orientation actuelle, sans pouvoir être dissipé. La cible peut utiliser des actions sous réserve d'avoir la bonne orientation pour les réaliser.<br>L'effet dure jusqu'à la fin du prochain tour de la cible.</p>",
+      "img": "systems/aurore/assets/icons/time-trap.svg"
+    },
+    {
+      "id": "GRV-05",
+      "name": "Lévitation",
+      "discipline": "gravitation",
+      "trinity": "",
+      "description": "<p>Ignorez la gravité jusqu'à la fin de votre prochain tour. Vos CM de base sont doublés et vous lévitez, ce qui vous permet de vous élever au dessus du terrain sans être affecté par les effets d'immobilisation.<br>Vos actions d'équipement infligent 1d6 dommages supplémentaires.</p>",
+      "img": "systems/aurore/assets/icons/gravitation.svg"
     }
   ]
 }

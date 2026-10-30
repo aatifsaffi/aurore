@@ -114,7 +114,8 @@ export const NPC_EQUIPMENT_CATEGORIES = {
 export const POWER_DISCIPLINES = {
   passif:     "AURORE.Powers.discipline.passif",
   navigation: "AURORE.Powers.discipline.navigation",
-  auromancie: "AURORE.Powers.discipline.auromancie"
+  auromancie: "AURORE.Powers.discipline.auromancie",
+  gravitation: "AURORE.Powers.discipline.gravitation"
 };
 
 // ── XP cost formulas ──────────────────────────────────────

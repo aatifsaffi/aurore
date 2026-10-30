@@ -26,7 +26,7 @@ const IMPORT_FORMAT = "2";
 const TRINITY_FOLDER = { red: "Rouge", green: "Vert", blue: "Bleu" };
 
 /** Power discipline key → compendium folder name (matches lang/fr.json AURORE.Powers.discipline.*). */
-const POWER_DISCIPLINE_FOLDER = { passif: "Passif", navigation: "Navigation", auromancie: "Auromancie" };
+const POWER_DISCIPLINE_FOLDER = { passif: "Passif", navigation: "Navigation", auromancie: "Auromancie", gravitation: "Gravitation" };
 
 /** Sort a Trinity-bearing record into its color folder. */
 const trinityFolder = (record) => TRINITY_FOLDER[record.trinity] ?? TRINITY_FOLDER.red;

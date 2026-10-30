@@ -417,7 +417,7 @@ export class AuroreActorSheetV2 extends HandlebarsApplicationMixin(ActorSheetV2)
         match: e => (e.system?.discipline ?? "passif") === discipline
       })),
       // Same card as the equipment slots; auromancie is outside the Trinity (purple, like boreale gear).
-      colorOf: e => e.system?.trinity ? `trinity-${e.system.trinity}` : "is-boreale",
+      colorOf: e => `${e.system?.trinity ? `trinity-${e.system.trinity}` : "is-boreale"} power-${e.system?.discipline}`,
       tagOf:   e => e.system?.trinity
         ? { css: `trinity-${e.system.trinity}`, label: game.i18n.localize(`AURORE.Trinity.${e.system.trinity}`) }
         : null

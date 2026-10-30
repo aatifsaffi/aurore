@@ -844,6 +844,7 @@
 .aurore .item-tag.power-passif     { border-color: var(--text-dim); color: var(--text-dim); }
 .aurore .item-tag.power-navigation { border-color: var(--accent);   color: var(--accent); }
 .aurore .item-tag.power-auromancie { border-color: #7d3c98; color: #7d3c98; font-style: italic; }
+.aurore .item-tag.power-gravitation { border-color: #000; color: #000; }
 
 .aurore .item-stat {
   font-size: 0.8rem;
@@ -1706,6 +1707,8 @@
 .aurore .monster-equip:has(.trinity-red)   { border-left-color: var(--trinity-red);   }
 .aurore .monster-equip:has(.trinity-green) { border-left-color: var(--trinity-green); }
 .aurore .monster-equip:has(.trinity-blue)  { border-left-color: var(--trinity-blue);  }
+.aurore .monster-equip.power-gravitation,
+.aurore .monster-equip:has(.power-gravitation) { border-left-color: #000; }
 .aurore .monster-equip-head[data-action] { cursor: pointer; }
 .aurore .monster-equip-head .slot-label { min-width: 52px; }
 .aurore .monster-equip-head.slot-empty { color: var(--text-dim); }

@@ -62,7 +62,8 @@
         "label":      "Discipline",
         "passif":     "Passif",
         "navigation": "Navigation",
-        "auromancie": "Auromancie"
+        "auromancie": "Auromancie",
+        "gravitation": "Gravitation"
       },
       "empty":     "Aucun pouvoir",
       "selectTitle": "Ajouter des pouvoirs",
